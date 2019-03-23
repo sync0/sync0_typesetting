@@ -1,0 +1,18 @@
+#+SETUPFILE: "~/Dropbox/typography/org_export_settings.org" 
+# Use KOMA script classes instead of LaTeX's defaults
+#+LATEX_CLASS: sync0book
+#+LATEX_CLASS_OPTIONS: [version=last,draft=true,paper=A4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=12,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=firstiscover,mpinclude=true,open=right,chapterprefix=true,numbers=autoendperiod,headsepline=false,parskip=false]
+# Set fonts for table of contents.
+# Change TOC title to lowercase (needed for small caps). 
+#+LATEX_HEADER:\AtBeginDocument{\renewcaptionname{english}\contentsname{Contents}}
+# Set font for chapter entry.
+#+LATEX_HEADER:\addtokomafont{chapterentry}{\mdseries\scshape\lowercase}
+#+LATEX_HEADER:\setkomafont{chapterentrypagenumber}{\normalsize}
+# Customize table of contents. 
+#+LATEX_HEADER:\usepackage{tocstyle}
+#+LATEX_HEADER:\settocfeature{raggedhook}{\raggedright}
+#+LATEX_HEADER:\selecttocstyleoption{tocgraduated}
+# Remove dots. 
+#+LATEX_HEADER:\usetocstyle{nopagecolumn}
+
+

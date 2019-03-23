@@ -1,0 +1,117 @@
+* Memoire
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Polyglossia" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Csquotes" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Ams" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Hyperref" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Typography" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Graphics" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*TiKz" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Editing" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Biblatex Article" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Title Chapter" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*General" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Chapter" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Section" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Subsection" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Subsubsection" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Toc Chapter" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Commands" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Environments" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Itemize" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Colors" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Mathematics" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Numbered" :only-contents t
+* Reading List 
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Polyglossia" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Csquotes" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Ams" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Hyperref" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Typography" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Graphics" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*TiKz" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Editing" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Biblatex Reading" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Title Chapter" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*General" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Chapter" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Section" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Subsection" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Subsubsection" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Commands" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Environments" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Itemize" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Colors" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Mathematics" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Unnumbered" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Separation" :only-contents t
+* Dossier 
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Polyglossia" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Csquotes" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Ams" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Hyperref" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Typography" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Graphics" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*TiKz" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Editing" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Biblatex Article" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Author Dossier" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*General" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Section" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Subsection" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Subsubsection" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Commands" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Environments" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Itemize" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Colors" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Mathematics" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Unnumbered" :only-contents t
+* Article
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Polyglossia" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Csquotes" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Ams" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Hyperref" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Typography" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Graphics" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*TiKz" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Editing" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Biblatex Article" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Author Title" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*General" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Title Page" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Article Sections" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Commands" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Environments" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Itemize" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Colors" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Mathematics" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Unnumbered" :only-contents t
+* Two Column
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Polyglossia" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Csquotes" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Ams" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Hyperref" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Typography" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Graphics" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*TiKz" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Editing" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Biblatex Article" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Part Chapter" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*General" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Part" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Chapter" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Section" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Subsection" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Subsubsection" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Toc Part Chapter" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Commands" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Environments" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Itemize" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Colors" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Mathematics" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Unnumbered" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/settings.org::*Separation" :only-contents t
