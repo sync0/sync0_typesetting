@@ -5,5 +5,5 @@
 # Set tag for non-exportable org sub-trees (useful for comments). 
 #+EXPORT_EXCLUDE_TAGS: noexport
 # Use KOMA script classes instead of LaTeX defaults
-#+LATEX_CLASS: sync0book
-#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=A4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=12,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=firstiscover,mpinclude=false,open=right,chapterprefix=true,numbers=autoendperiod,headsepline=false,headings=twolinechapter,parskip=false]
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,parskip=false]

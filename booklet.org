@@ -6,4 +6,4 @@
 #+EXPORT_EXCLUDE_TAGS: noexport
 # Use KOMA script classes instead of LaTeX defaults
 #+LATEX_CLASS: sync0book
-#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=A4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=12,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=firstiscover,mpinclude=false,open=right,chapterprefix=true,numbers=autoendperiod,headsepline=false,headings=twolinechapter,parskip=false]
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A5,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=11.5,BCOR=10mm,DIV=calc,pagesize=auto,titlepage=false,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,headings=twolinechapter,parskip=false]
