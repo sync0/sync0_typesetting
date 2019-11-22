@@ -1,0 +1,320 @@
+* Description                                               :noexport:
+This file is a collection of templates that I use for LaTeX
+export. Each headline calls a series of LaTeX statements that make
+up the configuration for a specific layout. The file
+~latex_export_base.tex~ contains the export settings common to all
+layouts. The other statements are located in a master
+configuration file, ~typography_settings~, which contains all my
+possible LaTeX configurations, which are called according to the
+layout I need to produce. The function of this file is thus to
+group certain statements to compose a layout, which can then be
+invoked from an ~org~ file to be exported to LaTeX.
+
+Some templates are accompanied by comments; these are wrapped in org-mode
+comment sections because, otherwise, they would be interpreted as part of
+the file to be exported. 
+
+Check the raw file to see the contents; they are not displayed herein
+because GitHub interprets them as code comments.
+
+* draft_beamer                                              
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t toc:t H:2
+# #+OPTIONS: \n:nil |:t ^:t f:t *:t ':t @:t ::t -:t <:t timestamp:t toc:t H:2
+#+OPTIONS: LaTeX:t d:nil todo:nil email:nil num:t 
+#+LATEX_CMD: lualatex
+# Set beamer theme. 
+#+BEAMER_THEME: metropolis  
+# #+BEAMER_THEME: Madrid [height=30pt]
+# Set org beamer export settings. 
+#+COLUMNS: %40ITEM %10BEAMER_ENV(Env) %5BEAMER_COL(Col) 
+# #+COLUMNS: %40ITEM %10BEAMER_env(Env) %10BEAMER_envargs(Env Args) %5BEAMER_col(Col) %10BEAMER_extra(Extra)
+# Use beamer class.  
+# #+LATEX_CLASS: beamer
+# #+LATEX_CLASS_OPTIONS: [t,10pt,presentation, progressbar=frametitle,block=fill,background=light,numbering=counter,titleformat=allsmallcaps]
+#+LATEX_CLASS_OPTIONS: [10pt,presentation,progressbar=frametitle,block=fill,background=dark,numbering=counter,titleformat=allsmallcaps]
+# Add presentation notes that can be redirectioned to a different screen. 
+# #+INCLUDE: "~/Documents/typography/typography_settings.org::*Beamer" :only-contents t
+#+LATEX_HEADER: \usepackage{setspace}
+
+* beamer                                                    
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t toc:nil H:2 date:t
+# #+OPTIONS: \n:nil |:t ^:t f:t *:t ':t @:t ::t -:t <:t timestamp:t toc:t H:2
+#+OPTIONS: LaTeX:t d:nil todo:nil num:t 
+# Set beamer theme. 
+# #+BEAMER_THEME: metropolis  
+# Set org beamer export settings. 
+#+COLUMNS: %40ITEM %10BEAMER_ENV(Env) %5BEAMER_COL(Col) 
+#+LATEX_CLASS: beamer
+#+LATEX_CLASS_OPTIONS: [10pt]
+#+LATEX_HEADER: \usetheme[sectionpage=progressbar,progressbar=head,block=transparent,background=light,numbering=fraction,titleformat=regular]{metropolis}
+# #+LATEX_CLASS_OPTIONS: [10pt,presentation,progressbar=frametitle,block=fill,background=dark,numbering=counter,titleformat=allsmallcaps]
+# Add presentation notes that can be redirectioned to a different screen. 
+# #+INCLUDE: "~/Documents/typography/typography_settings.org::*Beamer" :only-contents t
+#+LATEX_HEADER: \usepackage{setspace}
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+
+* research_project
+#+OPTIONS: \n:nil |:t ^:nil f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 title:nil
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=a4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Verbose" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Author Title" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Title Page" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Brochure Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+
+* log
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:t H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:t
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: sync0book
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A5,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=12,BCOR=5mm,DIV=calc,pagesize=auto,titlepage=true,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,headings=twolinechapter,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Title Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Booklet Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Toc: Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+
+* reading_list 
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: sync0book
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=A4,portrait,twoside=true,twocolumn=true,headinclude=false,footinclude=false,fontsize=12,BCOR=20mm,DIV=13,pagesize=auto,titlepage=firstiscover,mpinclude=false,open=right,chapterprefix=true,numbers=autoendperiod,headsepline=false,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Draft" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Title Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*All Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Toc: Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Separation" :only-contents t
+
+* memoire
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: sync0book
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=A4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=12,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=firstiscover,mpinclude=false,open=right,chapterprefix=true,numbers=autoendperiod,headsepline=false,headings=twolinechapter,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Hologo" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Manual: Memoire" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*All Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Toc: Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+
+* article
+#+OPTIONS: \n:nil |:t ^:nil f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=letter,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Article Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Title Page" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Author Title" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+
+* article_two_column
+#+OPTIONS: \n:nil |:t ^:nil f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil 
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=a4,portrait,twoside=true,twocolumn=true,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Verbose" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Author Title" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Article Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Title Page" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Separation" :only-contents t
+
+* article_word
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Manual: Author Title" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+# #+INCLUDE: "~/Documents/typography/typography_settings.org::*Projet these" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Article Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+
+* dossier 
+#+OPTIONS: \n:nil |:t ^:nil f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 title:nil
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=a4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Title Page" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Article Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+
+* draft
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A4,portrait,twoside=true,twocolumn=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,open=right,captions=tablesignature,captions=figuresignature]
+# #+LATEX_CLASS: article
+# #+LATEX_CLASS_OPTIONS: [draft=false,a4paper,11pt,twoside]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Draft: Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Libertine" :only-contents t
+
+* draft_booklet
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: sync0book
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=A4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,mpinclude=true,fontsize=12,BCOR=20mm,DIV=calc,pagesize=auto,open=right,chapterprefix=true,numbers=autoendperiod,headsepline=false,headings=twolinechapter,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Draft: Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Libertine" :only-contents t
+
+* draft_two_column
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=true, paper=A4,portrait,twoside=true,twocolumn=true,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=true,mpinclude=true,open=right,captions=tablesignature,captions=figuresignature]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Draft: Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Libertine" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Separation" :only-contents t
+
+* booklet
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: sync0book
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A5,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=11.5,BCOR=10mm,DIV=calc,pagesize=auto,titlepage=false,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,headings=twolinechapter,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Title Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Booklet Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Toc: Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+
+* booklet_two_column
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:t H:5 title:t
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: sync0book
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A4,portrait,twoside=true,twocolumn=true,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,headings=twolinechapter,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Title Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Booklet Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Title Page" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Toc: Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Separation" :only-contents t
+
+* book_two_Column
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:t H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrbook
+#+LATEX_CLASS_OPTIONS: [version=last,draft=true,paper=A4,portrait,twoside=true,twocolumn=true,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,mpinclude=false,open=right,chapterprefix=true,numbers=autoendperiod,headsepline=false,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Title Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*All Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Toc: Chapter" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Separation" :only-contents t
+
+* cv
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':nil pro:nil timestamp:nil toc:nil H:5 email:nil
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil author:nil 
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=a4,portrait,twoside=false,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=0mm,DIV=20,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=any,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Odd Spacing" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Korean" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*CV Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Itemize: Spacing" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+
+* statement 
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 email:nil
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil author:nil 
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=a4,portrait,twoside=false,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=0mm,DIV=13,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=any,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Article Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Separation" :only-contents t
+
+* statement_double_spaced
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 email:nil
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil author:nil 
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=a4,portrait,twoside=false,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=0mm,DIV=13,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=any,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Double" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Fonts" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Article Sections" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Separation" :only-contents t
+
+* transcript
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 email:nil
+#+OPTIONS: tex:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil author:nil 
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A4,portrait,twoside=false,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=0mm,DIV=16,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Manual: Transcript" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Myriad Pro" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Unnumbered" :only-contents t
+
+* annexe
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 email:nil
+#+OPTIONS: tex:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil author:nil 
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A4,portrait,twoside=false,twocolumn=false,headinclude=false,footinclude=false,fontsize=10,BCOR=0mm,DIV=18,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,captions=tablesignature,captions=figuresignature,numbers=endperiod,parskip=false]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Manual: Annexe" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Myriad Pro" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Numbered" :only-contents t
+
+* diploma
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 email:nil
+#+OPTIONS: tex:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil author:nil 
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A4,landscape,twoside=false,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=0mm,DIV=18,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,captions=tablesignature,captions=figuresignature,numbers=endperiod,parskip=full]
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spacing: Single" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Authoryear" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Manual: Diploma" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Libertine" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Numbered" :only-contents t

@@ -1,5 +1,8 @@
 #+STARTUP: indent hidestars contents logdrawer
-#+TITLE: Typesetting files 
+#+TITLE: LaTeX Typesetting Files 
+#+AUTHOR: sync0
+#+EMAIL: carc.sync0@gmail.com
+
 * Description 
 This repository contains all files used for typesetting. 
 
@@ -24,7 +27,6 @@ Therefore, in summary, my workflow is as follows:
  
 Except in rare occasions, 
 
-
 If you are just beginning with LaTeX, I would advice to spend the time 
 
 The shortcomings   
@@ -35,70 +37,32 @@ source code interests you, visit the ~org~ files.
 Using the org exporter, I exported the ~org~ files into ~LaTeX~, and then into pdfs.
 
 I used LaTeX's KOMA Script class ~scrbook~.
-** Strategy 
+
+** Contents of this repository
 
 - ~settings.org~
 - ~layouts.org~
-- specific 
-* Tools  
+- 
 
+** Copyright
+[[./gpl3.png]]
 
+Files that I have authored are all released under the terms of the GNU
+General Public License as published by the Free Software Foundation, either
+version 3 of the License or any later version.
+
+These files are distributed in the hope that they will be useful, but
+*without any warranty*; without even the implied warranty of *merchantability
+or fitness for a particular purpose*. See the GNU General Public License for
+more details.
+
+Please, visit the following website for the full text of the License.
+https://www.gnu.org/licenses/gpl-3.0.en.html
+
+© sync0 2018.
+* Tools 
 ** Bibliography Management
-I used Mendeley to maintain a bibliography file called ~master.bib~. 
-** Typography
-*** Fonts
+** Fonts
 I only used non-proprietary fonts: The main font is Linux Libertine,
 alongside Linux Biolinum and Liberation Mono.
-* File Structure 
-I have organized all work (planing, research, and writing) in these files:
-*** ~README.org~
-This is the file you are reading now; it describes the contents of my
-Master's thesis ~git~ repository.
-*** ~todo.org~
-This file (not included in the repository) is a collection of task lists
-used for planning and scheduling.
-
-# It follows this structure (the "stages" are explained [[file:README.org::Preparation][here]]): 
-*** ~master.org~
-This file (not included in the repository) contains my research notes. 
-
-# it follows this structure:
-
-# First level headings are the authors, and second level headings are the
-# texts (books, journal artciles, webpages, etc.). 
-
-# I use the ~:lecture:~ tag with ~org-mode~'s custom agenda commands, so I add it
-# to all first level headings.
-
-Most entries are produced automatically with John Kitchin's Emacs package
-[[https://github.com/jkitchin/org-ref][org-ref]] and a bibliography file, ~master.bib~, maintained with [[https://www.mendeley.com/download-desktop/][Mendeley]]. 
-
-For details, please look at my [[https://github.com/sync0/sync0_laptop_config/blob/master/.emacs.d/init.org][Emacs' configuration]]. And, excuse me for the
-chaos therein.
-*** ~memoire.org~
-This file is the final version of my Master's thesis; it is the source code
-that produces the pdf.
-
-I only used this file to prepare what would be the final version of the
-thesis. For all other notes, l used the ~memoire_draft.org~.
-
-Since I use ~git~ for version control, I could dispense with the list of
-files titled draft 1, draft 2, /ad nauseam/. Instead, I tagged certain
-commits as "drafts". 
-*** ~memoire_draft.org~
-This file contains most of the preparatory notes. So, it is not an actual
-draft, but a collection of intermediary writings before the preparation of
-the first draft of the thesis.
-*** ~notes.org~
-This file is a collection of all my research notes; it is organized by day
-and by week. 
-*** ~log.org~
-This file is a "travel log" to track the development of the thesis. 
-
-I was inspired to create this file by a chapter of Bernard Lahire's
-/Tableaux de famille: Heurs et malheurs scolaires en milieux populaires/ that
-discussed the importance of writing as a reflexive activity. I believe it
-is important to constantly write down one's thoughts to imbue the
-text---that ineffable entity---with personality. Writing without
-personality (i.e., most writing) is not worth reading. And, writing that is
-not worth reading is absolutely demoralizing.
+* Workflow

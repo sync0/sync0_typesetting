@@ -1,4 +1,0 @@
-#+SETUPFILE: "~/Dropbox/typography/org_export_settings.org" 
-# Use KOMA script classes instead of LaTeX defaults
-#+LATEX_CLASS: scrbook
-#+LATEX_CLASS_OPTIONS: [version=last,draft=true,paper=A4,portrait,twoside=true,twocolumn=true,headinclude=false,footinclude=false,fontsize=10,BCOR=20mm,DIV=13,pagesize=auto,titlepage=firstiscover,mpinclude=true,open=right,chapterprefix=true,numbers=autoendperiod,headsepline=false,parskip=false]

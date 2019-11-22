@@ -1,9 +1,0 @@
-#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
-#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil
-# Use LuaLaTeX instead of default export engine; this is a custom command. 
-#+LATEX_COMPILER: lualatex
-# Set tag for non-exportable org sub-trees (useful for comments). 
-#+EXPORT_EXCLUDE_TAGS: noexport
-# Use KOMA script classes instead of LaTeX defaults
-#+LATEX_CLASS: sync0book
-#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=A4,portrait,twoside=true,twocolumn=true,headinclude=false,footinclude=false,fontsize=12,BCOR=20mm,DIV=13,pagesize=auto,titlepage=firstiscover,mpinclude=false,open=right,chapterprefix=true,numbers=autoendperiod,headsepline=false,parskip=false]

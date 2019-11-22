@@ -1,0 +1,608 @@
+#+TITLE: LaTeX Settings
+#+AUTHOR: sync0
+#+EMAIL: carc.sync0@gmail.com
+* Description
+This file collects all my LaTeX configurations. Except for the ~Languages~
+headline, which I call directly into my ~org~ files to configure the document
+language, I do not call statements directly from this file. Instead, I
+group several headlines contained herein into a template located in
+~typography_layouts~. This template, which is also just an ~org-mode~ headline,
+is then invoked directly in the ~org~ file to be exported to LaTeX. 
+
+In this way, producing and maintaining LaTeX templates is easier than
+having myriad template files wandering about. Specifically, the most
+obvious advantage is that changes to LaTeX code are passed to all templates
+sharing the same base configuration because these templates are not files,
+but just calls to a master file.  
+
+Some sections are accompanied by comments; these are wrapped in org-mode
+comment sections because, otherwise, they would be interpreted as part of
+the file to be exported. 
+
+Check the raw file to see the contents; they are not displayed herein
+because GitHub interprets them as code comments.
+
+* Packages
+** Hologo
+# Render LaTeX and LuaLaTeX logos. 
+ #+LATEX_HEADER: \usepackage{hologo}
+ # #+LATEX_HEADER: \usepackage{ifluatex}
+** Odd Spacing
+# #+LATEX_HEADER:\linespread{0.7}
+ #+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER:\setstretch{0.4}
+** Spacing: Single
+ # Set interline spacing.
+ #+LATEX_HEADER: \usepackage[singlespacing]{setspace}
+** Spacing: One-half
+ # Set interline spacing.
+ #+LATEX_HEADER: \usepackage[onehalfspacing]{setspace}
+** Spacing: Double
+ # Set interline spacing.
+ #+LATEX_HEADER: \usepackage[doublespacing]{setspace}
+** Editing
+ # Add TODO margin notes.
+ # #+LATEX_HEADER: \usepackage[textsize=scriptsize, linecolor=soothing_green, backgroundcolor=soothing_green]{todonotes}
+ # Insert dummy text (typesetting aid).
+ #+LATEX_HEADER: \usepackage{lipsum}
+# Configure fonts.
+#+LATEX_HEADER:\usepackage{fontspec}
+# Configure math fonts.
+# #+LATEX_HEADER:\usepackage{unicode-math}
+#+LATEX_HEADER:\setmainfont{Inconsolata}
+** Itemize: Spacing
+# Change spacing of itemize environment items
+#+LATEX_HEADER: \setlist[1]{itemsep=\parskip}
+* Biblatex
+** Authoryear
+# Configure bibliography management with biblatex. 
+# Set 'authoryear' style.
+#+LATEX_HEADER: \usepackage[backend=biber,bibstyle=authoryear,citestyle=authoryear-icomp,autocite=inline,hyperref=auto,doi=false,isbn=false,url=false]{biblatex}
+# Set bibliography file. 
+#+LATEX_HEADER: \addbibresource{~/Dropbox/notes/bibliography.bib}
+# Set url typesetting font. 
+# #+LATEX_HEADER: \urlstyle{same}
+#+LATEX_HEADER: \urlstyle{sf}
+# Replace colon for dot as separator between title and subtitle. 
+#+LATEX_HEADER: \renewcommand{\subtitlepunct}{\addcolon\addspace}
+# Print 'origdate' field for 'authoryear' style bibliographies.
+#+LATEX_HEADER: \DeclareDataInheritance{collection}{incollection}{\noinherit{origdate}}
+#+LATEX_HEADER: \DeclareFieldFormat{origdate}{\mkbibbrackets{#1}}
+#+LATEX_HEADER: \renewbibmacro*{cite:labeldate+extradate}{\iffieldundef{origyear}{}{\printorigdate\setunit{\addspace}}\iffieldundef{labelyear}{}{\printtext[bibhyperref]{\printlabeldateextra}}}
+#+LATEX_HEADER: \DeclareCiteCommand{\citeorigyear}{\boolfalse{citetracker}\boolfalse{pagetracker}\usebibmacro{prenote}}{\printfield{origyear}}{\multicitedelim}{\usebibmacro{postnote}}
+#+LATEX_HEADER: \renewbibmacro*{date+extradate}{\iffieldundef{origyear}{}{\printorigdate\setunit{\addspace}}\iffieldundef{labelyear}{}{\printtext[parens]{\iflabeldateisdate{\printdateextra}{\printlabeldateextra}}}}
+#  Csquotes
+# Specify a replacement for \cite to handle citations.
+#+LATEX_HEADER: \SetCiteCommand{\parencite}
+#+LATEX_HEADER: \renewcommand{\mkccitation}[1]{ #1}
+** Draft: Authoryear
+# Configure bibliography management with biblatex. 
+# Set 'authoryear' style.
+#+LATEX_HEADER:\usepackage[backend=biber,bibstyle=authoryear,citestyle=authoryear-icomp,doi=false,isbn=false,url=false]{biblatex}
+# Set bibliography file. 
+#+LATEX_HEADER:\addbibresource{~/Dropbox/notes/bibliography.bib}
+#  Csquotes
+# Specify a replacement for \cite to handle citations.
+#+LATEX_HEADER: \SetCiteCommand{\autocite}
+** Verbose
+# Configure bibliography management with biblatex. 
+# Set 'verbose-trad1' cite style.
+ #+LATEX_HEADER: \usepackage[backend=biber,bibstyle=authortitle,citestyle=verbose-trad1,autocite=plain,hyperref=auto,doi=false,isbn=false,url=false,sorting=anonymous]{biblatex}
+# Deal with anonymous works (useful in History and Philology).
+#+LATEX_HEADER: \usepackage{biblatex-anonymous}
+# Set bibliography file. 
+#+LATEX_HEADER: \addbibresource{~/Dropbox/notes/bibliography.bib}
+# Set url typesetting font. 
+# #+LATEX_HEADER: \urlstyle{same}
+#+LATEX_HEADER: \urlstyle{sf}
+# Replace colon for dot as separator between title and subtitle. 
+#+LATEX_HEADER: \renewcommand{\subtitlepunct}{\addcolon\addspace}
+# Print 'origdate' field for 'verbose' style bibliographies.
+#+LATEX_HEADER: \renewbibmacro*{date}{\printdate\iffieldundef{origyear}{}{\setunit*{\addspace}\printtext[parens]{\printorigdate}}}
+#  Csquotes
+# Specify a replacement for \cite to handle citations.
+#+LATEX_HEADER: \SetCiteCommand{\footcite}
+#+LATEX_HEADER: \renewcommand{\mkccitation}[1]{#1}
+** Reading
+ # Configure bibliography management with biblatex. 
+#+LATEX_HEADER:\usepackage[backend=biber,bibstyle=reading,annotation=false,library=false,file=false,entryhead=full,entrykey=false,eprint=false,doi=false,isbn=false,url=false]{biblatex}
+# Set bibliography file. 
+#+LATEX_HEADER:\addbibresource{~/Dropbox/notes/bibliography.bib}
+# Set url typesetting font. 
+#+LATEX_HEADER:\urlstyle{sf}
+# Replace colon for dot as separator between title and subtitle. 
+#+LATEX_HEADER:\renewcommand{\subtitlepunct}{\addcolon\addspace}
+#+LATEX_HEADER:\renewbibmacro*{entryhead:full}{\printfield{labeltitle}}
+#+LATEX_HEADER:\renewbibmacro*{date}{\printdate\iffieldundef{origyear}{}{\setunit*{\addspace}\printtext[brackets]{\printorigdate}}}
+#  Csquotes
+# Specify a replacement for \cite to handle citations.
+#+LATEX_HEADER: \SetCiteCommand{\autocite}
+** Draft
+ # Configure bibliography management with biblatex. 
+#+LATEX_HEADER:\usepackage[backend=biber,bibstyle=draft,eprint=false,doi=false,isbn=false,url=false]{biblatex}
+# Set bibliography file. 
+#+LATEX_HEADER:\addbibresource{~/Dropbox/notes/bibliography.bib}
+# Set url typesetting font. 
+#+LATEX_HEADER:\urlstyle{sf}
+# Replace colon for dot as separator between title and subtitle. 
+#+LATEX_HEADER:\renewcommand{\subtitlepunct}{\addcolon\addspace}
+#+LATEX_HEADER:\renewbibmacro*{date}{\printdate\iffieldundef{origyear}{}{\setunit*{\addspace}\printtext[brackets]{\printorigdate}}}
+#  Csquotes
+# Specify a replacement for \cite to handle citations.
+#+LATEX_HEADER: \SetCiteCommand{\autocite}
+** Numeric
+ # Configure bibliography management with biblatex. 
+#+LATEX_HEADER:\usepackage[backend=biber,bibstyle=numeric,defernumbers=true,eprint=false,doi=false,isbn=false,url=false]{biblatex}
+# Set bibliography file. 
+#+LATEX_HEADER:\addbibresource{~/Dropbox/notes/bibliography.bib}
+# Set url typesetting font. 
+#+LATEX_HEADER:\urlstyle{sf}
+# Replace colon for dot as separator between title and subtitle. 
+#+LATEX_HEADER: \renewcommand{\subtitlepunct}{\addcolon\addspace}
+# #+LATEX_HEADER:\renewbibmacro*{date}{\printdate\iffieldundef{origyear}{}{\setunit*{\addspace}\printtext[brackets]{\printorigdate}}}
+#  Csquotes
+# Specify a replacement for \cite to handle citations.
+#+LATEX_HEADER: \SetCiteCommand{\autocite}
+* Fonts
+# Configure fonts.
+#+LATEX_HEADER:\usepackage{fontspec}
+#+LATEX_HEADER:\directlua{fonts.handlers.otf.addfeature{name = "ktest",type = "kern",data = {["quoteright"] = { ["e"] =  50,["a"] =50,["eacute"] =  50,["o"] =  50, }},}}
+#+LATEX_HEADER:\setmainfont[RawFeature=+ktest]{Minion Pro}
+# Have all fonts use the same x-height.
+#+LATEX_HEADER:\setsansfont[RawFeature=+ktest,Scale=MatchUppercase]{Myriad Pro}
+# Define the \swseries macro.
+#+LATEX_HEADER:\newfontfamily{\swseries}[Contextuals=Swash]{Minion Pro}
+# Configure math fonts.
+# Typeset code using Adobe's Source Code Pro. 
+#+LATEX_HEADER:\setmonofont{Source Code Pro}
+* Libertinus Fonts
+# Configure fonts.
+#+LATEX_HEADER:\usepackage{fontspec}
+# Have all fonts use the same x-height.
+#+LATEX_HEADER:\defaultfontfeatures{Scale=MatchLowercase}
+#+LATEX_HEADER:\setmainfont{Libertinus Serif}
+# #+LATEX_HEADER:\setmainfont[SmallCapsFeatures={Ligatures=NoCommon}]{Libertinus Serif}
+#+LATEX_HEADER:\setsansfont[Scale=MatchUppercase]{Libertinus Sans}
+# Configure math fonts.
+#+LATEX_HEADER:\usepackage{unicode-math}
+# Typeset math using Libertinus Serif. 
+#+LATEX_HEADER:\setmathfont[Scale=MatchUppercase]{Libertinus Math}
+# Typeset code using Adobe's Source Code Pro. 
+#+LATEX_HEADER:\setmonofont{Source Code Pro}
+# Typeset code using Inconsolata. 
+# #+LATEX_HEADER:\setmonofont{Inconsolata}
+# Define the '\hugetitle' macro. 
+#+LATEX_HEADER:\newcommand\hugetitle{\fontsize{45}{50}\selectfont}
+# Define the '\HUGE' macro. 
+#+LATEX_HEADER:\newcommand\HUGE{\fontsize{40}{40}\selectfont}
+# Define the '\hugechapter macro. 
+#+LATEX_HEADER:\newcommand\hugechapter{\fontsize{30}{35}\selectfont}
+# Define the '\largechapter macro. 
+#+LATEX_HEADER:\newcommand\largechapter{\fontsize{25}{30}\selectfont}
+* Languages
+** French
+#+LATEX_HEADER: \setmainlanguage[autospacing=true,autospaceguillemets=true,frenchfootnote=true]{french} 
+# Set secondary typesetting languages.
+#+LATEX_HEADER: \setotherlanguages{english, spanish} 
+# Set symbol to automatically recognize quotes. 
+#+LATEX_HEADER: \MakeAutoQuote{«}{»}
+# #+LATEX_HEADER: \MakeForeignQuote{english}{``}{"}
+# Configure microtypographic settings. 
+#+LATEX_HEADER: \usepackage[protrusion=true,expansion,tracking=true]{microtype}
+# Configure language-specific microtype settings. 
+#+LATEX_HEADER:\frenchspacing
+#+LATEX_HEADER: \microtypecontext{kerning=french}
+# #+LATEX_HEADER:\SetExtraKerning[name=french-default,context = french,unit = space ]{ encoding = {OT1,T1,LY1} }{: = {1000,}, ; = {500, }, ! = {500, }, ? = {500, }, ' = {500, 400}}
+** German
+  #+LATEX_HEADER: \setmainlanguage{german} 
+ # Set secondary typesetting languages.
+ #+LATEX_HEADER: \setotherlanguages{english, french} 
+** Portuguese
+  #+LATEX_HEADER: \setdefaultlanguage{portuguese} 
+ # Set secondary typesetting languages.
+ #+LATEX_HEADER: \setotherlanguages{french,spanish,english} 
+ # Set symbol to automatically recognize quotes. 
+ #+LATEX_HEADER: \MakeForeignQuote{french}{«}{»}
+ # Configure microtypographic settings. 
+ #+LATEX_HEADER: \usepackage[protrusion=true,tracking=true]{microtype}
+** English
+  #+LATEX_HEADER: \setdefaultlanguage{english} 
+ # Set secondary typesetting languages.
+ #+LATEX_HEADER: \setotherlanguages{french, spanish} 
+ # Set symbol to automatically recognize quotes. 
+ # #+LATEX_HEADER: \MakeOuterQuote{"}
+ #+LATEX_HEADER: \MakeForeignQuote{french}{«}{»}
+ # Configure microtypographic settings. 
+ #+LATEX_HEADER: \usepackage[protrusion=true,tracking=true]{microtype}
+** Spanish
+  #+LATEX_HEADER: \setdefaultlanguage{spanish} 
+ # Set secondary typesetting languages.
+ #+LATEX_HEADER: \setotherlanguages{english, french} 
+ # Configure microtypographic settings. 
+ #+LATEX_HEADER: \usepackage[protrusion=true,tracking=true]{microtype}
+** Korean 
+ # Configure typesetting of Chinese, Japanese, and Korean.
+ # #+LATEX_HEADER: \usepackage{xeCJK}
+ # Set font to typeset Korean. 
+ # #+LATEX_HEADER: \setCJKmainfont{Baekmuk Batang}
+ # Set fonts to typeset Korean. 
+ #+LATEX_HEADER: \usepackage[hangul,hanja]{luatexko}
+ # #+LATEX_HEADER:\setmainhangulfont{Baekmuk Batang}
+ #+LATEX_HEADER:\setmainhangulfont{KoPub Batang Medium}
+ #+LATEX_HEADER:\setmainhanjafont{Source Han Serif TW}
+* Page Design
+** Manual: Author Title
+# Customize page design.
+#+LATEX_HEADER:\usepackage{scrlayer-scrpage}
+#+LATEX_HEADER:\pagestyle{scrheadings}
+#+LATEX_HEADER:\clearscrheadfoot
+# Define left page heading. 
+#+LATEX_HEADER:\cohead{Carlos Alberto Rivera Carreño}
+# Define right page heading. 
+ #+LATEX_HEADER:\makeatletter\cehead{\@title}\makeatother
+# Place page numbers in the outer heading.
+#+LATEX_HEADER:\ohead{\pagemark} 
+** Manual: Memoire 
+# Customize page design.
+#+LATEX_HEADER:\usepackage{scrlayer-scrpage}
+#+LATEX_HEADER:\pagestyle{scrheadings}
+#+LATEX_HEADER:\clearscrheadfoot
+# Set 'part' as left and 'chapter' as right page headings. 
+#+LATEX_HEADER:\automark[chapter]{chapter}
+# Center page headings.
+#+LATEX_HEADER:\cehead{Watched Over by Machines of Loving Grace?}
+#+LATEX_HEADER:\cohead{\headmark}
+# #+LATEX_HEADER:\cohead{\MakeLowercase{\headmark}}
+# Place page numbers in the outer heading.
+#+LATEX_HEADER:\ohead{\pagemark} 
+** Manual: Title Chapter
+# Customize page design.
+#+LATEX_HEADER:\usepackage{scrlayer-scrpage}
+#+LATEX_HEADER:\pagestyle{scrheadings}
+#+LATEX_HEADER:\clearscrheadfoot
+# Set 'part' as left and 'chapter' as right page headings. 
+#+LATEX_HEADER:\automark[chapter]{chapter}
+# Center page headings.
+#+LATEX_HEADER:\cehead{Watched Over by Machines of Loving Grace?}
+#+LATEX_HEADER:\cohead{\MakeLowercase{\headmark}}
+# Place page numbers in the outer heading.
+#+LATEX_HEADER:\ohead{\pagemark} 
+** Manual: Transcript
+# Customize page design.
+#+LATEX_HEADER:\usepackage{scrlayer-scrpage}
+#+LATEX_HEADER:\pagestyle{scrheadings}
+#+LATEX_HEADER:\clearscrheadfoot
+# Set 'part' as left and 'chapter' as right page headings. 
+#+LATEX_HEADER:\automark[section]{section}
+# Center page headings.
+# #+LATEX_HEADER:\lehead{School Year 2018/2019}
+#+LATEX_HEADER:\ihead{University Paris 1 Panthéon-Sorbonne}
+# #+LATEX_HEADER:\cohead{\MakeLowercase{\headmark}}
+# Place page numbers in the outer heading.
+#+LATEX_HEADER:\ohead{Academic Year 2017/2018 \\ Page: \pagemark/2} 
+** Manual: Annexe
+# Customize page design.
+#+LATEX_HEADER:\usepackage{scrlayer-scrpage}
+#+LATEX_HEADER:\pagestyle{scrheadings}
+#+LATEX_HEADER:\clearscrheadfoot
+# Set 'part' as left and 'chapter' as right page headings. 
+#+LATEX_HEADER:\automark[section]{section}
+# Center page headings.
+# #+LATEX_HEADER:\lehead{School Year 2018/2019}
+# #+LATEX_HEADER:\ihead{University Paris 1 Panthéon-Sorbonne}
+# #+LATEX_HEADER:\cohead{\MakeLowercase{\headmark}}
+# Place page numbers in the outer heading.
+#+LATEX_HEADER:\ifoot{FRAN 201800197 CARLOS ALBERTO RIVERA CARRENO - M2R Economics and Social Sciences} 
+#+LATEX_HEADER:\ofoot{\pagemark/4} 
+** Manual: Diploma
+# Customize page design.
+#+LATEX_HEADER:\usepackage{scrlayer-scrpage}
+#+LATEX_HEADER:\pagestyle{scrheadings}
+#+LATEX_HEADER:\clearscrheadfoot
+# Set 'part' as left and 'chapter' as right page headings. 
+#+LATEX_HEADER:\automark[section]{section}
+# Center page headings.
+# #+LATEX_HEADER:\lehead{School Year 2018/2019}
+# #+LATEX_HEADER:\ihead{University Paris 1 Panthéon-Sorbonne}
+# #+LATEX_HEADER:\cohead{\MakeLowercase{\headmark}}
+# Place page numbers in the outer heading.
+#+LATEX_HEADER:\ifoot{Number \quad \textsc{pari} \quad 13483528 \\ /2018201706523/} 
+# #+LATEX_HEADER:\ofoot{\pagemark/4} 
+** Author Title
+ # Customize page desing 
+ #+LATEX_HEADER:\usepackage{scrlayer-scrpage}
+ #+LATEX_HEADER:\pagestyle{scrheadings}
+ #+LATEX_HEADER:\clearscrheadfoot
+# Define left page heading. 
+ #+LATEX_HEADER:\makeatletter\cohead{\@author}\makeatother
+# Define right page heading. 
+ #+LATEX_HEADER:\makeatletter\cehead{\@title}\makeatother
+ # Place page numbers in the outer heading.
+ #+LATEX_HEADER:\ohead{\pagemark} 
+** Title Chapter
+# Beware! This setup requires the 'titling' package.
+# Customize page design.
+#+LATEX_HEADER:\usepackage{scrlayer-scrpage}
+#+LATEX_HEADER:\pagestyle{scrheadings}
+#+LATEX_HEADER:\clearscrheadfoot
+# Set 'part' as left and 'chapter' as right page headings. 
+#+LATEX_HEADER:\automark[chapter]{part}
+# Center page headings.
+ #+LATEX_HEADER:\makeatletter\cehead{\@title}\makeatother
+ # #+LATEX_HEADER:\makeatletter\cehead{\MakeLowercase{\@title}}\makeatother
+#+LATEX_HEADER:\cohead{\headmark}
+# #+LATEX_HEADER:\cohead{\MakeLowercase{\headmark}}
+# Place page numbers in the outer heading.
+#+LATEX_HEADER:\ohead{\pagemark} 
+** Part Chapter
+# Customize page design.
+#+LATEX_HEADER:\usepackage{scrlayer-scrpage}
+#+LATEX_HEADER:\pagestyle{scrheadings}
+#+LATEX_HEADER:\clearscrheadfoot
+# Set 'part' as left and 'chapter' as right page headings. 
+#+LATEX_HEADER:\automark[chapter]{part}
+# Center page headings.
+#+LATEX_HEADER:\chead{\MakeLowercase{\headmark}} 
+# Place page numbers in the outer heading.
+#+LATEX_HEADER:\ohead{\pagemark} 
+* Disposition
+** Title Page
+# Set fonts for title page.
+#+LATEX_HEADER:\setkomafont{title}{\Huge\sffamily\bfseries}
+#+LATEX_HEADER:\setkomafont{subtitle}{\LARGE\sffamily}
+# #+LATEX_HEADER:\setkomafont{author}{\Large\itshape\itshape}
+#+LATEX_HEADER:\setkomafont{author}{\Large}
+#+LATEX_HEADER:\setkomafont{subject}{\Large\scshape}
+#+LATEX_HEADER:\setkomafont{titlehead}{\large}
+#+LATEX_HEADER:\setkomafont{publishers}{\large\itshape}
+#+LATEX_HEADER:\setkomafont{date}{\normalsize}
+#+LATEX_HEADER:\setkomafont{dedication}{\itshape}
+** CV Sections
+# Configure fonts.
+#+LATEX_HEADER:\usepackage{fontspec}
+# #+LATEX_HEADER:\setmainfont{Ubuntu}
+#+LATEX_HEADER:\setmainfont{Linux Biolinum}
+#+LATEX_HEADER:\setsansfont{Linux Libertine}
+#+LATEX_HEADER:\setmonofont{Source Code Pro}
+#+LATEX_HEADER:\newcommand\hugetitle{\fontsize{45}{50}\selectfont}
+# Define the '\HUGE' macro. 
+#+LATEX_HEADER:\newcommand\HUGE{\fontsize{40}{40}\selectfont}
+# Define the '\hugechapter macro. 
+#+LATEX_HEADER:\newcommand\hugechapter{\fontsize{30}{35}\selectfont}
+# Define the '\largechapter macro. 
+#+LATEX_HEADER:\newcommand\largechapter{\fontsize{25}{30}\selectfont}
+# Set font for 'labeling' environment.
+ #+LATEX_HEADER:\setkomafont{labelinglabel}{\sffamily\normalsize\scshape\lowercase}
+# Set font for 'description environment.
+# #+LATEX_HEADER:\setlist[description]{font=\sffamily\scshape\mdseries}
+#+LATEX_HEADER:\setlist[description]{font=\sffamily\mdseries}
+# Set font for 'minisec' titles.
+ #+LATEX_HEADER:\setkomafont{minisec}{\usekomafont{subsection}}
+# Set font for page headings. 
+ #+LATEX_HEADER:\setkomafont{pagehead}{\small\mdseries\scshape}
+# Set font for page numbers.
+ #+LATEX_HEADER:\setkomafont{pagenumber}{\normalsize\rmfamily\upshape}
+# Set font for sectioning numbers.
+# #+LATEX_HEADER:\setkomafont{sectioning}{\rmfamily\bfseries}
+# Set font for titles.
+#+LATEX_HEADER:\setkomafont{disposition}{\bfseries}
+# Set font for caption text.
+ #+LATEX_HEADER:\setkomafont{caption}{\small}
+# Set font for caption titles.
+ #+LATEX_HEADER:\setkomafont{captionlabel}{\mdseries\scshape\lowercase}
+ # Set font for 'section'.
+#+LATEX_HEADER: \setkomafont{section}{\LARGE}
+ # Set font for 'subsection'.
+# #+LATEX_HEADER:\setkomafont{subsection}{\sffamily\sbfseries\large}
+ # Set font for 'subsubsection'.
+  # #+LATEX_HEADER:\setkomafont{subsubsection}{\large\itshape}
+ # #+LATEX_HEADER:\setkomafont{subsubsection}{\large\itshape}
+#+LATEX_HEADER:\RedeclareSectionCommand[beforeskip=0\baselineskip,afterskip=0.1\baselineskip]{section}
+#+LATEX_HEADER:\RedeclareSectionCommand[beforeskip=0\baselineskip,afterskip=0.1\baselineskip]{subsection}
+# #+LATEX_HEADER:\RedeclareSectionCommand[beforeskip=-1\baselineskip, afterskip=-0.1\baselineskip]{section}
+# #+LATEX_HEADER:\RedeclareSectionCommand[beforeskip=-\baselineskip,afterskip=.1\baselineskip]{subsection}
+# #+LATEX_HEADER:\RedeclareSectionCommand[beforeskip=-\baselineskip,afterskip=.1\baselineskip]{subsubsection}
+# #+LATEX_HEADER:\renewcommand{\raggedsection}{\centering}
+# #+LATEX_HEADER:\addtokomafont{subsubsection}{\color{bibleblue}\itshape\normalsize\RaggedLeft}
+# #+LATEX_HEADER:\renewcommand{\sectionformat}{\thesection\autodot\enskip\rule{\textwidth}}
+# Set font for page headings. 
+# \setkomafont{pagehead}{\normalsize\mdseries\itshape\itshape}
+#+LATEX_HEADER:\setkomafont{pagehead}{\normalsize\mdseries\itshape}
+# Set font for page numbers.
+#+LATEX_HEADER:\setkomafont{pagenumber}{\normalsize\rmfamily\upshape}
+# Set font for sectioning numbers.
+#+LATEX_HEADER:\setkomafont{sectioning}{\rmfamily\mdseries}
+#  Figure & table captions.
+#  Set font for caption text.
+#+LATEX_HEADER:\setkomafont{caption}{\small}
+#  Set font for caption titles.
+#+LATEX_HEADER:\setkomafont{captionlabel}{\mdseries\scshape\lowercase}
+# Set font for 'labeling' environment.
+#+LATEX_HEADER:\setkomafont{labelinglabel}{\normalsize\sffamily}
+** All Sections
+# Set font for all sectional unit titles.
+#+LATEX_HEADER:\setkomafont{sectioning}{\sffamily\mdseries}
+# Part
+# Set font for 'part'. 
+ #+LATEX_HEADER:\setkomafont{part}{\HUGE\rmfamily\scshape\lowercase}
+# Remove 'part' numbering from 'part' pages.
+ #+LATEX_HEADER:\renewcommand*{\partformat}{}
+# Remove 'First Part', 'Second Part', etc.
+#+LATEX_HEADER:\renewcommand\partmarkformat{}
+# Chapter
+# Set font for 'chapter'. 
+#+LATEX_HEADER:\setkomafont{chapter}{\largechapter}
+# Center chapter title.
+#+LATEX_HEADER:\renewcommand{\raggedchapter}{\centering}
+# Add vertical space between chapter number and chapter title.
+#+LATEX_HEADER:\renewcommand*\chapterformat{}
+# Remove chapter numbering from chapter mark (heading). 
+#+LATEX_HEADER:\renewcommand*\chaptermarkformat{}
+# Increase vertical space between chapter and text body.
+# Beware! A bug arises when '\RedeclareSectionCommand' appears after package
+# tocbasic or tocstyle.
+ #+LATEX_HEADER:\RedeclareSectionCommand[afterskip=3\baselineskip]{chapter} 
+# Section
+# Set font for 'section'.
+#+LATEX_HEADER: \setkomafont{section}{\Large}
+# Subsection
+# Set font for 'subsection'.
+#+LATEX_HEADER:\setkomafont{subsection}{\large\bfseries}
+# Subsubsection
+# Set font for 'subsubsection'.
+ #+LATEX_HEADER:\setkomafont{subsubsection}{\large\bfseries\itshape}
+# Set font for page headings. 
+#+LATEX_HEADER:\setkomafont{pagehead}{\normalsize\mdseries\itshape}
+# Set font for page numbers.
+#+LATEX_HEADER:\setkomafont{pagenumber}{\normalsize\sffamily\upshape}
+# Set font for sectioning numbers.
+#+LATEX_HEADER:\setkomafont{sectioning}{\sffamily\mdseries}
+#  Figure & table captions.
+#  Set font for caption text.
+#+LATEX_HEADER:\setkomafont{caption}{\small}
+#  Set font for caption titles.
+#+LATEX_HEADER:\setkomafont{captionlabel}{\sffamily\mdseries}
+# Set font for 'labeling' environment.
+#+LATEX_HEADER:\setkomafont{labelinglabel}{\normalsize\sffamily}
+** Article Sections
+# Set font for all sectional unit titles.
+#+LATEX_HEADER:\setkomafont{sectioning}{\sffamily\mdseries}
+ # Set font for 'section'.
+#+LATEX_HEADER: \setkomafont{section}{\LARGE\bfseries}
+ # Set font for 'subsection'.
+#+LATEX_HEADER:\setkomafont{subsection}{\Large}
+ # Set font for 'subsubsection'.
+#+LATEX_HEADER:\setkomafont{subsubsection}{\Large\itshape}
+ # Change subsubsection number font independently of its title.
+ # #+LATEX_HEADER:\renewcommand*{\subsectionformat}{\large\upshape \thesubsection\autodot\enskip}
+# Set font for page headings. 
+#+LATEX_HEADER:\setkomafont{pagehead}{\normalsize\mdseries\swseries}
+# Set font for page numbers.
+#+LATEX_HEADER:\setkomafont{pagenumber}{\normalsize\sffamily\upshape}
+#  Figure & table captions.
+#  Set font for caption text.
+#+LATEX_HEADER:\setkomafont{caption}{\small}
+#  Set font for caption titles.
+#+LATEX_HEADER:\setkomafont{captionlabel}{\sffamily\mdseries\bfseries}
+# Set font for 'labeling' environment.
+#+LATEX_HEADER:\setkomafont{labelinglabel}{\normalsize\sffamily\bfseries}
+** Brochure Sections
+# Set font for all sectional unit titles.
+#+LATEX_HEADER:\setkomafont{sectioning}{\sffamily\mdseries}
+ # Set font for 'section'.
+#+LATEX_HEADER: \setkomafont{section}{\LARGE}
+ # Set font for 'subsection'.
+#+LATEX_HEADER:\setkomafont{subsection}{\Large}
+ # Set font for 'subsubsection'.
+#+LATEX_HEADER:\setkomafont{subsubsection}{\Large\itshape}
+ # Change subsubsection number font independently of its title.
+ # #+LATEX_HEADER:\renewcommand*{\subsectionformat}{\large\upshape \thesubsection\autodot\enskip}
+# Set font for page headings. 
+#+LATEX_HEADER:\setkomafont{pagehead}{\normalsize\mdseries\itshape}
+# Set font for page numbers.
+#+LATEX_HEADER:\setkomafont{pagenumber}{\normalsize\sffamily\upshape}
+#  Figure & table captions.
+#  Set font for caption text.
+#+LATEX_HEADER:\setkomafont{caption}{\small}
+#  Set font for caption titles.
+#+LATEX_HEADER:\setkomafont{captionlabel}{\sffamily\mdseries\bfseries}
+# Set font for 'labeling' environment.
+#+LATEX_HEADER:\setkomafont{labelinglabel}{\normalsize\rmfamily}
+** Booklet Sections
+# Set font for all sectional unit titles.
+#+LATEX_HEADER:\setkomafont{sectioning}{\sffamily\mdseries}
+# Set font for 'chapter'. 
+#+LATEX_HEADER:\setkomafont{chapter}{\LARGE}
+# Center chapter title.
+#+LATEX_HEADER:\renewcommand{\raggedchapter}{\centering}
+# Remove the word 'chapter' from chapter mark (heading). 
+#+LATEX_HEADER:\renewcommand*\chapterformat{}
+# Remove chapter numbering from chapter mark (heading). 
+#+LATEX_HEADER:\renewcommand*\chaptermarkformat{}
+# Increase vertical space between chapter and text body.
+# Beware! A bug arises when '\RedeclareSectionCommand' appears after package
+# tocbasic or tocstyle.
+ #+LATEX_HEADER:\RedeclareSectionCommand[afterskip=4\baselineskip]{chapter} 
+ # Set font for 'section'.
+#+LATEX_HEADER: \setkomafont{section}{\Large}
+ # Set font for 'subsection'.
+#+LATEX_HEADER: \setkomafont{subsection}{\large\bfseries}
+ # Change subsubsection number font independently of its title.
+ # Set font for 'subsubsection'.
+ #+LATEX_HEADER:\setkomafont{subsubsection}{\large\bfseries\itshape}
+# Set font for page headings. 
+#+LATEX_HEADER:\setkomafont{pagehead}{\normalsize\mdseries\itshape}
+# Set font for page numbers.
+#+LATEX_HEADER:\setkomafont{pagenumber}{\normalsize\sffamily\upshape}
+#  Figure & table captions.
+#  Set font for caption text.
+#+LATEX_HEADER:\setkomafont{caption}{\small}
+#  Set font for caption titles.
+#+LATEX_HEADER:\setkomafont{captionlabel}{\mdseries\sffamily}
+# Set font for 'labeling' environment.
+#+LATEX_HEADER:\setkomafont{labelinglabel}{\normalsize\sffamily}
+* Table of Contents 
+** Toc: Part Chapter
+# Set fonts for table of contents.
+# Change TOC title to lowercase (needed for small caps). 
+# #+LATEX_HEADER:\AtBeginDocument{\renewcaptionname{english}\contentsname{Contents}}
+# Delete 'part' from TOC entry.
+#+LATEX_HEADER:\renewcommand*{\addparttocentry}[2]{\addtocentrydefault{part}{}{\Large\scshape\lowercase{#2}}}
+ #+LATEX_HEADER:\setkomafont{partentrypagenumber}{\footnotesize}
+# Set font for chapter entry.
+ #+LATEX_HEADER:\addtokomafont{chapterentry}{\large}
+ #+LATEX_HEADER:\setkomafont{chapterentrypagenumber}{\footnotesize}
+# Customize table of contents. 
+ #+LATEX_HEADER:\usepackage{tocstyle}
+ #+LATEX_HEADER:\settocfeature{raggedhook}{\raggedright}
+ #+LATEX_HEADER:\selecttocstyleoption{tocgraduated}
+# Remove dots. 
+ #+LATEX_HEADER:\usetocstyle{nopagecolumn}
+# Set two-column table of contents. 
+#  #+LATEX_HEADER:\unsettoc{toc}{onecolumn}
+** Toc: Chapter
+# Set fonts for table of contents.
+# Change TOC title to lowercase (needed for small caps). 
+# #+LATEX_HEADER:\AtBeginDocument{\renewcaptionname{english}\contentsname{Contents}}
+# Set font for chapter entry.
+#+LATEX_HEADER:\addtokomafont{chapterentry}{\mdseries}
+#+LATEX_HEADER:\setkomafont{chapterentrypagenumber}{\normalsize}
+# Customize table of contents. 
+#+LATEX_HEADER:\usepackage{tocstyle}
+#+LATEX_HEADER:\settocfeature{raggedhook}{\raggedright}
+#+LATEX_HEADER:\selecttocstyleoption{tocgraduated}
+# Remove dots. 
+#+LATEX_HEADER:\usetocstyle{nopagecolumn}
+** Booklet: Toc Chapter
+# Set fonts for table of contents.
+# Change TOC title to lowercase (needed for small caps). 
+# #+LATEX_HEADER:\AtBeginDocument{\renewcaptionname{english}\contentsname{Contents}}
+# Set font for chapter entry.
+#+LATEX_HEADER:\addtokomafont{chapterentry}{\mdseries\scshape\lowercase}
+#+LATEX_HEADER:\setkomafont{chapterentrypagenumber}{\normalsize}
+# #+LATEX_HEADER:\addtokomafont{sectionentry}{\small}
+# #+LATEX_HEADER:\addtokomafont{sectionentrypagenumber}{\normalsize}
+# Customize table of contents. 
+#+LATEX_HEADER:\usepackage[tocgraduated]{tocstyle}
+# #+LATEX_HEADER:\settocfeature{raggedhook}{\raggedright}
+# #+LATEX_HEADER:\selecttocstyleoption{tocgraduated}
+# Remove dots. 
+#+LATEX_HEADER:\usetocstyle{nopagecolumn}
+* Coda
+** Unnumbered
+# Limit numbering to parts, chapters, sections, etc.
+#+LATEX_HEADER:\setcounter{secnumdepth}{0}
+# Limits table of contents entries. 
+#+LATEX_HEADER:\setcounter{tocdepth}{1}
+** Numbered
+# Limit numbering to parts, chapters, sections, etc.
+#+LATEX_HEADER:\setcounter{secnumdepth}{3}
+# Limits table of contents entries. 
+#+LATEX_HEADER:\setcounter{tocdepth}{1}
+** Separation
+# Recalculate type area; required for spacing two-column pages correctly.
+# #+LATEX_HEADER:\recalctypearea
+# Set separation between columns for two-column pages.
+#+LATEX_HEADER:\setlength{\columnsep}{1cm}
+#  \setlength{\marginparwidth}{1.5\marginparwidth}
+

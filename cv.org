@@ -1,9 +1,0 @@
-#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 email:nil
-#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil author:nil 
-# Use LuaLaTeX instead of default export engine; this is a custom command. 
-#+LATEX_COMPILER: lualatex
-# Set tag for non-exportable org sub-trees (useful for comments). 
-#+EXPORT_EXCLUDE_TAGS: noexport
-# Use KOMA script classes instead of LaTeX defaults
-#+LATEX_CLASS: scrartcl
-#+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A4,portrait,twoside=false,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=0mm,DIV=15,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=any,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,parskip=false]
