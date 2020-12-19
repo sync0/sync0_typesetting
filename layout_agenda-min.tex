@@ -1,0 +1,95 @@
+\usepackage[letterpaper,layout=a6paper,twoside,driver=luatex,left=0.5cm, right=0.5cm, top=1.5cm, bottom=0.5cm,bindingoffset=1cm,nofoot,layouthoffset=\dimexpr(\paperwidth-\csname Gm@layoutwidth\endcsname)/2\relax,layoutvoffset=\dimexpr(\paperheight-\csname Gm@layoutheight\endcsname)/2\relax,showcrop]{geometry}
+
+\usepackage[hangul,hanja]{luatexko}
+\setmainhangulfont{KoPub Batang Medium}
+\setmainhanjafont{Source Han Serif TW}
+\usepackage{fontspec}
+\setmainfont[RawFeature = +ktest]{Minion Pro}
+\setsansfont[RawFeature = +ktest, Scale=MatchUppercase]{Myriad Pro}
+\setmonofont{Source Code Pro}
+\usepackage[protrusion=true,tracking=true]{microtype}
+
+\usepackage[singlespacing]{setspace}
+
+\newcounter{ThisYear}
+\newcounter{ThisDay}
+\newcounter{ThisMonth}
+\newcounter{CalendarThisDay}
+\newcounter{CalendarSaveDay}
+\newcounter{CalendarSaveDayTwo}
+\newcounter{PlannerThisDay}
+% \newcounter{PlannerBeginWeek}
+% \newcounter{PlannerEndWeek}
+\newcommand{\CalendarBeginThisDay}{\arabic{CalendarThisDay}\enspace\square}
+\newcommand{\CalendarOneMoreDay}{\addtocounter{CalendarThisDay}{1}\arabic{CalendarThisDay}\enspace\square}
+\newcommand{\CalendarOneMoreDayTwo}{\addtocounter{CalendarSaveDayTwo}{1}\addtocounter{CalendarThisDay}{1}\arabic{CalendarThisDay}\enspace\square}
+\newcommand{\CalendarLastPageDay}{\addtocounter{CalendarThisDay}{1}\setcounter{CalendarSaveDay}{\value{CalendarThisDay}}\arabic{CalendarThisDay}\enspace\square}
+\newcommand{\CalendarOneMoreDayReset}{\addtocounter{CalendarSaveDay}{1}\setcounter{CalendarThisDay}{\value{CalendarSaveDay}}\arabic{CalendarThisDay}\enspace\square}
+\newcommand{\CalendarOneMoreDayLine}{\addtocounter{CalendarThisDay}{4}\arabic{CalendarThisDay}\enspace\square}
+\newcommand{\CalendarOneMoreDayLineTwo}{\addtocounter{CalendarThisDay}{5}\arabic{CalendarThisDay}\enspace\square}
+% \newcommand{\PlannerBeginThisWeek}{\addtocounter{PlannerThisDay}{1}\setcounter{PlannerBeginWeek}{\value{PlannerThisDay}}\arabic{PlannerThisDay}\enspace}
+%\newcommand{\PlannerBeginThisDay}{\setcounter{PlannerBeginWeek}{\value{PlannerThisDay}}\arabic{PlannerThisDay}\enspace}
+\newcommand{\PlannerBeginThisDay}{\arabic{PlannerThisDay}\enspace}
+\newcommand{\PlannerOneMoreDay}{\addtocounter{PlannerThisDay}{1}\arabic{PlannerThisDay}\enspace}
+% \newcommand{\PlannerEndThisWeek}{\addtocounter{PlannerThisDay}{1}\setcounter{PlannerEndWeek}{\value{PlannerThisDay}}\arabic{PlannerThisDay}\enspace}
+\newcommand{\PlannerResetDay}{\setcounter{PlannerThisDay}{1}\arabic{PlannerThisDay}\enspace}
+\newcommand{\CalendarResetDay}{\setcounter{CalendarThisDay}{1}\setcounter{CalendarSaveDayTwo}{\value{CalendarThisDay}}\arabic{CalendarThisDay}\enspace\square}
+\newcommand{\CalendarResetDayTwo}{\addtocounter{CalendarSaveDayTwo}{1}\setcounter{CalendarThisDay}{\value{CalendarSaveDayTwo}}\arabic{CalendarThisDay}\enspace\square}
+
+
+% Define the '\hugechapter macro. 
+\newcommand\hugechapter{\fontsize{60}{70}\selectfont}
+% Define the '\largechapter macro. 
+\newcommand\largechapter{\fontsize{25}{30}\selectfont}
+
+% \newfontfamily\coolold{EB Garamond Initials}
+
+\usepackage{titlesec}
+
+% \titleformat{\chapter}{\Huge}{\thechapter}{\secformat}
+
+\titleformat{\chapter}[display] {\normalfont\centering}
+{}
+{1em}
+{\hugechapter}
+
+% \titleformat{\chapter}[display] {\normalfont\centering}
+%  {\begin{tikzpicture}
+%   \node[text width=3cm,align=center] (chapnum)
+%     {\fontsize{100}{90}\selectfont\thechapter};%
+%   \node[shift={(-1.8cm,1.8cm)},anchor=north west](CNW)
+%     at (chapnum.north west) {\pgfornament[width=2cm]{61}};
+%   \node[shift={(1.8cm,1.8cm)},anchor=north east](CNE)
+%     at (chapnum.north east) {\pgfornament[width=2cm,symmetry=v]{61}};
+%   \node[shift={(-1.8cm,-1.8cm)},anchor=south west](CSW)
+%     at (chapnum.south west) {\pgfornament[width=2cm,symmetry=h]{61}};
+%   \node[shift={(1.8cm,-1.8cm)},anchor=south east](CSE)
+%     at (chapnum.south east) {\pgfornament[width=2cm,symmetry=c]{61}};
+%   \end{tikzpicture}
+%   }
+% {1em}
+% {\hugechapter}
+
+% \sethead[\LARGE\thepage][\large\chaptertitle][\normalsize\arabic{ThisYear}] % even
+% {\normalsize\arabic{ThisYear}}{\large Agenda }{\LARGE\thepage}} % odd
+
+\usepackage{titleps}
+\newpagestyle{main}{
+\sethead[\huge\chaptertitle][][\large\arabic{ThisYear}] % even
+{}{}{\Large\thepage}} % odd
+\pagestyle{main}
+
+
+\newcommand{\rulew}{.15em}
+\newcommand{\lendt}{\cmidrule[\rulew](l){1-2}\cmidrule[\rulew](l){3-4}\cmidrule[\rulew](l){5-6}}
+\newcommand{\longunderscore}{\textunderscore\textunderscore\textunderscore\enspace}
+
+% \usepackage{termcal}
+\usepackage{tabularht}
+% \setcounter{secnumdepth}{0}
+% \setcounter{tocdepth}{1}
+
+\usepackage{emptypage}
+\usepackage{etoolbox}
+\patchcmd{\chapter}{plain}{empty}{}{}
+% \patchcmd{\part}{plain}{empty}{}{}

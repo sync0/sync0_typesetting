@@ -1,0 +1,54 @@
+% Configure bibliography management with biblatex. 
+% Set 'verbose-trad1' cite style.
+\usepackage[backend = biber,
+bibstyle = reading,
+annotation = false,
+library = false,
+file = false,
+entryhead = true,
+%% entryhead = full,
+entrykey = true,
+eprint = false,
+doi = false,
+isbn = false,
+url = false,
+citestyle = verbose,
+autocite = plain,
+%% citepages=omit,
+hyperref = auto,
+sorting = anonymous,
+sorting = nyt]{biblatex}
+
+% Deal with anonymous works (useful in History and Philology).
+\usepackage{biblatex-anonymous}
+
+%% \usepackage[notref]{showkeys}
+
+% Set bibliography file. 
+\addbibresource{~/Dropbox/bibliographies/bibliography.bib}
+\addbibresource{~/Dropbox/bibliographies/doctorat.bib}
+
+% Set url typesetting font. 
+\urlstyle{sf}
+
+% Replace colon for dot as separator between title and subtitle. 
+\renewcommand{\subtitlepunct}{\addcolon\addspace}
+
+% Add citation keys whenever an entry is cited.
+\AtEveryCitekey{%
+  {\printfield{entrykey}}
+}
+
+% Display citation keys in citations with typewriter font. Also,
+% leave a newline between the citation key and the entry. 
+\DeclareFieldFormat*{entrykey}{\texttt{#1}\par}
+
+% Print 'origdate' field for 'verbose' style bibliographies.
+%% \renewbibmacro*{date}{\printdate\iffieldundef{origyear}{}{\setunit*{\addspace}\printtext[parens]{\printorigdate}}}
+%% \renewbibmacro*{date}{\printdate\iffieldundef{origyear}{}{\setunit*{\addspace}\printtext[brackets]{\printorigdate}}}
+
+%  Csquotes
+%% Specify a replacement for \cite to handle citations.
+%% \SetCiteCommand{\autocite}
+%% \SetCiteCommand{\footcite}
+%% \renewcommand{\mkccitation}[1]{#1}

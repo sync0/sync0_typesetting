@@ -1,0 +1,22 @@
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t toc:nil H:2 date:t
+# #+OPTIONS: \n:nil |:t ^:t f:t *:t ':t @:t ::t -:t <:t timestamp:t toc:t H:2
+#+OPTIONS: LaTeX:t d:nil todo:nil num:nil 
+# Set beamer theme. 
+# #+BEAMER_THEME: metropolis  
+# Set org beamer export settings. 
+#+COLUMNS: %40ITEM %10BEAMER_ENV(Env) %5BEAMER_COL(Col) 
+#+LATEX_CLASS: beamer
+# #+LATEX_CLASS_OPTIONS: [10pt]
+# #+LATEX_HEADER: \usetheme{Execushares}
+  #+LATEX_HEADER: \usetheme{Pittsburgh}
+  # #+LATEX_HEADER: \usetheme{Metropolis}
+# #+LATEX_HEADER: \usetheme[sectionpage=progressbar,progressbar=head,block=transparent,background=light,numbering=fraction,titleformat=regular]{metropolis}
+#+LANGUAGE: es
+# #+LATEX_CLASS_OPTIONS: [10pt,presentation,progressbar=frametitle,block=fill,background=dark,numbering=counter,titleformat=allsmallcaps]
+# Add presentation notes that can be redirectioned to a different screen. 
+# #+LATEX_HEADER: \usepackage{pgfpages}
+# #+LATEX_HEADER: \setbeameroption{show notes}
+# #+LATEX_HEADER: \setbeameroption{show notes on second screen=right}
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \input{/home/sync0/Documents/typography/languages/spanish.tex}
+# #+LATEX_HEADER: \input{/home/sync0/Documents/typography/biblatex/verbose.tex}

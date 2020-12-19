@@ -1,0 +1,18 @@
+\setmainlanguage{portuguese} 
+% Set secondary typesetting languages.
+\setotherlanguages{french,spanish,english} 
+\usepackage{fontspec}
+\setmonofont{Source Code Pro}
+\defaultfontfeatures{Ligatures=Historic,Contextuals=Alternate,Numbers=OldStyle,RawFeature={+cv01,+dlig}}
+\setmainfont[RawFeature={+cv01,+ss05,+dlig},ItalicFeatures={RawFeature=+cv04}]{EB Garamond}
+\newfontfamily\booktitlefont[LetterSpace=40,WordSpace=6]{EB Garamond}
+\newfontfamily\bookchapterfont[LetterSpace=20,WordSpace=6]{EB Garamond}
+\newfontfamily\goudy{Goudy Initialen}
+% \newfontfamily\mychapterfamily{EB Garamond}
+% Set symbol to automatically recognize quotes. 
+\MakeForeignQuote{french}{«}{»}
+
+% Configure microtypographic settings. 
+\usepackage[protrusion=true,tracking=true]{microtype}
+\usepackage{lettrine}
+\renewcommand{\LettrineFontHook}{\goudy}

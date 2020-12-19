@@ -1,0 +1,80 @@
+\newlength{\alphabet}
+\settowidth{\alphabet}{\normalfont abcdefghijklmnopqrstuvwxyz}
+\usepackage[letterpaper,twoside,driver=luatex,textwidth=2.2\alphabet,left=0.5cm,top=2cm, bottom=2cm,bindingoffset=2cm]{geometry}
+\usepackage[singlespacing]{setspace}
+
+% Define the '\hugechapter' macro. 
+\newcommand\hugechapter{\fontsize{30}{35}\selectfont}
+
+\newcommand\tocpageseparator{\hspace{2ex}}
+%% Define the mbox used to output the page number.
+\newcommand\tocpagenumberbox[1]{\mbox{#1}}% <- added
+
+% Using \chapapp instead of \chaptername will use the number only,
+% instead of the Chapter word.
+% \newcommand\tocchapternumber[1]{\mdseries\scshape\MakeLowercase{\chapapp}~#1\hspace{1ex}}
+\newcommand\tocchapternumber[1]{}
+% \newcommand*{\tocchapternumber}[1]{\mdseries\scshape\MakeLowercase{\chaptername}~#1\hspace{1ex}}
+
+\renewcommand*{\dictumwidth}{.8\textwidth}
+\renewcommand*{\dictumauthorformat}[1]{#1}
+\renewcommand*{\dictumrule}{\vskip 2ex\par}
+
+\renewcommand*{\raggedchapter}{\centering}
+\renewcommand*\chapterformat{}
+\renewcommand*\chaptermarkformat{}
+\RedeclareSectionCommand[afterskip=4\baselineskip]{chapter}
+
+\setkomafont{sectioning}{\mdseries\sffamily}
+\setkomafont{chapter}{\hugechapter}
+\setkomafont{section}{\LARGE}
+\setkomafont{subsection}{\Large\itshape}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{pagehead}{\normalsize\mdseries\itshape}
+\setkomafont{pagenumber}{\large\upshape\sffamily}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\mdseries\scshape\lowercase}
+\setkomafont{labelinglabel}{\normalsize\itshape}
+\setkomafont{title}{\Huge\sffamily}
+\setkomafont{subtitle}{\LARGE\sffamily}
+\setkomafont{author}{\LARGE}
+\setkomafont{subject}{\Large\scshape}
+\setkomafont{titlehead}{\large}
+\setkomafont{publishers}{\large\itshape}
+\setkomafont{date}{\normalsize}
+\setkomafont{dedication}{\itshape}
+\addtokomafont{chapterentry}{\large\mdseries}
+\setkomafont{chapterentrypagenumber}{\normalsize}
+\setkomafont{minisec}{\usekomafont{subsection}}
+\setkomafont{dictumauthor}{\normalsize\upshape}
+\setkomafont{dictum}{\normalsize\itshape}
+
+\RedeclareSectionCommands[
+% Change the  format of the chapter number.
+   tocentrynumberformat=\tocchapternumber, 
+% Avoid overfull \hbox message
+  tocdynnumwidth,
+  tocraggedpagenumber,
+  toclinefill=\tocpageseparator,
+  tocindent=0em,
+  tocpagenumberbox=\tocpagenumberbox
+]{chapter}
+
+\RedeclareSectionCommands[
+  tocraggedpagenumber,
+ tocbeforeskip=0.1em,
+  toclinefill=\tocpageseparator,
+  tocindent=1em,
+  tocpagenumberbox=\tocpagenumberbox% <- added
+]{section}
+
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\automark[chapter]{part}
+\makeatletter\cehead{\@title}\makeatother
+\cohead{\headmark}
+\ohead{\pagemark}
+
+% Do not include levels below sections in the table of contents.
+\setcounter{tocdepth}{1}

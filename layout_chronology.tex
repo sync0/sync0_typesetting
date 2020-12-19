@@ -1,0 +1,49 @@
+\usepackage[letterpaper,landscape,twoside,driver=luatex,left=1cm, right=1cm, top=1cm, bottom=1cm,bindingoffset=1cm,nofoot]{geometry}
+\usepackage[singlespacing]{setspace}
+% Create horizontal timelines. 
+\usepackage{chronosys}
+
+% Define the some macros to have bigger fonts in titles.
+\newcommand\hugetitle{\fontsize{55}{0}\selectfont}
+\newcommand\largetitle{\fontsize{30}{0}\selectfont}
+\newcommand\hugenumber{\fontsize{150}{160}\selectfont}
+\newcommand\largenumber{\fontsize{40}{0}\selectfont}
+\newcommand\hugechapter{\fontsize{70}{80}\selectfont}
+\newcommand\largechapter{\fontsize{25}{30}\selectfont}
+
+\newcommand{\YearStyle}{\sffamily\LARGE}
+\newcommand{\DateStyle}{\sffamily}
+\newcommand{\MonthStyle}{\footnotesize}
+
+% Chage the look of chapter pages using titlesec.
+\usepackage{titlesec}
+
+% \titleformat{\chapter}[display] {\centering}
+% {}
+% {1em}
+% {\hugenumber\thechapter\linebreak 
+% \includegraphics[width=0.9\textwidth]{swirls_ornament}
+% \mychapterfamily\hugechapter}
+% []
+
+% Chage the look of chapter pages using titlesec.
+\patchcmd{\chapter}{plain}{empty}{}{}
+\patchcmd{\part}{plain}{empty}{}{}
+
+% \usepackage[extramarks]{titleps}
+
+% \newmarkset{PlannerNumber}
+
+% \newpagestyle{main}{
+% \sethead[\huge\rmfamily\titlecap{\chaptertitle}\enspace\thechapter][][\Large\the\year] % even
+% {}{}{\LARGE\thepage}} % odd
+
+% \newpagestyle{planner}{
+% \sethead[\huge\rmfamily Projeto \enspace\thePlannerNumber][][\Large\the\year] % even
+% {}{}{\LARGE\thepage}} % odd
+
+% % Set planner as the default page style. 
+% \pagestyle{planner}
+
+% Don't number parts, chapter, sections, and subsections.
+\setcounter{secnumdepth}{0}

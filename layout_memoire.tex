@@ -1,0 +1,70 @@
+\usepackage[singlespacing]{setspace}
+\usepackage{hologo}
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\automark[chapter]{chapter}
+\cehead{Watched Over by Machines of Loving Grace?}
+\cohead{\headmark}
+\ohead{\pagemark}
+\usepackage{fontspec}
+\directlua{fonts.handlers.otf.addfeature
+  {name = "ktest",
+    type = "kern",
+    data = {["quoteright"] = {
+        ["e"] =  50,
+        ["a"] =50,
+        ["eacute"] =  50,
+        ["o"] =  50, }
+    },
+  }
+}
+\setmainfont[RawFeature=+ktest]{Minion Pro}
+\setsansfont[RawFeature=+ktest,Scale=MatchUppercase]{Myriad Pro}
+\newfontfamily{\swseries}[Contextuals=Swash]{Minion Pro}
+\setmonofont{Source Code Pro}
+% Define the '\hugetitle' macro. 
+\newcommand\hugetitle{\fontsize{45}{50}\selectfont}
+% Define the '\HUGE' macro. 
+\newcommand\HUGE{\fontsize{40}{40}\selectfont}
+% Define the '\hugechapter macro. 
+\newcommand\hugechapter{\fontsize{30}{35}\selectfont}
+% Define the '\largechapter macro. 
+\newcommand\largechapter{\fontsize{25}{30}\selectfont}
+
+\renewcommand*{\partformat}{}
+\renewcommand\partmarkformat{}
+
+\renewcommand{\raggedchapter}{\centering}
+\renewcommand*\chapterformat{}
+\renewcommand*\chaptermarkformat{}
+\RedeclareSectionCommand[afterskip=3\baselineskip]{chapter}
+
+\setkomafont{sectioning}{\sffamily\mdseries}
+\setkomafont{part}{\HUGE\rmfamily\scshape\lowercase}
+\setkomafont{chapter}{\largechapter}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large\bfseries}
+\setkomafont{subsubsection}{\large\bfseries\itshape}
+\setkomafont{pagehead}{\normalsize\mdseries\itshape}
+\setkomafont{pagenumber}{\normalsize\sffamily\upshape}
+\setkomafont{sectioning}{\sffamily\mdseries}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\sffamily\mdseries}
+\setkomafont{labelinglabel}{\normalsize\sffamily}
+\addtokomafont{chapterentry}{\mdseries}
+\setkomafont{chapterentrypagenumber}{\normalsize}
+\setkomafont{minisec}{\usekomafont{subsection}}
+\setkomafont{dictumauthor}{\normalsize\upshape}
+\setkomafont{dictum}{\normalsize\itshape}
+
+\renewcommand*{\dictumwidth}{.8\textwidth}
+\renewcommand*{\dictumauthorformat}[1]{#1}
+\renewcommand*{\dictumrule}{\vskip 2ex\par}
+
+\usepackage{tocstyle}
+\settocfeature{raggedhook}{\raggedright}
+\selecttocstyleoption{tocgraduated}
+\usetocstyle{nopagecolumn}
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{1}

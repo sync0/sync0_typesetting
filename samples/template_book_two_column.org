@@ -1,0 +1,11 @@
+#+SETUPFILE: "~/Dropbox/typography/book_two_column.org" 
+#+INCLUDE: "~/Dropbox/typography/typography_layouts.org::*Book: Two Column" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/typography_settings.org::*Spanish" :only-contents t
+# #+INCLUDE: "./license.tex" export latex
+# #+INCLUDE: "./title_pages.tex" export latex
+#+STARTUP: indent nostars showeverything
+
+* Part one
+#+INCLUDE: "./part_one.org" 
+* Part two
+#+INCLUDE: "./part_two.org" 

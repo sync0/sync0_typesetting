@@ -1,0 +1,43 @@
+\usepackage[singlespacing]{setspace}
+
+\setkomafont{sectioning}{\mdseries\sffamily}
+% \setkomafont{section}{\Large\bfseries}
+% \setkomafont{subsection}{\Large}
+% \setkomafont{subsubsection}{\Large\itshape}
+% \setkomafont{pagehead}{\normalsize\sffamily\mdseries}
+% \setkomafont{pagenumber}{\normalsize\sffamily\upshape}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\Large\itshape}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{pagehead}{\normalsize\mdseries\itshape}
+\setkomafont{pagenumber}{\Large\upshape\sffamily}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\mdseries\scshape\lowercase}
+\setkomafont{labelinglabel}{\normalsize\itshape}
+% \setkomafont{title}{\Huge\sffamily\bfseries}
+% \setkomafont{subtitle}{\LARGE\sffamily}
+% \setkomafont{author}{\Large\sffamily}
+\setkomafont{title}{\sffamily}
+\setkomafont{subtitle}{\LARGE\sffamily}
+\setkomafont{author}{\LARGE}
+\setkomafont{subject}{\Large\scshape}
+\setkomafont{titlehead}{\large}
+\setkomafont{publishers}{\large\itshape}
+\setkomafont{date}{\normalsize}
+\setkomafont{dedication}{\itshape}
+\setkomafont{minisec}{\usekomafont{subsection}}
+\setkomafont{dictumauthor}{\normalsize\upshape}
+\setkomafont{dictum}{\normalsize\itshape}
+
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\makeatletter\lohead{\@author}\makeatother
+\makeatletter\rehead{\@title}\makeatother
+\ohead{\pagemark}
+
+\renewcommand*{\dictumwidth}{.8\textwidth}
+\renewcommand*{\dictumauthorformat}[1]{#1}
+\renewcommand*{\dictumrule}{\vskip 2ex\par}
+
+\setcounter{tocdepth}{1}

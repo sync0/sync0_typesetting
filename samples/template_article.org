@@ -1,0 +1,12 @@
+#+TITLE: Lorem ipsum
+#+AUTHOR: Carlos Alberto Rivera Carreño 
+#+SETUPFILE: "~/Documents/typography/article.org" 
+#+INCLUDE: "~/Documents/typography/typography_layouts.org::*Article" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spanish" :only-contents t
+#+STARTUP: indent nostars logdrawer content
+
+* Section 1
+Lorem ipsum
+
+# \printbibliography[title=references]
+

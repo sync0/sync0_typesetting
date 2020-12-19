@@ -1,0 +1,13 @@
+#+TITLE: Zettelkasten sur la typographie
+#+CREATED: 2020/12/15
+#+DATE: 2020/12/16
+#+ROAM_TAGS: zettelkasten typography
+
+Ce document liste tous les fichiers utilises dans la composition
+des documents LaTeX. 
+
+D'abord, pour éviter que ces documents apparaissent dans les
+
+- Le [[/home/sync0/Dropbox/typography/latex_preamble.tex][préambule pour tous les documents]] est consultable ici.
+  Cependant, pour composer des présentations avec beamer, on
+  utilise plutôt [[/home/sync0/Dropbox/typography/latex_preamble_beamer.tex][cet autre ficher]]. 

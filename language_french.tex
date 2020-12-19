@@ -1,0 +1,89 @@
+\setmainlanguage[autospacing=true,autospaceguillemets=true,frenchfootnote=true]{french} 
+% Set secondary typesetting languages.
+\setotherlanguages{english, spanish} 
+% Set symbol to automatically recognize quotes. 
+\MakeAutoQuote{«}{»}
+% \MakeForeignQuote{english}{``}{"}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX, Scale=MatchLowercase}
+% Configure microtypographic settings. 
+\usepackage[protrusion=true,expansion,tracking=true]{microtype}
+%% \directlua{
+%% fonts.handlers.otf.addfeature {
+%% name = "ktest",
+%% {
+%% type = "kern",
+%% data = {
+%% ["quoteright"] = { ["e"] =  80,
+%%                    ["a"] =  80,
+%%                    ["eacute"] =  80,
+%%                    ["o"] =  80, },
+%% }
+%% },
+%% "extra kerns"
+%% }
+%% }
+
+%% \setmainfont[RawFeature=+ktest, RawFeature=+itlc]{Minion Pro}
+%% \setsansfont[RawFeature=+ktest, Scale=MatchUppercase]{Myriad Pro}
+%% \setmainfont[RawFeature=+ktest, RawFeature=+itlc,SmallCapsFeatures={LetterSpace=6}, Numbers={Proportional,OldStyle}]{Minion Pro}
+%% \setsansfont[LetterSpace=3, Numbers={Proportional,OldStyle}]{Myriad Pro}
+\setmainfont[SmallCapsFeatures={LetterSpace=6}, Numbers={Proportional,OldStyle}]{Minion Pro}
+\setsansfont[LetterSpace=3, Numbers={Proportional,OldStyle}]{Myriad Pro}
+\setmonofont{Inconsolata}
+\SetProtrusion
+   [ name     = min-eu2 ]
+   { encoding = {EU2},
+     family   = MinionPro  }
+   {
+     {,} = {  ,500},
+      -  = {  ,500}
+   }
+
+%% \directlua{fonts.handlers.otf.addfeature{
+%%     name = "ktest",
+%%     type = "kern",
+%%     data = {["quoteright"] =
+%%       { ["e"] = 100,
+%%       % { ["e"] = 50,
+%%         ["a"] = 100,
+%%         ["eacute"] = 100,
+%%         ["o"] = 100, }
+%%     },
+%%   }
+%% }
+
+%% \setmainfont{Minion Pro}
+%% \setsansfont[Scale=MatchUppercase]{Myriad Pro}
+% Configure microtypographic settings. 
+% Configure language-specific microtype settings. 
+%% \SetExtraKerning
+%%    [ name     = frenchdefault,
+%%      context  = french,
+%%      unit     = space   ]
+%%    { encoding = {OT1,T1,LY1} }
+%%    {
+%%      :  = {1000,}, % = \fontdimen2
+%%      ;  = {500, }, % ~ \thinspace
+%%      !  = {500, },
+%%      ?  = {500, },
+%%      '  = {1000, 1000},
+%%      ’  = {1000, 1000}
+%%    }
+\frenchspacing
+%% \microtypecontext{kerning=french}
+%% \SetExtraKerning
+%%   [ unit     = space   ]
+%%   { encoding = {OT1,T1,LY1} }
+%%   {
+%%     '  = {500, 400}
+%%   }
+
+% Use italics on block quotations.
+\renewcommand{\mkbegdispquote}[2]{\itshape}
+% \AtBeginEnvironment{quote}{\itshape}
+% \SetExtraKerning[name=french-default,context = french,unit = space ]{ encoding = {OT1,T1,LY1} }{: = {1000,}, ; = {500, }, ! = {500, }, ? = {500, }, ' = {500, 400}}
+% Superscript & Subscript 
+%% Adds macros to typeset 1st, 2nd, etc., in different languages.
+\usepackage[french]{fmtcount} 
+\fmtcountsetoptions{french=france}

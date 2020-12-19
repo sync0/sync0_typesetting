@@ -1,0 +1,9 @@
+#+SETUPFILE: "~/Documents/typography/booklet.org" 
+#+INCLUDE: "~/Documents/typography/typography_layouts.org::*Booklet" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*English" :only-contents t
+#+STARTUP: indent nostars showeverything
+
+* Chapter one
+#+INCLUDE: "./chapter_one.org" 
+* Chapter two
+#+INCLUDE: "./chapter_two.org" 

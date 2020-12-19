@@ -1,0 +1,12 @@
+#+SETUPFILE: "~/Documents/typography/article.org" 
+#+INCLUDE: "~/Documents/typography/typography_layouts.org::*Article" :only-contents t
+#+INCLUDE: "~/Documents/typography/typography_settings.org::*Spanish" :only-contents t
+#+STARTUP: indent nostars logdrawer outline
+
+\title{La super clase}
+\subject{Tarea X}
+# \publisher{Universidad Pontificia Bolivariana}
+\date{\today}
+\author{Carlos Alberto Rivera Carreño}
+\maketitle
+

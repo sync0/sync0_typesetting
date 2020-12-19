@@ -1,0 +1,18 @@
+\setmainlanguage{english} 
+% Set secondary typesetting languages.
+\setotherlanguages{french, spanish} 
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX, Scale=MatchLowercase}
+% Configure microtypographic settings. 
+\usepackage[protrusion=true,expansion,tracking=true]{microtype}
+\setmainfont[SmallCapsFeatures={LetterSpace=6}, Numbers={Proportional,OldStyle}]{Minion Pro}
+\setsansfont[LetterSpace=3, Numbers={Proportional,OldStyle}]{Myriad Pro}
+\setmonofont{Inconsolata}
+% Set symbol to automatically recognize quotes. 
+% \MakeOuterQuote{"}
+\MakeForeignQuote{french}{«}{»}
+% Use italics on block quotations.
+\renewcommand{\mkbegdispquote}[2]{\itshape}
+% Superscript & Subscript 
+%% Adds macros to typeset 1st, 2nd, etc., in different languages.
+\usepackage[english]{fmtcount} 

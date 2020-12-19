@@ -1,0 +1,34 @@
+% Configure bibliography management with biblatex. 
+% Set 'verbose-trad1' cite style.
+\usepackage[backend = biber,
+bibstyle = authortitle,
+citestyle=verbose-trad3,
+autocite=plain,
+citepages=omit,
+hyperref=auto,
+doi=false,
+isbn=false,
+url=false,
+sorting=anonymous,
+sorting=nyt]{biblatex}
+
+% Deal with anonymous works (useful in History and Philology).
+\usepackage{biblatex-anonymous}
+
+% Set bibliography file. 
+\addbibresource{~/Dropbox/bibliographies/bibliography.bib}
+%% \addbibresource{~/Dropbox/bibliographies/doctorat.bib}
+%% \addbibresource{~/Dropbox/bibliographies/memoire.bib}
+% Set url typesetting font. 
+\urlstyle{sf}
+
+% Replace colon for dot as separator between title and subtitle. 
+\renewcommand{\subtitlepunct}{\addcolon\addspace}
+
+% Print 'origdate' field for 'verbose' style bibliographies.
+\renewbibmacro*{date}{\printdate\iffieldundef{origyear}{}{\setunit*{\addspace}\printtext[parens]{\printorigdate}}}
+
+%  Csquotes
+%% Specify a replacement for \cite to handle citations.
+\SetCiteCommand{\footcite}
+\renewcommand{\mkccitation}[1]{#1}

@@ -1,0 +1,50 @@
+% \usepackage[letterpaper,layout=letterpaper,twoside,driver=luatex,left=0.5cm, right=5.5cm, top=3.5cm, bottom=3.5cm,bindingoffset=1cm,layouthoffset=\dimexpr(\paperwidth-\csname Gm@layoutwidth\endcsname)/2\relax,layoutvoffset=\dimexpr(\paperheight-\csname Gm@layoutheight\endcsname)/2\relax]{geometry}
+% \usepackage[letterpaper,twoside,driver=luatex,left=0.5cm, right=9.3cm, top=2cm, bottom=2cm,bindingoffset=2cm]{geometry}
+
+\newlength{\alphabet}
+\settowidth{\alphabet}{\normalfont abcdefghijklmnopqrstuvwxyz}
+\usepackage[letterpaper,twoside,driver=luatex,textwidth=2.2\alphabet,left=0.5cm,top=2cm, bottom=2cm,bindingoffset=2cm]{geometry}
+\usepackage[singlespacing]{setspace}
+
+\setkomafont{sectioning}{\mdseries\sffamily}
+% \setkomafont{section}{\Large\bfseries}
+% \setkomafont{subsection}{\Large}
+% \setkomafont{subsubsection}{\Large\itshape}
+% \setkomafont{pagehead}{\normalsize\sffamily\mdseries}
+% \setkomafont{pagenumber}{\normalsize\sffamily\upshape}
+\setkomafont{paragraph}{\footnotesize\bfseries}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\Large\itshape}
+\setkomafont{subsubsection}{\normalsize}
+\setkomafont{pagehead}{\normalsize\mdseries\itshape}
+\setkomafont{pagenumber}{\large\upshape\sffamily}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\mdseries\scshape\lowercase}
+\setkomafont{labelinglabel}{\normalsize\itshape}
+% \setkomafont{title}{\Huge\sffamily\bfseries}
+% \setkomafont{subtitle}{\LARGE\sffamily}
+% \setkomafont{author}{\Large\sffamily}
+\setkomafont{title}{\sffamily}
+\setkomafont{subtitle}{\LARGE\sffamily}
+\setkomafont{author}{\LARGE}
+\setkomafont{subject}{\Large\scshape}
+\setkomafont{titlehead}{\large}
+\setkomafont{publishers}{\large\itshape}
+\setkomafont{date}{\normalsize}
+\setkomafont{dedication}{\itshape}
+\setkomafont{minisec}{\usekomafont{subsection}}
+\setkomafont{dictumauthor}{\normalsize\upshape}
+\setkomafont{dictum}{\normalsize\itshape}
+
+\renewcommand*{\dictumwidth}{.8\textwidth}
+\renewcommand*{\dictumauthorformat}[1]{#1}
+\renewcommand*{\dictumrule}{\vskip 2ex\par}
+
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\makeatletter\lohead{\@author}\makeatother
+\makeatletter\rehead{\@title}\makeatother
+\ohead{\pagemark}
+
+\setcounter{tocdepth}{1}

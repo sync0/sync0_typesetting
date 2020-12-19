@@ -1,0 +1,67 @@
+% Created 2020-07-07 mar. 17:57
+% Intended LaTeX compiler: lualatex
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[singlespacing]{setspace}
+\usepackage[backend=biber,bibstyle=authoryear,citestyle=authoryear-icomp,autocite=inline,hyperref=auto,doi=false,isbn=false,url=false]{biblatex}
+\addbibresource{~/Dropbox/notes/bibliography.bib}
+\urlstyle{sf}
+\renewcommand{\subtitlepunct}{\addcolon\addspace}
+\DeclareDataInheritance{collection}{incollection}{\noinherit{origdate}}
+\DeclareFieldFormat{origdate}{\mkbibbrackets{#1}}
+\renewbibmacro*{cite:labeldate+extradate}{\iffieldundef{origyear}{}{\printorigdate\setunit{\addspace}}\iffieldundef{labelyear}{}{\printtext[bibhyperref]{\printlabeldateextra}}}
+\DeclareCiteCommand{\citeorigyear}{\boolfalse{citetracker}\boolfalse{pagetracker}\usebibmacro{prenote}}{\printfield{origyear}}{\multicitedelim}{\usebibmacro{postnote}}
+\renewbibmacro*{date+extradate}{\iffieldundef{origyear}{}{\printorigdate\setunit{\addspace}}\iffieldundef{labelyear}{}{\printtext[parens]{\iflabeldateisdate{\printdateextra}{\printlabeldateextra}}}}
+\SetCiteCommand{\parencite}
+\renewcommand{\mkccitation}[1]{ #1}
+\usepackage{fontspec}
+\directlua{fonts.handlers.otf.addfeature{name = "ktest",type = "kern",data = {["quoteright"] = { ["e"] =  50,["a"] =50,["eacute"] =  50,["o"] =  50, }},}}
+\setmainfont[RawFeature=+ktest]{Minion Pro}
+\setsansfont[RawFeature=+ktest,Scale=MatchUppercase]{Myriad Pro}
+\newfontfamily{\swseries}[Contextuals=Swash]{Minion Pro}
+\setmonofont{Source Code Pro}
+\setkomafont{title}{\Huge\sffamily\bfseries}
+\setkomafont{subtitle}{\LARGE\sffamily}
+\setkomafont{author}{\Large}
+\setkomafont{subject}{\Large\scshape}
+\setkomafont{titlehead}{\large}
+\setkomafont{publishers}{\large\itshape}
+\setkomafont{date}{\normalsize}
+\setkomafont{dedication}{\itshape}
+\setkomafont{sectioning}{\sffamily\mdseries}
+\setkomafont{section}{\LARGE\bfseries}
+\setkomafont{subsection}{\Large}
+\setkomafont{subsubsection}{\Large\itshape}
+\setkomafont{pagehead}{\normalsize\mdseries\swseries}
+\setkomafont{pagenumber}{\normalsize\sffamily\upshape}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\sffamily\mdseries\bfseries}
+\setkomafont{labelinglabel}{\normalsize\sffamily\bfseries}
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{1}
+\author{Carlos Alberto Rivera Carreño}
+\date{\today}
+\title{dossier}
+\hypersetup{
+ pdfauthor={Carlos Alberto Rivera Carreño},
+ pdftitle={dossier},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.3 (Org mode 9.3.7)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\end{document}

@@ -1,0 +1,91 @@
+\documentclass[
+fontsize=12pt,
+paper=a4,
+parskip=full,
+enlargefirstpage=on,    % More space on first page
+fromalign=locationleft,        % PLacement of name in letter head
+fromphone=on,           % Turn on phone number of sender
+fromemail=on,           % Turn on phone number of sender
+fromrule=aftername,     % Rule after sender name in letter head
+addrfield=on,           % Adress field for envelope with window
+backaddress=off,         % Sender address in this window
+% subject=beforeopening,  % Placement of subject
+locfield=wide,        % Additional field for sender
+foldmarks=off,           % Print foldmarks
+]{scrlttr2}
+
+% Polyglossia
+%% Language-specific typesetting. 
+\usepackage{polyglossia} 
+\setmainlanguage{french} 
+%% Set secondary typesetting languages.
+\setotherlanguages{english, spanish} 
+
+% Csquotes
+%% Set threshold for turning an in-text quote into a block quote.
+\usepackage[autostyle=true,english=american,french=guillemets,thresholdtype=words,threshold=3]{csquotes}
+%% Set symbol to automatically recognize quotes. 
+\MakeAutoQuote{«}{»}
+% \MakeForeignQuote{English}{"}{"}
+
+% Configure fonts.
+\usepackage{fontspec}
+%% Have all fonts use the same x-height.
+\defaultfontfeatures{Scale=MatchLowercase}
+\setmainfont{Minion Pro}
+\setsansfont[Scale=MatchUppercase]{Myriad Pro}
+%% Configure math fonts.
+%% Typeset code using Adobe's Source Code Pro. 
+\setmonofont{Source Code Pro}
+%% Define the \shseries macro.
+\newfontfamily{\shseries}[Contextuals=Swash]{Minion Pro}
+%% Configure microtypographic settings. 
+\usepackage[protrusion=true,tracking=true]{microtype}
+%%% Configure language-specific microtype settings. 
+\microtypecontext{kerning=french}
+%% Correctly space text.
+\usepackage[singlespacing]{setspace}
+%% Correctly rag text.
+\usepackage{ragged2e}
+
+%% Configure graphics.
+\usepackage{graphicx}
+\graphicspath{ {/home/sync0/Dropbox/certificates/carc/france/paribas/} }
+
+% Define custom commands. 
+\newcommand{\sie}[1]{\textsc{\romannumeral #1}\textsuperscript{e}}
+
+% Set addresee right-aligned, French style
+\LoadLetterOption{NF}
+
+% Necessary to have the addresse field be typeset correctly
+\makeatletter
+\@setplength{locwidth}{.4\textwidth}
+\makeatother 
+
+% Define letter fonts. 
+\setkomafont{fromname}{\large}
+\setkomafont{lettertitle}{\raggedright \normalsize}
+% \setkomafont{fromaddress}{\sffamily}
+\setkomafont{pagenumber}{\sffamily}
+\setkomafont{subject}{\bfseries}
+\setkomafont{backaddress}{\mdseries}
+
+% Define letter fonts. 
+\renewcommand\pagemark{\usekomafont{pagenumber}\thepage}
+
+% Define letter variables. 
+% \setkomavar{title}{Courrier recommandé avec accusé de réception.}
+\setkomavar{fromname}{Carlos Alberto \\ RIVERA CARREÑO}
+\setkomavar{fromaddress}{Calle 17 No. 37A-33,\\Apto. 1104, Ed. Córcega,\\050021 Medellín\\Antioquia, Colombie}
+\setkomavar{fromzipcode}{050021}
+\setkomavar{fromphone}{+57  31\,36\,85\,98\,72}
+\setkomavar{fromemail}{carc.sync0@gmail.com}
+% \setkomavar{toname}{BNP Paribas}
+% \setkomavar{toaddress}{BNP Paribas}
+% \setkomavar{backaddressseparator}{\enspace\textperiodcentered\enspace}
+\setkomavar{signature}{Carlos Alberto RIVERA CARREÑO}
+\setkomavar{place}{Medellín}
+\setkomavar{date}{le \today}
+\setkomavar{enclseparator}{: }
+% \setkomavar{location}{\raggedright No. de compte personnel :  00007044119}

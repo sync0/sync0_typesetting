@@ -1,0 +1,40 @@
+#+TITLE: Lorem ipsum
+#+AUTHOR: Carlos Alberto Rivera Carreño 
+#+EMAIL: carc.sync0@gmail.com
+#+SETUPFILE: "~/Dropbox/typography/beamer.org" 
+#+INCLUDE: "~/Dropbox/typography/typography_layouts.org::*Beamer" :only-contents t
+#+INCLUDE: "~/Dropbox/typography/typography_settings.org::*Spanish" :only-contents the
+#+STARTUP: beamer indent hidestars showall
+
+# # Strange problem regarding quoting of entities. 
+# \makeatletter
+# \let\quote@name\unquote@name
+# \makeatother
+
+* Section title
+** Slide one
+ #+ATTR_LaTeX: :width 0.4\textwidth :float t :placement [H] 
+[[./lorem_ipsum.jpg]]
+
+*** Slide one notes
+ :PROPERTIES:
+ :BEAMER_ENV: note
+ :END:
+Lorem ipsum
+
+** Slide two
+*** Column one
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :BEAMER_env: block
+    :END:
++ Element 1
++ Element 2
++ Element 3
+***  Column two
+    :PROPERTIES:
+    :BEAMER_col: 0.5
+    :BEAMER_env: alertblock
+    :END:
+    #+ATTR_LaTeX: :width 0.8\textwidth :float t :placement [H] 
+    [[./lorem_ipsum.jpg]]

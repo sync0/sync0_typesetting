@@ -1,0 +1,287 @@
+% Load packages
+\usepackage[letterpaper,layout=a5paper,twoside,driver=luatex,left=0.5cm, right=0.5cm, top=1.5cm, bottom=0.5cm,bindingoffset=1cm,nofoot,layouthoffset=\dimexpr(\paperwidth-\csname Gm@layoutwidth\endcsname)/2\relax,layoutvoffset=\dimexpr(\paperheight-\csname Gm@layoutheight\endcsname)/2\relax,showcrop]{geometry}
+\usepackage[singlespacing]{setspace}
+\usepackage{etoolbox}
+\usepackage{titlecaps}
+\usepackage{tabularht}
+\usepackage{pgffor}
+
+% Define counters 
+\newcounter{PlannerNumber}
+\setcounter{PlannerNumber}{1}
+%% \newcounter{WeekNumber}
+%% \setcounter{WeekNumber}{1}
+\newcounter{PlannerOverviewNumber}
+\setcounter{PlannerOverviewNumber}{1}
+
+% Define commands 
+\newcommand{\SquareSpace}{\square\enspace}
+\newcommand{\SquareSpaceTwo}{\square\hspace{.25em}}
+\newcommand{\squareline}{\Repeat{10}{\SquareSpace}}
+\newcommand{\squarelinetwo}{\Repeat{10}{\SquareSpaceTwo}}
+
+%% \newcommand{\NewWeek}{
+%%   \stepcounter{WeekNumber}
+%%   }
+
+\newcommand{\Planner}{
+  \stepcounter{PlannerNumber}
+  }
+
+\newcommand{\PlannerOverview}{
+  \stepcounter{PlannerOverviewNumber}
+  \textsc{projeto}
+  \enspace
+\thePlannerOverviewNumber
+  }
+
+\newcommand{\PlannerOverviewBegin}{
+  \textsc{projeto}
+  \enspace
+  \thePlannerOverviewNumber
+}
+
+\newcommand{\PlannerBegin}{
+  \square
+  \enspace
+  \textsc{projeto}
+  \enspace
+  \thePlannerNumber
+}
+
+\newcommand{\ProgressBar}{
+  \textsc{progr.}
+  \hspace{1em}
+  \squareline
+}
+
+\newcommand{\Repeat}[2]{%
+  \foreach \n in {1,...,#1}{#2}
+}
+
+\newcommand{\PlannerOverviewSection}{%
+\begin{table}[b!]
+\begin{tabularx}{\textwidth}{|ll|l|}
+\hline
+\PlannerOverview & &  \textsc{prioridade} \phantom{mmmmmmmmmm} \\ 
+\cline{3-3}
+ & &  \textsc{estado} \\ \cline{3-3}
+  \multicolumn{2}{|X|}{} &  \textsc{pomodori}  \\ \cline{3-3}
+  \multicolumn{2}{|X|}{} &  \textsc{começo}  \\ \cline{3-3}
+  \multicolumn{2}{|X|}{} &  \textsc{prazo}  \\ \hline
+  \multicolumn{2}{|l|}{\ProgressBar} &  \textsc{final}  \\ 
+\hline
+\end{tabularx}
+\end{table}
+}
+
+\usepackage{arydshln}
+\setlength\dashlinedash{1pt}
+\setlength\dashlinegap{5pt}
+%% \setlength\arrayrulewidth{0.5pt}
+
+% Define macro to create the tables used for planning projects. 
+\newcommand{\PlannerSection}{%
+
+\begin{table}[b!]
+\begin{tabularhtx}{\textheight}{\textwidth}{cXXXX}
+\Xhline{2\arrayrulewidth}\interrowfill
+ & &  & &   \\ \hdashline\interrowfill
+ & &  & &   \\ \Xhline{2\arrayrulewidth}\interrowfill
+ & &  & &   \\ \hdashline\interrowfill
+ & &  & &   \\ \Xhline{2\arrayrulewidth}\interrowfill
+ & &  & &   \\ \hdashline\interrowfill
+ & & & &   \\ \Xhline{2\arrayrulewidth}\interrowfill
+ & & & &   \\ \hdashline\interrowfill
+ & & & &   \\ \Xhline{2\arrayrulewidth}\interrowfill
+ & & & &   \\ \hdashline\interrowfill
+ & & & &   \\ \Xhline{2\arrayrulewidth}\interrowfill
+ & & & &   \\ \hdashline\interrowfill
+ & & & &   \\ \Xhline{2\arrayrulewidth}\interrowfill
+ & & & &   \\ \hdashline\interrowfill
+ & & & &   \\ \Xhline{2\arrayrulewidth}\interrowfill
+ & & & &   \\ \hdashline\interrowfill
+ & & & &   \\ \Xhline{2\arrayrulewidth}\interrowfill
+ & & & &   \\ \hdashline\interrowfill
+ & & & &   \\ \Xhline{2\arrayrulewidth}\interrowfill
+ & & & &   \\ \hdashline\interrowfill
+ & &  & &   \\ \Xhline{2\arrayrulewidth}\interrowfill
+ & &  & &   \\ \hdashline\interrowfill
+ & &  & &   \\ \Xhline{2\arrayrulewidth}
+\end{tabularhtx}
+\end{table}
+}
+
+\newcommand{\PlannerSectionOne}{%
+\begin{table}[b!]
+\begin{tabularx}{\textwidth}{lXl}
+\hline
+\textsc{avaliação} & &   \textsc{desligar}\enspace\square \\ \cline{3-3}
+  & &   \\
+  & &   \\
+  & &   \\
+  & &   \\
+\end{tabularx}
+\end{table}
+
+\begin{table}[b!]
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabularx}{0.99\textwidth}{Y|}
+\hline
+\textsc{tarefas} \\ 
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\ % \hline
+        \end{tabularx}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabularx}{0.99\textwidth}{|Y}
+\hline
+\textsc{ideias} \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\ % \hline
+        \end{tabularx}
+    \end{minipage} 
+\end{table}
+}
+
+% Define macro to create a tikz picture with lines (as in a notebook).
+\newcommand{\WritingLines}{%
+\begin{figure}[b!]
+  \parbox[t][\paperheight]{\paperwidth}{
+    \begin{tikzpicture}[overlay]
+      \foreach \i in {-0.46, -1.16, ..., -19.0}{\draw [gray, thin]
+        (-3cm,\i) -- (16cm,\i);}
+    \end{tikzpicture}}
+\end{figure}
+}
+
+% Define the some macros to have bigger fonts in titles.
+\newcommand\hugetitle{\fontsize{55}{0}\selectfont}
+\newcommand\largetitle{\fontsize{30}{0}\selectfont}
+\newcommand\hugenumber{\fontsize{150}{160}\selectfont}
+\newcommand\largenumber{\fontsize{40}{0}\selectfont}
+\newcommand\hugechapter{\fontsize{50}{60}\selectfont}
+\newcommand\largechapter{\fontsize{25}{30}\selectfont}
+
+
+% Define the '\largechapter macro. 
+%% \renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+% Chage the look of chapter pages using titlesec.
+\usepackage{titlesec}
+\titleformat{\chapter}[display] {\centering}
+{}
+{1em}
+{\hugenumber\phantom{\thechapter}\linebreak 
+\includegraphics[width=\textwidth]{baroque_ornament}
+\scshape\bookchapterfont\hugechapter}
+[]
+
+% Chage the look of chapter pages using titlesec.
+\patchcmd{\chapter}{plain}{empty}{}{}
+\patchcmd{\part}{plain}{empty}{}{}
+
+\usepackage[extramarks]{titleps}
+
+\newmarkset{PlannerNumber}
+
+%% \newmarkset{WeekNumber}
+
+\newcommand\PlannerNumber[1]{%
+\clearpage
+\stepcounter{PlannerNumber}
+ #1
+}
+
+\newpagestyle{main}{
+\sethead[\huge\rmfamily\titlecap{mes}\enspace \underline{\hspace{6cm}}][][\Large\the\year] % even
+{}{}{\LARGE\thepage}} % odd
+
+
+%% \newpagestyle{planner}{
+%% \sethead[\huge\rmfamily Projeto \enspace\thePlannerNumber][][\Large\the\year] % even
+%% {}{}{\LARGE\thepage}} % odd
+
+\newpagestyle{planner}{
+\sethead[\huge\rmfamily Semana \underline{\hspace{1cm}} \enspace\itshape\LARGE Dia \thePlannerNumber][][] % even
+{\huge\rmfamily Data \underline{\hspace{4cm}}}{}{\LARGE\thepage}} % odd
+
+%% \newpagestyle{planner}{
+%% \sethead[\huge\rmfamily Semana \underline{\hspace{1cm}} \enspace\itshape\LARGE Dia \thePlannerNumber][][\Large\upshape\the\year] % even
+%% {\huge\rmfamily Data \underline{\hspace{4cm}}}{}{\LARGE\thepage}} % odd
+
+% Set planner as the default page style. 
+\pagestyle{planner}
+
+% \newcommand{\rulew}{.15em}
+% \newcommand{\lendt}{\cmidrule[\rulew](l){1-2}\cmidrule[\rulew](l){3-4}\cmidrule[\rulew](l){5-6}}
+
+% \newcommand{\circleline}{\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ\thinspace\circ}
+
+% \newcommand{\squareline}{\square\enspace\square\enspace\square\enspace\square\enspace\square\enspace\square\enspace\square\enspace\square\enspace\square\enspace\square}
+
+% Don't number parts, chapter, sections, and subsections.
+\setcounter{secnumdepth}{0}

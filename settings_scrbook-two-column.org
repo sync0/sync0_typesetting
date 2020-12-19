@@ -1,0 +1,9 @@
+#+OPTIONS: \n:nil |:t ^:t f:t *:t ':t pro:nil timestamp:nil toc:t H:5 title:t
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil
+# Use KOMA script classes instead of LaTeX defaults
+#+LANGUAGE: fr
+#+LATEX_CLASS: sync0book
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=A4,portrait,twoside=true,twocolumn=true,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,headings=twolinechapter,parskip=false,numbers=noendperiod,toc=bibliography,toc=indentunnumbered]
+#+LATEX_HEADER: \input{/home/sync0/Documents/typography/languages/french.tex}
+#+LATEX_HEADER: \input{/home/sync0/Documents/typography/biblatex/verbose.tex}
+#+LATEX_HEADER: \input{/home/sync0/Documents/typography/layouts/booklet_two_column.tex}

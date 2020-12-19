@@ -1,0 +1,110 @@
+\usepackage[singlespacing]{setspace}
+
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\automark[chapter]{part}
+\makeatletter\cehead{\@title}\makeatother
+\cohead{\headmark}
+\ohead{\pagemark}
+
+% Define the '\hugechapter' macro. 
+\newcommand\hugechapter{\fontsize{30}{35}\selectfont}
+
+\renewcommand{\raggedchapter}{\centering}
+%\renewcommand*\thechapter{\lowercase\scshape\Roman{chapter}}
+
+% Use roman instead of arabic numbers in chapter headings numbering.
+\renewcommand*\thechapter{\MakeLowercase{\scshape\Roman{chapter}}}
+
+\renewcommand*{\chapterformat}{%
+  \mbox{\LARGE\scshape\MakeLowercase{\chapappifchapterprefix{\nobreakspace}}\thechapter
+    \IfUsePrefixLine{}{\enskip}}}
+
+  % Remove the Chapter part of chapter headings, but leaves the
+  % number intact
+  % \mbox{\chapappifchapterprefix{\nobreakspace}\thechapter
+  % \mbox{\LARGE\scshape\lowercase\chapappifchapterprefix{\nobreakspace}\thechapter
+% \renewcommand*\chapterformat{}
+% \renewcommand*\chaptermarkformat{}
+% \renewcommand*{\chaptermarkformat}{%
+% \chapappifchapterprefix{\sffamily\lowercase\scshape\ }\thechapter\autodot\enskip}
+
+\RedeclareSectionCommand[afterskip=4\baselineskip]{chapter}
+
+\setkomafont{sectioning}{\mdseries}
+\setkomafont{chapter}{\hugechapter}
+\setkomafont{section}{\Large\scshape\lowercase}
+\setkomafont{subsection}{\Large}
+\setkomafont{subsubsection}{\Large\itshape}
+\setkomafont{pagehead}{\large\mdseries\itshape}
+\setkomafont{pagenumber}{\LARGE\upshape}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\mdseries\scshape\lowercase}
+\setkomafont{labelinglabel}{\normalsize\itshape}
+\setkomafont{title}{\Huge}
+\setkomafont{subtitle}{\LARGE}
+\setkomafont{author}{\LARGE}
+\setkomafont{subject}{\Large\scshape}
+\setkomafont{titlehead}{\large}
+\setkomafont{publishers}{\large\itshape}
+\setkomafont{date}{\normalsize}
+\setkomafont{dedication}{\itshape}
+\addtokomafont{chapterentry}{\large\mdseries}
+\setkomafont{chapterentrypagenumber}{\normalsize}
+\setkomafont{minisec}{\usekomafont{subsection}}
+\setkomafont{dictumauthor}{\normalsize\upshape}
+\setkomafont{dictum}{\normalsize\itshape}
+
+\renewcommand*{\dictumwidth}{.8\textwidth}
+\renewcommand*{\dictumauthorformat}[1]{#1}
+\renewcommand*{\dictumrule}{\vskip 2ex\par}
+
+% Settings for the table of contents (Table Of Contents).
+%% Set space between entry and page number. 
+\newcommand\tocpageseparator{\hspace{2ex}}
+%% Define the mbox used to output the page number.
+\newcommand\tocpagenumberbox[1]{\mbox{#1}}% <- added
+
+% Using \chapapp instead of \chaptername will use the number only,
+% instead of the Chapter word.
+\newcommand\tocchapternumber[1]{\mdseries\scshape\MakeLowercase{\chapapp}~#1\hspace{1ex}}
+% \newcommand*{\tocchapternumber}[1]{\mdseries\scshape\MakeLowercase{\chaptername}~#1\hspace{1ex}}
+
+\RedeclareSectionCommands[
+% Add a line break after the ''Chapter'' heading. 
+  % tocbreakafternumber,
+% Change the  format of the chapter number.
+  % tocentrynumberformat=\tocchapternumber, 
+% Avoid overfull \hbox message
+  tocdynnumwidth,
+  tocraggedpagenumber,
+  toclinefill=\tocpageseparator,
+  tocindent=0em,
+  tocpagenumberbox=\tocpagenumberbox
+]{chapter}
+
+\RedeclareSectionCommands[
+  tocraggedpagenumber,
+ tocbeforeskip=0.1em,
+  toclinefill=\tocpageseparator,
+  tocindent=1em,
+  % tocnumwidth=2em,
+  tocpagenumberbox=\tocpagenumberbox% <- added
+]{section}
+
+% Necessary patch to output unnumbered entries correctly in the
+% table of contents.  Otherwise, the indent is off. 
+\xpatchcmd{\addchaptertocentry}
+  {\addtocentrydefault{chapter}{#1}{#2}}
+  {\IfArgIsEmpty{#1}
+    {\addtocentrydefault{chapter}{}{#2}}
+    {\addtocentrydefault{chapter}{\protect\tocchapternumber{#1}}{#2}}%
+  }{}{\PatchFailed}
+
+% Remove sectioning numbers for parts, chapters, sections, etc. 
+\setcounter{secnumdepth}{0}
+% Do not include levels below sections in the table of contents.
+\setcounter{tocdepth}{1}
+% Set column separation for multi-column layouts. 
+\setlength{\columnsep}{1cm}

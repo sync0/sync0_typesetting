@@ -1,0 +1,223 @@
+% Load packages
+\usepackage[letterpaper,layout=b5paper,twoside,driver=luatex,left=0.5cm, right=0.5cm, top=1.5cm, bottom=0.5cm,bindingoffset=1cm,nofoot,layouthoffset=\dimexpr(\paperwidth-\csname Gm@layoutwidth\endcsname)/2\relax,layoutvoffset=\dimexpr(\paperheight-\csname Gm@layoutheight\endcsname)/2\relax,showcrop]{geometry}
+\usepackage[singlespacing]{setspace}
+\usepackage{etoolbox}
+\usepackage{titlecaps}
+\usepackage{tabularht}
+\usepackage{pgffor}
+
+% Define counters 
+\newcounter{PlannerNumber}
+\setcounter{PlannerNumber}{1}
+\newcounter{PlannerOverviewNumber}
+\setcounter{PlannerOverviewNumber}{1}
+
+% Define commands 
+\newcommand{\SquareSpace}{\square\enspace}
+\newcommand{\SquareSpaceTwo}{\square\hspace{.25em}}
+\newcommand{\squareline}{\Repeat{10}{\SquareSpace}}
+\newcommand{\squarelinetwo}{\Repeat{10}{\SquareSpaceTwo}}
+
+\newcommand{\Planner}{
+  \stepcounter{PlannerNumber}
+  }
+
+\newcommand{\PlannerOverview}{
+  \stepcounter{PlannerOverviewNumber}
+  \textsc{projeto}
+  \enspace
+\thePlannerOverviewNumber
+  }
+
+\newcommand{\PlannerOverviewBegin}{
+  \textsc{projeto}
+  \enspace
+  \thePlannerOverviewNumber
+}
+
+\newcommand{\PlannerBegin}{
+  \square
+  \enspace
+  \textsc{projeto}
+  \enspace
+  \thePlannerNumber
+}
+
+\newcommand{\ProgressBar}{
+  \textsc{progresso}
+  \hspace{1em}
+  \squareline
+}
+
+\newcommand{\Repeat}[2]{%
+  \foreach \n in {1,...,#1}{#2}
+}
+
+\newcommand{\PlannerOverviewSection}{%
+\begin{table}[b!]
+\begin{tabularx}{\textwidth}{|ll|l|}
+\hline
+\PlannerOverview & &  \textsc{prioridade} \phantom{mmmmmmmmmm} \\ 
+\cline{3-3}
+ & &  \textsc{estado} \\ \cline{3-3}
+  \multicolumn{2}{|X|}{} &  \textsc{pomodori}  \\ \cline{3-3}
+  \multicolumn{2}{|X|}{} &  \textsc{começo}  \\ \cline{3-3}
+  \multicolumn{2}{|X|}{} &  \textsc{prazo}  \\ \hline
+  \multicolumn{2}{|l|}{\ProgressBar} &  \textsc{final}  \\ 
+\hline
+\end{tabularx}
+\end{table}
+}
+
+% Define macro to create the tables used for planning projects. 
+\newcommand{\PlannerSection}{%
+\begin{table}[b!]
+\begin{tabularx}{\textwidth}{|lX|l|}
+\hline
+\textsc{descrição} & &   \textsc{prioridade} \phantom{mmmmmmmmmm} \\ \cline{3-3}
+& &  \textsc{estado} \\ \cline{3-3}
+ & &  \textsc{pomodori} \\ \cline{3-3}
+ & &  \textsc{começo} \\ \cline{3-3}
+ & &  \textsc{prazo} \\
+ \hline
+\multicolumn{2}{|l|}{\ProgressBar} &  \textsc{final} \\
+\hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[b!]
+\begin{tabularx}{\textwidth}{|c|c|Y|c|c|c|}
+\hline
+&  \textsc{p} & \textsc{tarefas}   & \textsc{e} & \textsc{final} & \textsc{prazo} \\ \hline
+1 & &  &   & &   \\ \hline
+2 & &  &   & &  \\ \hline
+3 & &  &   & &  \\ \hline
+4 & &  &   & &  \\ \hline
+5 & &  &   & &  \\ \hline
+6 &  & &   & &  \\ \hline
+7 &  & &   & &  \\ \hline
+8 &  & &   & &  \\ \hline
+9 &  & &   & &  \\ \hline
+10 &   & &  & &  \\ \hline
+11 &    & &  & &  \\ \hline
+12 &   & &  & &  \\ \hline
+13 &   &  & & &  \\ \hline
+14 & &   &  & &  \\ \hline
+15 & &   &  & &  \\ \hline
+16 & &   &  & &  \\ \hline
+17  & &  &  & &  \\ \hline
+18 & &  &  &  & \\ \hline
+19 & &  &  & &  \\ \hline
+20 & &  &  & &  \\ \hline
+21 & &  &  & &  \\ \hline
+22 & &  &  & &  \\ \hline
+23 & &  &  & &  \\ \hline
+24 & &  &  & &  \\ \hline
+25 & &  &  & &  \\ \hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[b!]
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabularx}{0.99\textwidth}{|Y|}
+\hline
+\textsc{avaliação} \\ 
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\ \hline
+        \end{tabularx}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+      \centering
+        \begin{tabularx}{0.99\textwidth}{|Y|}
+\hline
+\textsc{ideias} \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\
+ \\ \hline
+        \end{tabularx}
+    \end{minipage} 
+\end{table}
+}
+
+% Define macro to create a tikz picture with lines (as in a notebook).
+\newcommand{\WritingLines}{%
+\begin{figure}[b!]
+  \parbox[t][\paperheight]{\paperwidth}{
+    \begin{tikzpicture}[overlay]
+      \foreach \i in {-0.31, -0.91, ..., -23.5}{\draw [gray, thin]
+        (-3cm,\i) -- (17cm,\i);}
+    \end{tikzpicture}}
+\end{figure}
+}
+
+% Define the some macros to have bigger fonts in titles.
+\newcommand\hugetitle{\fontsize{55}{0}\selectfont}
+\newcommand\largetitle{\fontsize{30}{0}\selectfont}
+\newcommand\hugenumber{\fontsize{150}{160}\selectfont}
+\newcommand\largenumber{\fontsize{40}{0}\selectfont}
+\newcommand\hugechapter{\fontsize{70}{80}\selectfont}
+\newcommand\largechapter{\fontsize{25}{30}\selectfont}
+
+
+% Define the '\largechapter macro. 
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+% Chage the look of chapter pages using titlesec.
+\usepackage{titlesec}
+\titleformat{\chapter}[display] {\centering}
+{}
+{1em}
+{\hugenumber\thechapter\linebreak 
+\includegraphics[width=0.9\textwidth]{swirls_ornament}
+\mychapterfamily\hugechapter}
+[]
+
+% Chage the look of chapter pages using titlesec.
+\patchcmd{\chapter}{plain}{empty}{}{}
+\patchcmd{\part}{plain}{empty}{}{}
+
+\usepackage[extramarks]{titleps}
+
+\newmarkset{PlannerNumber}
+
+\newcommand\PlannerNumber[1]{%
+\clearpage
+\stepcounter{PlannerNumber}
+ #1
+}
+
+\newpagestyle{main}{
+\sethead[\huge\rmfamily\titlecap{\chaptertitle}\enspace\thechapter][][\Large\the\year] % even
+{}{}{\LARGE\thepage}} % odd
+
+\newpagestyle{planner}{
+\sethead[\huge\rmfamily Projeto \enspace\thePlannerNumber][][\Large\the\year] % even
+{}{}{\LARGE\thepage}} % odd
+
+% Set planner as the default page style. 
+\pagestyle{planner}
+
+% Don't number parts, chapter, sections, and subsections.
+\setcounter{secnumdepth}{0}

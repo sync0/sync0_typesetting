@@ -1,0 +1,11 @@
+#+OPTIONS: \n:nil |:t ^:nil f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil 
+#+LANGUAGE: es
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=a4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=calc,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,captions=tablesignature,captions=figuresignature,numbers=endperiod,headsepline=false,parskip=false]
+#+LATEX_HEADER: \input{/home/sync0/Documents/typography/languages/spanish.tex}
+#+LATEX_HEADER: \input{/home/sync0/Documents/typography/biblatex/verbose.tex}
+#+LATEX_HEADER: \input{/home/sync0/Documents/typography/layouts/article.tex}
+#+LATEX_HEADER: \setcounter{secnumdepth}{4}
+

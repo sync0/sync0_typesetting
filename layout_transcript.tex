@@ -1,0 +1,50 @@
+% Created 2020-07-07 mar. 17:58
+% Intended LaTeX compiler: lualatex
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[singlespacing]{setspace}
+\usepackage[backend=biber,bibstyle=authoryear,citestyle=authoryear-icomp,autocite=inline,hyperref=auto,doi=false,isbn=false,url=false]{biblatex}
+\addbibresource{~/Dropbox/notes/bibliography.bib}
+\urlstyle{sf}
+\renewcommand{\subtitlepunct}{\addcolon\addspace}
+\DeclareDataInheritance{collection}{incollection}{\noinherit{origdate}}
+\DeclareFieldFormat{origdate}{\mkbibbrackets{#1}}
+\renewbibmacro*{cite:labeldate+extradate}{\iffieldundef{origyear}{}{\printorigdate\setunit{\addspace}}\iffieldundef{labelyear}{}{\printtext[bibhyperref]{\printlabeldateextra}}}
+\DeclareCiteCommand{\citeorigyear}{\boolfalse{citetracker}\boolfalse{pagetracker}\usebibmacro{prenote}}{\printfield{origyear}}{\multicitedelim}{\usebibmacro{postnote}}
+\renewbibmacro*{date+extradate}{\iffieldundef{origyear}{}{\printorigdate\setunit{\addspace}}\iffieldundef{labelyear}{}{\printtext[parens]{\iflabeldateisdate{\printdateextra}{\printlabeldateextra}}}}
+\SetCiteCommand{\parencite}
+\renewcommand{\mkccitation}[1]{ #1}
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\automark[section]{section}
+\ihead{University Paris 1 Panthéon-Sorbonne}
+\ohead{Academic Year 2017/2018 \\ Page: \pagemark/2}
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{1}
+\author{Carlos Alberto Rivera Carreño}
+\date{\today}
+\title{transcript}
+\hypersetup{
+ pdfauthor={Carlos Alberto Rivera Carreño},
+ pdftitle={transcript},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.3 (Org mode 9.3.7)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\end{document}

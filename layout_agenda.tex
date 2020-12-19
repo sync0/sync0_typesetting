@@ -1,0 +1,250 @@
+% Load required packages.
+% \usepackage[letterpaper,layout=a5paper,twoside,driver=luatex,left=0.5cm, right=0.5cm, top=1.5cm, bottom=0.5cm,bindingoffset=1cm,nofoot,layouthoffset=\dimexpr(\paperwidth-\csname Gm@layoutwidth\endcsname)/2\relax,layoutvoffset=\dimexpr(\paperheight-\csname Gm@layoutheight\endcsname)/2\relax,showcrop]{geometry}
+\usepackage[singlespacing]{setspace}
+\usepackage{etoolbox}
+\usepackage{titlecaps}
+\usepackage{tabularht}
+\usepackage{advdate}
+\usepackage{pgffor}
+
+% Set date counters.
+\newcounter{DayAddCalendar}[chapter]
+\setcounter{DayAddCalendar}{0}
+\newcounter{DayAddCalendarPage}[chapter]
+\setcounter{DayAddCalendarPage}{0}
+\newcounter{DayAddPlanner}[chapter]
+\setcounter{DayAddPlanner}{0}
+\newcounter{PlannerSavedYear}
+\setcounter{PlannerSavedYear}{0}
+\newcounter{PlannerSavedDay}
+\setcounter{PlannerSavedDay}{0}
+\newcounter{PlannerSavedMonth}
+\setcounter{PlannerSavedMonth}{0}
+\newcounter{PlannerWeek}
+\setcounter{PlannerWeek}{1}
+
+% See https://tex.stackexchange.com/questions/325133/advdate-in-tables-does-not-advance-date-correctly
+
+% Define commands. 
+\newcommand{\Repeat}[2]{%
+  \foreach \n in {1,...,#1}{#2}
+}
+
+%% Define macro to advance #1 number or dates. 
+\newcommand{\DayAdder}[1]{\AdvanceDate[#1]}
+\newcommand{\PlannerRetrieveDate}{
+  \ThisDay{\value{PlannerSavedDay}}
+  \ThisMonth{\value{PlannerSavedMonth}}
+  \ThisYear{\value{PlannerSavedYear}}
+}
+%% Define macro to save the last  date used in the weekly planner.  
+ \newcommand{\PlannerSaveDate}{
+  \setcounter{PlannerSavedDay}{\day}
+  \setcounter{PlannerSavedMonth}{\month}
+  \setcounter{PlannerSavedYear}{\year}
+}
+\newcommand{\CalendarBeginDay}{\the\day}
+\newcommand{\CalendarOneMoreDay}{\stepcounter{DayAddCalendar}\DayAdder{\value{DayAddCalendar}}\the\day}
+\newcommand{\CalendarOneMoreDayTwo}{\setcounter{DayAddCalendar}{1}\DayAdder{\value{DayAddCalendar}}\the\day}
+\newcommand{\CalendarOneMoreDayLine}{\addtocounter{DayAddCalendar}{4}\DayAdder{\value{DayAddCalendar}}\the\day}
+\newcommand{\CalendarOneMoreDayLineTwo}{\addtocounter{DayAddCalendar}{5}\DayAdder{\value{DayAddCalendar}}\the\day}
+\newcommand{\CalendarLastDay}{\stepcounter{DayAddCalendar}\DayAdder{\value{DayAddCalendar}}\the\day\SaveDate}
+\newcommand{\PlannerBeginDay}{\the\day}
+\newcommand{\PlannerOneMoreDay}{\stepcounter{DayAddPlanner}\DayAdder{\value{DayAddPlanner}}\the\day}
+\newcommand{\PlannerLastDay}{\stepcounter{DayAddPlanner}\DayAdder{\value{DayAddPlanner}}\the\day\PlannerSaveDate}
+
+% \newcommand{\PlannerOneMoreWeek}{\refstepcounter{PlannerWeek}\label{mylabel}}
+
+% Redefine \SaveDate macro to make it global. Otherwise, it would
+% not work correctly when used in table cells.
+ \makeatletter
+\renewcommand\SaveDate[1][\s@v@dT@d@y]{\global%
+  \expandafter \expandafter \expandafter \expandafter
+  \expandafter \expandafter \expandafter \edef
+  \expandafter \expandafter \expandafter \expandafter
+  \expandafter \expandafter \expandafter #1\expandafter
+  \expandafter \expandafter \expandafter
+  \expandafter \expandafter \expandafter
+  {\expandafter \expandafter \expandafter \number
+    \expandafter \expandafter \expandafter \day
+    \expandafter \expandafter \expandafter /\expandafter \number
+    \expandafter \month \expandafter /\number \year}}
+ \makeatother
+
+\newcommand{\TaskLine}{\square\enspace\dotfill}
+
+\newcommand{\WritingLines}{%
+\begin{figure}[b!]
+  \parbox[t][\paperheight]{\paperwidth}{
+    \begin{tikzpicture}[overlay]
+      \foreach \i in {-0.41, -1.01, ..., -19.5}{\draw [gray, thin]
+        (-3cm,\i) -- (16cm,\i);}
+    \end{tikzpicture}}
+\end{figure}
+}
+
+\newcommand{\PlannerWeekChart}{
+\begin{table}[b!]
+\begin{tabularhtx}{\textheight}{\textwidth}{XX|XX}
+\hline
+\multicolumn{2}{l}{\textsc{segunda}} &   \multicolumn{2}{l}{} \\
+\multicolumn{2}{l}{\PlannerOneMoreDay} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\interrowfill
+\hline
+\multicolumn{2}{l}{\textsc{terça}} &   \multicolumn{2}{l}{} \\
+\multicolumn{2}{l}{\PlannerOneMoreDay} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\interrowfill
+\hline
+\multicolumn{2}{l}{\textsc{quarta}} &   \multicolumn{2}{l}{} \\
+\multicolumn{2}{l}{\PlannerOneMoreDay} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\interrowfill
+\hline
+\multicolumn{2}{l}{\textsc{quinta}} &   \multicolumn{2}{l}{} \\
+\multicolumn{2}{l}{\PlannerOneMoreDay} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\interrowfill
+\hline
+\multicolumn{2}{l}{\textsc{sexta}} &   \multicolumn{2}{l}{} \\
+\multicolumn{2}{l}{\PlannerOneMoreDay} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\interrowfill
+\hline
+  \textsc{sábado} &   & \textsc{domingo}  &  \\
+\PlannerOneMoreDay &   \TaskLine & \PlannerOneMoreDay & \TaskLine  \\
+   & \TaskLine   &  & \TaskLine \\
+   & \TaskLine   &  & \TaskLine \\
+   & \TaskLine   &  & \TaskLine \\
+   & \TaskLine   &  & \TaskLine \\
+\interrowfill
+\hline
+\end{tabularhtx}
+\end{table}
+}
+
+\newcommand{\PlannerWeekChartEnd}{
+\begin{table}[b!]
+\begin{tabularhtx}{\textheight}{\textwidth}{XX|XX}
+\hline
+\multicolumn{2}{l}{\textsc{segunda}} &   \multicolumn{2}{l}{} \\
+\multicolumn{2}{l}{\PlannerOneMoreDay} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\interrowfill
+\hline
+\multicolumn{2}{l}{\textsc{terça}} &   \multicolumn{2}{l}{} \\
+\multicolumn{2}{l}{\PlannerOneMoreDay} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\interrowfill
+\hline
+\multicolumn{2}{l}{\textsc{quarta}} &   \multicolumn{2}{l}{} \\
+\multicolumn{2}{l}{\PlannerOneMoreDay} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\interrowfill
+\hline
+\multicolumn{2}{l}{\textsc{quinta}} &   \multicolumn{2}{l}{} \\
+\multicolumn{2}{l}{\PlannerOneMoreDay} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\interrowfill
+\hline
+\multicolumn{2}{l}{\textsc{sexta}} &   \multicolumn{2}{l}{} \\
+\multicolumn{2}{l}{\PlannerOneMoreDay} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\multicolumn{2}{l}{} &   \multicolumn{2}{l}{\TaskLine}  \\
+\interrowfill
+\hline
+  \textsc{sábado} &   & \textsc{domingo} &  \\
+\PlannerOneMoreDay &   \TaskLine & \PlannerLastDay & \TaskLine  \\
+   & \TaskLine   &  & \TaskLine \\
+   & \TaskLine   &  & \TaskLine \\
+   & \TaskLine   &  & \TaskLine \\
+   & \TaskLine   &  & \TaskLine \\
+\interrowfill
+\hline
+\end{tabularhtx}
+\end{table}
+}
+
+\newcommand{\RomanNumeralCaps}[1]
+    {\textsc{\romannumeral #1}}
+
+% Define the some macros to have bigger fonts in titles.
+\newcommand\hugetitle{\fontsize{55}{0}\selectfont}
+\newcommand\largetitle{\fontsize{30}{0}\selectfont}
+\newcommand\hugechapter{\fontsize{70}{80}\selectfont}
+\newcommand\largechapter{\fontsize{25}{30}\selectfont}
+\newcommand\hugenumber{\fontsize{150}{160}\selectfont}
+\newcommand\largenumber{\fontsize{40}{0}\selectfont}
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\patchcmd{\chapter}{plain}{empty}{}{}
+\patchcmd{\part}{plain}{empty}{}{}
+
+\usepackage{titlesec}
+\titleformat{\chapter}[display] {\centering}
+{}
+{1em}
+{\hugenumber\thechapter\linebreak 
+\includegraphics[width=0.9\textwidth]{swirls_ornament}
+\mychapterfamily\hugechapter}
+[]
+
+\usepackage[extramarks]{titleps}
+
+\newmarkset{PlannerWeek}
+
+\newcommand\PlannerWeek[1]{%
+\clearpage
+\stepcounter{PlannerWeek}
+ #1}
+
+\newpagestyle{planner}{
+\sethead[\huge\rmfamily\titlecap{\chaptertitle}][][\Large\scshape semana\enspace\thePlannerWeek] % even
+{}{}{\LARGE\thepage}} % odd
+
+\newpagestyle{calendar}{
+\sethead[\huge\rmfamily\titlecap{\chaptertitle}][][\Large\the\year] % even
+{}{}{\LARGE\thepage}} % odd
+
+\newpagestyle{overview}{
+\sethead[\huge\rmfamily\titlecap{\chaptertitle}][][\Large \textsc{síntese mensal}] % even
+{}{}{\LARGE\thepage}} % odd
+
+% Set planner as the default page style
+\pagestyle{planner}
+
+% \newcommand{\rulew}{.15em}
+% \newcommand{\lendt}{\cmidrule[\rulew](l){1-2}\cmidrule[\rulew](l){3-4}\cmidrule[\rulew](l){5-6}}
+
+\setcounter{secnumdepth}{0}

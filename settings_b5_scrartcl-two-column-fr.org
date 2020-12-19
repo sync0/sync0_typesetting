@@ -1,0 +1,13 @@
+#+OPTIONS: \n:nil |:t ^:nil f:t *:t ':t pro:nil timestamp:nil toc:nil H:5 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil d:nil date:nil
+#+LANGUAGE: fr
+# Use KOMA script classes instead of LaTeX defaults
+#+LATEX_CLASS: scrartcl
+#+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=b5,portrait,twoside=true,twocolumn=true,headinclude=false,footinclude=false,mpinclude=false,fontsize=11,BCOR=00mm,DIV=calc,titlepage=false,abstract=false,mpinclude=false,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,parskip=false]
+#+LATEX_HEADER: \input{/home/sync0/Documents/typography/languages/french.tex}
+#+LATEX_HEADER: \input{/home/sync0/Documents/typography/biblatex/verbose.tex}
+#+LATEX_HEADER: \input{/home/sync0/Documents/typography/layouts/b5_article_two_column.tex}
+#+LATEX_HEADER:\usepackage[a4,luatex,center,cam]{crop}
+#+LATEX_HEADER: \setcounter{secnumdepth}{0}
+# French typography rules according to the Imprimerie Nationale. 
+# #+LATEX_HEADER: \usepackage[hyphenation,parindent,lastparline,nosingleletter,homeoarchy,rivers,frenchchapters]{impnattypo}
