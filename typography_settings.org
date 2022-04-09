@@ -59,7 +59,7 @@ because GitHub interprets them as code comments.
 # Set 'authoryear' style.
 #+LATEX_HEADER: \usepackage[backend=biber,bibstyle=authoryear,citestyle=authoryear-icomp,autocite=inline,hyperref=auto,doi=false,isbn=false,url=false]{biblatex}
 # Set bibliography file. 
-#+LATEX_HEADER: \addbibresource{~/Dropbox/notes/bibliography.bib}
+#+LATEX_HEADER: \addbibresource{~/Gdrive/bibliographies/bibliography.bib}
 # Set url typesetting font. 
 # #+LATEX_HEADER: \urlstyle{same}
 #+LATEX_HEADER: \urlstyle{sf}
@@ -80,7 +80,7 @@ because GitHub interprets them as code comments.
 # Set 'authoryear' style.
 #+LATEX_HEADER:\usepackage[backend=biber,bibstyle=authoryear,citestyle=authoryear-icomp,doi=false,isbn=false,url=false]{biblatex}
 # Set bibliography file. 
-#+LATEX_HEADER:\addbibresource{~/Dropbox/notes/bibliography.bib}
+#+LATEX_HEADER:\addbibresource{~/Gdrive/bibliographies/bibliography.bib}
 #  Csquotes
 # Specify a replacement for \cite to handle citations.
 #+LATEX_HEADER: \SetCiteCommand{\autocite}
@@ -91,7 +91,7 @@ because GitHub interprets them as code comments.
 # Deal with anonymous works (useful in History and Philology).
 #+LATEX_HEADER: \usepackage{biblatex-anonymous}
 # Set bibliography file. 
-#+LATEX_HEADER: \addbibresource{~/Dropbox/notes/bibliography.bib}
+#+LATEX_HEADER: \addbibresource{~/Gdrive/bibliographies/bibliography.bib}
 # Set url typesetting font. 
 # #+LATEX_HEADER: \urlstyle{same}
 #+LATEX_HEADER: \urlstyle{sf}
@@ -107,7 +107,7 @@ because GitHub interprets them as code comments.
  # Configure bibliography management with biblatex. 
 #+LATEX_HEADER:\usepackage[backend=biber,bibstyle=reading,annotation=false,library=false,file=false,entryhead=full,entrykey=false,eprint=false,doi=false,isbn=false,url=false]{biblatex}
 # Set bibliography file. 
-#+LATEX_HEADER:\addbibresource{~/Dropbox/notes/bibliography.bib}
+#+LATEX_HEADER:\addbibresource{~/Gdrive/bibliographies/bibliography.bib}
 # Set url typesetting font. 
 #+LATEX_HEADER:\urlstyle{sf}
 # Replace colon for dot as separator between title and subtitle. 
@@ -121,7 +121,7 @@ because GitHub interprets them as code comments.
  # Configure bibliography management with biblatex. 
 #+LATEX_HEADER:\usepackage[backend=biber,bibstyle=draft,eprint=false,doi=false,isbn=false,url=false]{biblatex}
 # Set bibliography file. 
-#+LATEX_HEADER:\addbibresource{~/Dropbox/notes/bibliography.bib}
+#+LATEX_HEADER:\addbibresource{~/Gdrive/bibliographies/bibliography.bib}
 # Set url typesetting font. 
 #+LATEX_HEADER:\urlstyle{sf}
 # Replace colon for dot as separator between title and subtitle. 
@@ -134,7 +134,7 @@ because GitHub interprets them as code comments.
  # Configure bibliography management with biblatex. 
 #+LATEX_HEADER:\usepackage[backend=biber,bibstyle=numeric,defernumbers=true,eprint=false,doi=false,isbn=false,url=false]{biblatex}
 # Set bibliography file. 
-#+LATEX_HEADER:\addbibresource{~/Dropbox/notes/bibliography.bib}
+#+LATEX_HEADER:\addbibresource{~/Gdrive/bibliographies/bibliography.bib}
 # Set url typesetting font. 
 #+LATEX_HEADER:\urlstyle{sf}
 # Replace colon for dot as separator between title and subtitle. 

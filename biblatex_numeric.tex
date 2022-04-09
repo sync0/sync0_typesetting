@@ -1,0 +1,39 @@
+\usepackage[backend = biber,
+style = numeric,
+datamodel = xset,
+%% sorting = nyt,
+subentry = true,
+subentrycomp = true,
+hyperref = auto,
+sort = none,
+%% dashed = true,
+%% defernumbers = true,
+abbreviate = true,
+backref = true,
+sortsets = true,
+sortcites = true,
+doi = false,
+language = autobib,
+isbn = true,
+autolang = hyphen,
+url = true]{biblatex}
+
+% Deal with anonymous works (useful in History and Philology).
+\usepackage{biblatex-anonymous}
+
+% Set bibliography file. 
+\addbibresource{~/Gdrive/bibliographies/bibliography.bib}
+
+% Set url typesetting font. 
+\urlstyle{sf}
+
+% Replace colon for dot as separator between title and subtitle. 
+%% \renewcommand{\subtitlepunct}{\addcolon\addspace}
+
+% Print 'origdate' field for 'verbose' style bibliographies.
+%% \renewbibmacro*{date}{\printdate\iffieldundef{origyear}{}{\setunit*{\addspace}\printtext[parens]{\printorigdate}}}
+
+%  Csquotes
+%% Specify a replacement for \cite to handle citations.
+%% \SetCiteCommand{\footcite}
+%% \renewcommand{\mkccitation}[1]{#1}

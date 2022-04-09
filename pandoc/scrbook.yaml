@@ -1,0 +1,98 @@
+# KOMAScript options
+documentclass: scrbook
+classoption:
+ - draft=false
+ - paper=a4
+ - portrait
+ - twoside=true
+ - twocolumn=false
+ - headinclude=false
+ - footinclude=false
+ - fontsize=12pt
+ - BCOR=20mm
+ - DIV=calc
+ - pagesize=auto
+ - titlepage=false
+ - abstract=false
+ - mpinclude=false
+ - captions=tablesignature
+ - chapterprefix=false
+ - captions=figuresignature
+ - numbers=autoendperiod
+ - headsepline=false
+ - parskip=false
+ - toc=bibliography
+ - toc=indentunnumbered
+ # - bibliography=openstyle
+ # - bibliography=standardlevel
+ # - index=totoc
+## Marginalia
+# scrlayer-notecolumn: true
+# notecolumnfontsize: '\footnotesize'
+# Fonts (fontspec)
+fontspec: true
+mainfont: 'Palatino LT Std'
+mainfontoptions:
+  - Numbers=OldStyle
+  - Ligatures=TeX
+  - UprightFont = 'Palatino LT Std Roman'
+  - BoldFont = 'Palatino LT Std Bold'
+  - ItalicFont = 'Palatino LT Std Italic'
+  - BoldItalicFont = 'Palatino LT Std Bold Italic'
+  # - Scale=MatchLowercase
+sansfont: 'Gill Sans MT Pro'
+sansfontoptions:
+  - Ligatures=TeX
+  - LetterSpace=2
+  - Numbers=Lowercase
+  - Scale=MatchLowercase
+  - UprightFont = 'ScalaSansPro Regular'
+  - BoldFont = 'ScalaSansPro Bold'
+  - ItalicFont = 'ScalaSansPro Italic'
+  - BoldItalicFont = 'ScalaSansPro BoldItalic'
+  - SmallCapsFont = 'ScalaSans Caps'
+  # - Numbers=OldStyle
+  # - UprightFont = 'Gill Sans MT Pro Medium'
+  # - BoldFont = 'Gill Sans MT Pro Bold'
+  # - ItalicFont = 'Gill Sans MT Pro Medium Italic'
+  # - BoldItalicFont = 'Gill Sans MT Pro Bold Italic'
+monofont: 'Consolas'
+monofontoptions:
+  - Scale=MatchLowercase
+# Typographic options
+microtypeoptions:
+ - protrusion
+ - expansion
+ - tracking
+nowidow: true
+nowidowoptions:
+  - all
+## Draft options
+# draftwatermark: true
+# draftwatermarkoptions:
+#   - firstpage
+#   - nostamp
+#   - titlepage
+# Links (hyperref)
+hyperref: true
+hyperrefoptions:
+  - colorlinks
+  - urlcolor=black
+  - linkcolor=black
+  - citecolor=black
+  - filecolor=black
+# listings: true
+# lot: true
+lof: true
+toc: true
+reference-section-title: Bibliografia
+# reference-section-title: Bibliographie
+bibliography:
+  - /home/sync0/Gdrive/bibliographies/bibliography.bib
+# csl: /home/sync0/Gdrive/typography/csl/studies-in-history-and-philosophy-of-science.csl
+# csl: studies-in-history-and-philosophy-of-science.csl
+# csl: sync0.csl
+csl: ieee-annals-of-the-history-of-computing.csl
+# reference-section-title: Références
+# reference-section-title: Bibliografía
+# reference-section-title: References

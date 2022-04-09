@@ -1,0 +1,136 @@
+% Csquotes
+%% Set threshold for turning an in-text quote into a block quote.
+\usepackage[autostyle=true,
+english=american,
+french=guillemets,
+thresholdtype=words,
+threshold=3]{csquotes}
+
+% AMS
+%% Settings for typesetting math, symbols, and formulae. 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+%% Cross out symbols and arrows with \centernot command. 
+\usepackage[normalem]{ulem}
+%% Cross out symbols and arrows with \centernot command. 
+\usepackage{centernot}
+%% Cross out symbols and arrows with \cancel command. 
+\usepackage{cancel}
+
+% Tables
+%% Improve typesetting of tables.
+% \usepackage{tabu}
+\usepackage{makecell}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{booktabs}
+%% \usepackage[most]{tcolorbox}
+
+% Typography
+\usepackage[singlespacing]{setspace}
+%% Prevent ugly typesetting in two-column mode.
+\usepackage{balance}
+%% Correctly typeset ragged text
+\usepackage{ragged2e}
+%% Correctly typeset 'verbatim' environments. 
+% \usepackage[breaklines=true]{listings}
+%% Correctly typeset lists with 'itemize' environments.
+\usepackage{enumitem}
+%% Beautify the page with typographic symbols.
+\usepackage{adforn}
+%% \usepackage[object=vectorian]{pgfornament}
+%% Correctly typeset floats.
+\usepackage{float}
+%% Add blank pages. 
+\usepackage{emptypage}
+%% For use with pandoc-xnos
+\usepackage{caption}
+
+% Colors
+%% Allow colors. 
+\usepackage{xcolor}
+%% Allow colored tables. 
+% \usepackage{colortbl}
+
+% Graphics 
+%% Prevent strange problem with quoting of entities. 
+\makeatletter
+\let\quote@name\unquote@name
+\makeatother
+%% Allow graphics.
+\usepackage{graphicx}
+%% Choose graphics folder.
+%% \graphicspath{{/home/sync0/Pictures/research/}}
+\graphicspath{{/home/sync0/Gdrive/obsidian/img/}{/home/sync0/Pictures/archives/}}
+%% Allow svg.
+\usepackage{svg}
+%% Allow graphics that wrap around text. 
+\usepackage{wrapfig}
+%% Typeset internet icons (required for CV).
+\usepackage{fontawesome}
+%% Add TiKz graphics in LaTeX.
+\usepackage{tikz}
+% \usepackage{tikzrput}
+% \usetikzlibrary{positioning}
+% \tikzset{main node/.style={circle,fill=gray!45,draw,minimum size=0.5cm,inner sep=0pt},}
+%% Add pdf into our pdf
+\usepackage[final]{pdfpages}
+
+% Custom 
+%% Commands
+%%% Raccourci: Siècle en chiffres romaines. 
+\newcommand{\sie}[1]{\textsc{\romannumeral #1}\textsuperscript{e}}
+
+%% Environments 
+%%% Summary box (margin plus italics).
+\newenvironment{summary}{\begin{addmargin}{2em}\begin{itshape}}{\end{itshape}\end{addmargin}\vspace{\baselineskip}}
+
+%% Itemize
+%%% Reduce indent of 'itemize' items. 
+\setlist[itemize]{label={\adforn{73}}}
+%% \setlist[itemize]{label={\adforn{43}}}
+%% \setlist[itemize]{leftmargin=*,label={\adforn{2}}}
+
+%% Mathematics
+\newcommand{\notimplies}{\centernot\implies}
+
+% Define '\notimplies' macro. Requires 'centernot' package. 
+\newcommand{\timebullet}{\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+% Needed to patch \addchaptertocentry
+\usepackage{xpatch}
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+% Define macro to insert blank pages. 
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \newpage}
+
+% Define X columns with centering.
+  \newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% Nasty hack to get pandoc-xnos to work propery  
+ \makeatletter
+    \newcounter{figno}
+    \newenvironment{fignos:no-prefix-figure-caption}{
+      \caption@ifcompatibility{}{
+        \let\oldthefigure\thefigure
+        \let\oldtheHfigure\theHfigure
+        \renewcommand{\thefigure}{figno:\thefigno}
+        \renewcommand{\theHfigure}{figno:\thefigno}
+        \stepcounter{figno}
+        \captionsetup{labelformat=empty}
+      }
+    }{
+      \caption@ifcompatibility{}{
+        \captionsetup{labelformat=default}
+        \let\thefigure\oldthefigure
+        \let\theHfigure\oldtheHfigure
+        \addtocounter{figure}{-1}
+      }
+    }
+    \makeatother

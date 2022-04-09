@@ -1,0 +1,79 @@
+% Define the '\hugechapter' macro. 
+\renewcommand{\raggedchapter}{\centering}
+\RedeclareSectionCommand[afterskip=4\baselineskip]{chapter}
+
+\setkomafont{sectioning}{\mdseries\sffamily}
+\setkomafont{chapter}{\Huge\scshape}
+\addtokomafont{chapterentry}{\large\mdseries}
+\setkomafont{chapterentrypagenumber}{\normalsize}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\large\itshape}
+\setkomafont{pagehead}{\footnotesize\sffamily\bfseries\scshape}
+\setkomafont{pagenumber}{\small\sffamily\bfseries\upshape}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\sffamily\bfseries\scshape}
+\setkomafont{labelinglabel}{\normalsize\itshape}
+\setkomafont{title}{\Huge\sffamily\bfseries\scshape}
+\setkomafont{subtitle}{\LARGE\sffamily\bfseries}
+\setkomafont{author}{\Large\sffamily}
+\setkomafont{subject}{\Large}
+\setkomafont{titlehead}{\large}
+\setkomafont{publishers}{\large\itshape}
+\setkomafont{date}{\large\sffamily}
+\setkomafont{dedication}{\itshape}
+\setkomafont{minisec}{\usekomafont{subsection}}
+\setkomafont{dictumauthor}{\normalsize\upshape}
+\setkomafont{dictum}{\normalsize\itshape}
+
+\renewcommand*{\dictumwidth}{.8\textwidth}
+\renewcommand*{\dictumauthorformat}[1]{#1}
+\renewcommand*{\dictumrule}{\vskip 2ex\par}
+
+
+%% Redefine table of contents settings
+\newcommand\tocpageseparator{\hspace{2ex}}
+%% Define the mbox used to output the page number.
+\newcommand\tocpagenumberbox[1]{\mbox{#1}}% <- added
+
+% Using \chapapp instead of \chaptername will use the number only,
+% instead of the Chapter word.
+% \newcommand\tocchapternumber[1]{\mdseries\scshape\MakeLowercase{\chapapp}~#1\hspace{1ex}}
+\newcommand\tocchapternumber[1]{}
+% \newcommand*{\tocchapternumber}[1]{\mdseries\scshape\MakeLowercase{\chaptername}~#1\hspace{1ex}}
+
+\RedeclareSectionCommands[
+% Change the  format of the chapter number.
+   tocentrynumberformat=\tocchapternumber, 
+% Avoid overfull \hbox message
+  tocdynnumwidth,
+  tocraggedpagenumber,
+  toclinefill=\tocpageseparator,
+  tocindent=0em,
+  tocpagenumberbox=\tocpagenumberbox
+]{chapter}
+
+\RedeclareSectionCommands[
+  tocraggedpagenumber,
+  tocbeforeskip=0.1em,
+  toclinefill=\tocpageseparator,
+  tocindent=1em,
+  tocpagenumberbox=\tocpagenumberbox% <- added
+]{section}
+
+%% Redefine page header and footer styles
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\automark[chapter]{section}
+\makeatletter\rehead{\@title}\makeatother
+%% \lohead{\headmark}
+\lohead{\MakeLowercase{\headmark}}
+%% \ohead{\pagemark}
+\ohead{\MakeLowercase{\pagemark}}
+
+%% % Do not include levels below sections in the table of contents.
+
+% Prevent wrong numbering of figures and tables when using
+% non-numbered chapters.  
+\counterwithout{figure}{chapter}

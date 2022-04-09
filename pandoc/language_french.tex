@@ -1,0 +1,24 @@
+%% \setmainlanguage[autospacing=true,autospaceguillemets=true,frenchfootnote=true]{french} 
+% Set secondary typesetting languages.
+%% \setotherlanguages{english, spanish} 
+% Set symbol to automatically recognize quotes. 
+\MakeAutoQuote{«}{»}
+% \MakeForeignQuote{english}{``}{"}
+
+\frenchspacing
+
+% Use italics on block quotations.
+\renewcommand{\mkbegdispquote}[2]{\itshape}
+% \AtBeginEnvironment{quote}{\itshape}
+% Superscript & Subscript 
+%% Adds macros to typeset 1st, 2nd, etc., in different languages.bh
+\usepackage[french]{fmtcount} 
+\fmtcountsetoptions{french=france}
+
+% Set fallback font for undefined unicode characters
+\usepackage{newunicodechar}
+\newfontfamily{\fallbackfont}{Symbola}[Scale=MatchLowercase]
+\DeclareTextFontCommand{\textfallback}{\fallbackfont}
+\newunicodechar{‑}{\textfallback{‑}}
+\newunicodechar{ᵒ}{\textfallback{ᵒ}}
+\newunicodechar{ᵉ}{\textfallback{ᵉ}}

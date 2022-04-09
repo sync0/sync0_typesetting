@@ -2,10 +2,22 @@
 % Set secondary typesetting languages.
 \setotherlanguages{french,spanish,english} 
 \usepackage{fontspec}
-\setmainfont{Minion Pro}
-\setsansfont[Scale=MatchUppercase]{Myriad Pro}
-\setmonofont{Source Code Pro}
-% Set symbol to automatically recognize quotes. 
-\MakeForeignQuote{french}{«}{»}
-% Configure microtypographic settings. 
-\usepackage[protrusion=true,tracking=true]{microtype}
+\setmainfont[SmallCapsFont={ScalaSans Caps}]{Scala}
+% \setmainfont[UprightFont={Palatino LT Std Roman}, BoldFont={Palatino LT Std Bold}, ItalicFont={Palatino LT Std Italic}, BoldItalicFont={Palatino LT Std Bold Italic}]{Palatino LT Std}
+\setsansfont[Ligatures=TeX, LetterSpace=2, Scale=MatchLowercase, UprightFont = {ScalaSansPro Regular}, BoldFont={ScalaSansPro Bold}, ItalicFont={ScalaSansPro Italic}, BoldItalicFont={ScalaSansPro BoldItalic}, SmallCapsFont={ScalaSans Caps}]{ScalaSansPro}
+\setmonofont[Scale=MatchLowercase]{Consolas}
+
+\newfontfamily\spanishfont[Ligatures=TeX, LetterSpace=2, Numbers=Lowercase, Scale=MatchLowercase, UprightFont = {ScalaSansPro Regular}, BoldFont={ScalaSansPro Bold}, ItalicFont={ScalaSansPro Italic}, BoldItalicFont={ScalaSansPro BoldItalic}, SmallCapsFont={ScalaSans Caps},Language=spanish]{ScalaSansPro}
+
+% Use italics on block quotations.
+
+%% \renewcommand{\mkbegdispquote}[2]{\itshape}
+% \AtBeginEnvironment{quote}{\itshape}
+% \SetExtraKerning[name=french-default,context = french,unit = space ]{ encoding = {OT1,T1,LY1} }{: = {1000,}, ; = {500, }, ! = {500, }, ? = {500, }, ' = {500, 400}}
+% Superscript & Subscript 
+%% Adds macros to typeset 1st, 2nd, etc., in different languages.
+
+\usepackage[portuguese]{fmtcount} 
+%% \fmtcountsetoptions{french=france}
+
+\usepackage[protrusion=true,expansion,tracking=true]{microtype}

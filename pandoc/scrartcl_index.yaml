@@ -1,0 +1,86 @@
+---
+# KOMAScript options
+documentclass: scrartcl
+# pagestyle:headings
+classoption:
+ - draft=false
+ - paper=a4
+ - portrait
+ - twoside=true
+ - twocolumn=false
+ - headinclude=false
+ - footinclude=false
+ - fontsize=12pt
+ - BCOR=20mm
+ - DIV=calc
+ - pagesize=auto
+ - titlepage=false
+ - abstract=false
+ - mpinclude=false
+ - captions=tablesignature
+ - captions=figuresignature
+ - numbers=autoendperiod
+ - headsepline=false
+ - index=totoc
+ - parskip=false
+## Headers and footers 
+# scrlayer-scrpage: 
+#   - \clearscrheadfoot
+#   - \makeatletter\cohead{\@author}\makeatother
+#   - \makeatletter\cehead{\@title}\makeatother
+#   - \ohead{\pagemark}
+# pagestyle: scrheadings
+## Marginalia
+# scrlayer-notecolumn: true
+# notecolumnfontsize: '\footnotesize'
+# Fonts (fontspec)
+fontspec: true
+mainfont: 'Palatino LT Std'
+# mainfont: 'Garamond Premier Pro'
+mainfontoptions:
+  - Numbers=OldStyle
+  - Ligatures=TeX
+  # - Scale=MatchLowercase
+  # - UprightFont = GaramondPremrPro.otf
+  # - BoldFont = GaramondPremrPro-Smbd.otf
+  # - ItalicFont = GaramondPremrPro-MedIt.otf
+  # - BoldItalicFont = GaramondPremrPro-SmbdIt.otf
+  - UprightFont = 'Palatino LT Std Roman'
+  - BoldFont = 'Palatino LT Std Bold'
+  - ItalicFont = 'Palatino LT Std Italic'
+  - BoldItalicFont = 'Palatino LT Std Bold Italic'
+sansfont: 'Gill Sans MT Pro'
+sansfontoptions:
+  - Ligatures=TeX
+  - LetterSpace=2
+  - Numbers=OldStyle
+  - Scale=MatchLowercase
+  - UprightFont = 'Gill Sans MT Pro Medium'
+  - BoldFont = 'Gill Sans MT Pro Bold'
+  - ItalicFont = 'Gill Sans MT Pro Medium Italic'
+  - BoldItalicFont = 'Gill Sans MT Pro Bold Italic'
+monofont: 'Consolas'
+monofontoptions:
+  - Scale=MatchLowercase
+# Typographic options
+microtypeoptions:
+ - protrusion
+ - expansion
+ - tracking
+nowidow: true
+nowidowoptions:
+  - all
+## Draft options
+# draftwatermark: true
+# draftwatermarkoptions:
+#   - firstpage
+#   - nostamp
+#   - titlepage
+# Links (hyperref)
+hyperref: true
+hyperrefoptions:
+  - colorlinks
+  - urlcolor=black
+  - linkcolor=black
+  - citecolor=black
+  - filecolor=black

@@ -1,0 +1,157 @@
+% Dialogue (must be loaded before polyglossia to avoid compilation
+% errors)
+%% This package typesets dialogue as in plays.
+%% \usepackage{dialogue}
+% Polyglossia
+%% Language-specific typesetting. 
+\usepackage{polyglossia} 
+
+% Csquotes
+%% Set threshold for turning an in-text quote into a block quote.
+\usepackage[autostyle=true,
+english=american,
+french=guillemets,
+thresholdtype=words,
+threshold=3]{csquotes}
+
+% AMS
+%% Settings for typesetting math, symbols, and formulae. 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+%% Cross out symbols and arrows with \centernot command. 
+\usepackage{centernot}
+%% Cross out symbols and arrows with \cancel command. 
+\usepackage{cancel}
+
+% Hyperref
+%% Allow hyperlinks. 
+\usepackage{hyperref}
+\hypersetup{colorlinks,
+  urlcolor=bibleblue,
+  linkcolor=bibleblue,
+  citecolor=bibleblue,
+  filecolor=black}
+
+% Tables
+%% Improve typesetting of tables.
+\usepackage{makecell}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+% Typography
+%% Prevent ugly typesetting in two-column mode.
+%% \usepackage{balance}
+%% Correctly typeset ragged text
+\usepackage{ragged2e}
+%% Prevent widows (dangling lines at the top or bottom of pages).
+%% \usepackage[all]{nowidow}
+\usepackage{nowidow}
+%% Correctly typeset 'verbatim' environments. 
+% \usepackage[breaklines=true]{listings}
+%% Correctly typeset lists with 'itemize' environments.
+\usepackage{enumitem}
+%% Beautify the page with typographic symbols.
+\usepackage{adforn}
+%% \usepackage[object=vectorian]{pgfornament}
+%% Correctly typeset floats.
+\usepackage{float}
+%% Add blank pages. 
+%% Problem when used together with KomaScript
+%% \usepackage{emptypage}
+%% For use with pandoc-xnos
+\usepackage{caption}
+
+% Colors
+%% Allow colors. 
+\usepackage{xcolor}
+%% Allow colored tables. 
+% \usepackage{colortbl}
+
+% Graphics 
+%% Prevent strange problem with quoting of entities. 
+\makeatletter
+\let\quote@name\unquote@name
+\makeatother
+
+%% Allow graphics.
+\usepackage{graphicx}
+%% Choose graphics folder.
+%% \graphicspath{{/home/sync0/Pictures/research/}}
+\graphicspath{{/home/sync0/Gdrive/obsidian/img/}}
+%% Allow svg.
+\usepackage{svg}
+%% Allow graphics that wrap around text. 
+\usepackage{wrapfig}
+%% Allow footnotes in tables.
+% \usepackage{tablefootnote}
+%% Color code blocks.
+% \usepackage{minted}
+%% Typeset internet icons (required for CV).
+%% \usepackage{fontawesome}
+%% Add TiKz graphics in LaTeX.
+\usepackage{tikz}
+% \usepackage{tikzrput}
+% \usetikzlibrary{positioning}
+% \tikzset{main node/.style={circle,fill=gray!45,draw,minimum size=0.5cm,inner sep=0pt},}
+%% Add pdf into our pdf
+\usepackage[final]{pdfpages}
+
+% General KOMA-Script settings. 
+%% Set different line spacing after table of contents
+% \AfterTOCHead{\singlespacing}
+
+%% Set font for 'description' environment. Requires enumitem package.
+% \setlist[description]{font=\sffamily\scshape\mdseries\small}
+% \setlist[description]{font=\sffamily\mdseries}
+
+% Custom 
+%% Commands
+%%% Raccourci: Siècle en chiffres romaines. 
+\newcommand{\sie}[1]{\textsc{\romannumeral #1}\textsuperscript{e}}
+
+%% Environments 
+%%% Summary box (margin plus italics).
+\newenvironment{summary}{\begin{addmargin}{2em}\begin{itshape}}{\end{itshape}\end{addmargin}\vspace{\baselineskip}}
+
+%% Colors
+%%% Define color for hyperlinks. 
+\definecolor{bibleblue}{HTML}{00339a}
+%%% Define color for TODO notes. 
+\definecolor{whitegrey}{HTML}{f7f7f7}
+\definecolor{lightgrey}{HTML}{cccccc}
+\definecolor{midgrey}{HTML}{969696}
+\definecolor{darkgrey}{HTML}{636363}
+\definecolor{blackgrey}{HTML}{252525}
+% The following color scheme was taken from:
+% https://colorhunt.co/palette/206966
+\definecolor{pastelblue}{HTML}{a7c5eb}
+\definecolor{navyblue}{HTML}{120078}
+\definecolor{pastelgreen}{HTML}{ccf6c8}
+\definecolor{pastelyellow}{HTML}{fafcc2}
+\definecolor{brightyellow}{HTML}{fecd1a}
+\definecolor{pastelorange}{HTML}{f6d6ad}
+\definecolor{pastelpink}{HTML}{f9c0c0}
+\definecolor{pastelviolet}{HTML}{949cdf}
+\definecolor{pastelgrey}{HTML}{79a3b1}
+\definecolor{pastelred}{HTML}{d35d6e}
+\definecolor{brightred}{HTML}{ff4646}
+
+%% Mathematics
+\newcommand{\notimplies}{\centernot\implies}
+% Define '\notimplies' macro. Requires 'centernot' package. 
+\newcommand{\timebullet}{\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+
+% Needed to path \addchaptertocentry
+\usepackage{xpatch}
+
+%% \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+%% \let\endchangemargin=\endlist 
+
+% Define macro to insert blank pages. 
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \newpage}

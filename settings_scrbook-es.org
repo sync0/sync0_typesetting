@@ -4,6 +4,6 @@
 #+LANGUAGE: es
 #+LATEX_CLASS: sync0book
 #+LATEX_CLASS_OPTIONS: [version=last,draft=false, paper=A5,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=11.5,BCOR=10mm,DIV=calc,pagesize=auto,titlepage=false,mpinclude=false,open=right,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,headings=twolinechapter,parskip=false,numbers=noendperiod,toc=bibliography,toc=indentunnumbered]
-#+LATEX_HEADER: \input{/home/sync0/Documents/typography/languages/spanish.tex}
-#+LATEX_HEADER: \input{/home/sync0/Documents/typography/biblatex/verbose.tex}
-#+LATEX_HEADER: \input{/home/sync0/Documents/typography/layouts/booklet.tex}
+#+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/languages/spanish.tex}
+#+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/biblatex/verbose.tex}
+#+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/layouts/booklet.tex}

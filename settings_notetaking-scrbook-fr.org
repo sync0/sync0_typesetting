@@ -5,9 +5,9 @@
 #+LATEX_CLASS: sync0book
 # #+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=letter,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,footlines=0.5,fontsize=12,BCOR=1cm,DIV=calc,pagesize=auto,titlepage=false,abstract=false,mpinclude=true,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,parskip=false]
 #+LATEX_CLASS_OPTIONS: [usegeometry,version=last,draft=false,titlepage=false,abstract=false,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,parskip=false]
-#+LATEX_HEADER: \input{/home/sync0/Dropbox/typography/language_french.tex}
-#+LATEX_HEADER: \input{/home/sync0/Dropbox/typography/biblatex_verbose.tex}
-#+LATEX_HEADER: \input{/home/sync0/Dropbox/typography/layout_notetaking-booklet.tex}
+#+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/language_french.tex}
+#+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/biblatex_verbose.tex}
+#+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/layout_notetaking-booklet.tex}
 #+LATEX_HEADER: \setcounter{secnumdepth}{0}
 # #+LATEX_HEADER: \setlength{\marginparwidth}{2\marginparwidth}
 # #+LATEX_HEADER: \areaset{11cm}{25cm}

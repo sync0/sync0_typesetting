@@ -1,31 +1,54 @@
 \usepackage[singlespacing]{setspace}
 
-\setkomafont{sectioning}{\mdseries}
-\setkomafont{section}{\LARGE\scshape\lowercase}
-\setkomafont{subsection}{\Large}
-\setkomafont{subsubsection}{\Large\itshape}
-\setkomafont{pagehead}{\large\mdseries\itshape}
-\setkomafont{pagenumber}{\Large\upshape}
+\setkomafont{sectioning}{\mdseries\sffamily}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\large\itshape}
+\setkomafont{pagehead}{\footnotesize\sffamily\scshape}
+\setkomafont{pagenumber}{\small\sffamily\bfseries\upshape}
 \setkomafont{caption}{\small}
-\setkomafont{captionlabel}{\mdseries\scshape\lowercase}
+\setkomafont{captionlabel}{\sffamily\bfseries\scshape}
 \setkomafont{labelinglabel}{\normalsize\itshape}
-\setkomafont{title}{\Huge}
-\setkomafont{subtitle}{\Large}
-\setkomafont{author}{\Large}
-\setkomafont{subject}{\Large\scshape}
+\setkomafont{title}{\Huge\sffamily}
+\setkomafont{subtitle}{\Large\sffamily}
+\setkomafont{author}{\large\sffamily\itshape}
+\setkomafont{subject}{\Large}
 \setkomafont{titlehead}{\large}
 \setkomafont{publishers}{\large\itshape}
-\setkomafont{date}{\normalsize}
+\setkomafont{date}{\normalsize\sffamily}
 \setkomafont{dedication}{\itshape}
 \setkomafont{minisec}{\usekomafont{subsection}}
 \setkomafont{dictumauthor}{\normalsize\upshape}
 \setkomafont{dictum}{\normalsize\itshape}
 
+%% \setkomafont{sectioning}{\mdseries}
+%% \setkomafont{section}{\LARGE\scshape\lowercase}
+%% \setkomafont{subsection}{\Large}
+%% \setkomafont{subsubsection}{\Large\itshape}
+%% \setkomafont{pagehead}{\large\mdseries\itshape}
+%% \setkomafont{pagenumber}{\Large\upshape}
+%% \setkomafont{caption}{\small}
+%% \setkomafont{captionlabel}{\mdseries\scshape\lowercase}
+%% \setkomafont{labelinglabel}{\normalsize\itshape}
+%% \setkomafont{title}{\Huge}
+%% \setkomafont{subtitle}{\Large}
+%% \setkomafont{author}{\Large}
+%% \setkomafont{subject}{\Large\scshape}
+%% \setkomafont{titlehead}{\large}
+%% \setkomafont{publishers}{\large\itshape}
+%% \setkomafont{date}{\normalsize}
+%% \setkomafont{dedication}{\itshape}
+%% \setkomafont{minisec}{\usekomafont{subsection}}
+%% \setkomafont{dictumauthor}{\normalsize\upshape}
+%% \setkomafont{dictum}{\normalsize\itshape}
+
 \usepackage{scrlayer-scrpage}
 \pagestyle{scrheadings}
 \clearscrheadfoot
-\makeatletter\cohead{\@author}\makeatother
-\makeatletter\cehead{\@title}\makeatother
+%% \makeatletter\cohead{\MakeLowercase{\@author}}\makeatother
+\makeatletter\lohead{\MakeLowercase{\@author}}\makeatother
+%% \makeatletter\cehead{\MakeLowercase{\@title}}\makeatother
+\makeatletter\rehead{\MakeLowercase{\@title}}\makeatother
 \ohead{\pagemark}
 
 \renewcommand*{\dictumwidth}{.8\textwidth}

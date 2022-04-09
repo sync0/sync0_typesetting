@@ -1,7 +1,7 @@
 #+OPTIONS: \n:nil |:t ^:t f:t *:t ':nil pro:nil timestamp:nil toc:nil H:5 email:nil title:nil
-#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil author:nil 
+#+OPTIONS: LaTeX:t pri:t p:nil tags:nil todo:nil prop:nil d:nil date:nil author:nil tasks:nil
 # Use KOMA script classes instead of LaTeX defaults
 #+LATEX_CLASS: scrartcl
 #+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=letter,portrait,twoside=false,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=0mm,DIV=20,pagesize=auto,titlepage=false,abstract=false,mpinclude=false,open=any,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,parskip=false]
-#+LATEX_HEADER: \input{/home/sync0/Dropbox/typography/biblatex_verbose.tex}
-#+LATEX_HEADER: \input{/home/sync0/Dropbox/typography/layout_cv.tex}
+# #+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/biblatex_verbose.tex}
+#+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/layout_cv.tex}

@@ -4,7 +4,7 @@
 # Use KOMA script classes instead of LaTeX defaults
 #+LATEX_CLASS: scrbook-chapter
 #+LATEX_CLASS_OPTIONS: [version=last,draft=false,paper=a4,portrait,twoside=true,twocolumn=false,headinclude=false,footinclude=false,fontsize=11,BCOR=20mm,DIV=19,pagesize=auto,titlepage=false,false,mpinclude=false,captions=tablesignature,captions=figuresignature,numbers=autoendperiod,headsepline=false,parskip=false]
-#+LATEX_HEADER: \input{/home/sync0/Dropbox/typography/language_french.tex}
-#+LATEX_HEADER: \input{/home/sync0/Dropbox/typography/biblatex_reading.tex}
-#+LATEX_HEADER: \input{/home/sync0/Dropbox/typography/layout_scrbook_bibliography.tex}
+#+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/language_french.tex}
+#+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/biblatex_reading.tex}
+#+LATEX_HEADER: \input{/home/sync0/Gdrive/typography/layout_scrbook_bibliography.tex}
 #+LATEX_HEADER: \setcounter{secnumdepth}{0}

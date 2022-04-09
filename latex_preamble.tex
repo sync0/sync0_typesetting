@@ -1,7 +1,7 @@
 % Dialogue (must be loaded before polyglossia to avoid compilation
 % errors)
 %% This package typesets dialogue as in plays.
-\usepackage{dialogue}
+%% \usepackage{dialogue}
 % Polyglossia
 %% Language-specific typesetting. 
 \usepackage{polyglossia} 
@@ -14,11 +14,14 @@ french=guillemets,
 thresholdtype=words,
 threshold=3]{csquotes}
 
+\usepackage{ifthen}
+
 % AMS
 %% Settings for typesetting math, symbols, and formulae. 
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage[normalem]{ulem}
 %% Cross out symbols and arrows with \centernot command. 
 \usepackage{centernot}
 %% Cross out symbols and arrows with \cancel command. 
@@ -27,11 +30,12 @@ threshold=3]{csquotes}
 % Hyperref
 %% Allow hyperlinks. 
 \usepackage{hyperref}
-\hypersetup{colorlinks,
+\hypersetup{pagebackref=true,
+  colorlinks=true,
   urlcolor=bibleblue,
   linkcolor=bibleblue,
   citecolor=bibleblue,
-  filecolor=black}
+  filecolor=bibleblue}
 
 % Tables
 %% Improve typesetting of tables.
@@ -41,7 +45,7 @@ threshold=3]{csquotes}
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{booktabs}
-\usepackage[most]{tcolorbox}
+%% \usepackage[most]{tcolorbox}
 
 % Typography
 %% Prevent ugly typesetting in two-column mode.
@@ -56,11 +60,14 @@ threshold=3]{csquotes}
 \usepackage{enumitem}
 %% Beautify the page with typographic symbols.
 \usepackage{adforn}
-\usepackage[object=vectorian]{pgfornament}
+%% \usepackage[object=vectorian]{pgfornament}
 %% Correctly typeset floats.
 \usepackage{float}
 %% Add blank pages. 
-\usepackage{emptypage}
+%% Problem when used together with KomaScript
+%% \usepackage{emptypage}
+%% For use with pandoc-xnos
+\usepackage{caption}
 
 % Colors
 %% Allow colors. 
@@ -76,7 +83,10 @@ threshold=3]{csquotes}
 %% Allow graphics.
 \usepackage{graphicx}
 %% Choose graphics folder.
-\graphicspath{{/home/sync0/Pictures/research/}}
+%% \graphicspath{{/home/sync0/Pictures/research/}}
+\graphicspath{{/home/sync0/Gdrive/obsidian/img/}{/home/sync0/Pictures/archives/}}
+%% Allow svg.
+\usepackage{svg}
 %% Allow graphics that wrap around text. 
 \usepackage{wrapfig}
 %% Allow footnotes in tables.
@@ -90,6 +100,8 @@ threshold=3]{csquotes}
 % \usepackage{tikzrput}
 % \usetikzlibrary{positioning}
 % \tikzset{main node/.style={circle,fill=gray!45,draw,minimum size=0.5cm,inner sep=0pt},}
+%% Add pdf into our pdf
+\usepackage[final]{pdfpages}
 
 % General KOMA-Script settings. 
 %% Set different line spacing after table of contents
@@ -109,71 +121,73 @@ threshold=3]{csquotes}
 \newenvironment{summary}{\begin{addmargin}{2em}\begin{itshape}}{\end{itshape}\end{addmargin}\vspace{\baselineskip}}
 
 %% Tcolorboxes
-\newtcolorbox{modified}[1][]{grow to right by=0mm,
-  grow to left by=-1em,
-  boxrule=1pt,
-  boxsep=0pt,
-  breakable,
-  enhanced jigsaw,
-  borderline west={0pt}{0pt}{lightgrey},
-  lower separated=false,
-  sharp corners,
-  colframe=white, #1}
+%% \newtcolorbox{modified}[1][]{grow to right by=0mm,
+%%   grow to left by=-1em,
+%%   boxrule=1pt,
+%%   boxsep=0pt,
+%%   breakable,
+%%   enhanced jigsaw,
+%%   borderline west={0pt}{0pt}{lightgrey},
+%%   lower separated=false,
+%%   sharp corners,
+%%   colframe=white, #1}
 
-%%% Note box.
-\newtcolorbox{note}[2][]{grow to right by=0mm,
-  grow to left by=-1em,
-  boxrule=0pt,boxsep=0pt,
-  opacityback=0.0,
-  breakable,
-  parbox=false,
-  enhanced jigsaw,
-  sharp corners,
-  borderline west={4pt}{0pt}{lightgrey},
-  title={#2},coltitle={black},
-  attach title to upper={},
-  halign title=right,
-  after title={\smallskip\par}#1}
+%% %%% Note box.
+%% \newtcolorbox{note}[2][]{grow to right by=0mm,
+%%   grow to left by=-1em,
+%%   boxrule=0pt,boxsep=0pt,
+%%   opacityback=0.0,
+%%   breakable,
+%%   parbox=false,
+%%   enhanced jigsaw,
+%%   sharp corners,
+%%   borderline west={4pt}{0pt}{lightgrey},
+%%   title={#2},coltitle={black},
+%%   attach title to upper={},
+%%   halign title=right,
+%%   after title={\smallskip\par}#1}
 
-%%% Question box. 
-\newtcolorbox{question}[2][]{grow to right by=0mm,
-  grow to left by=-1em,
-  sharp corners,
-  boxrule=0pt,
-  boxsep=0pt,
-  opacityback=0.0,
-  breakable,
-  parbox=false,
-  enhanced jigsaw,
-  borderline west={4pt}{0pt}{darkgrey},
-  title={#2},
-  coltitle={black},
-  attach title to upper={},
-  halign title=right,
-  after title={\smallskip\par}#1}
+%% %%% Question box. 
+%% \newtcolorbox{question}[2][]{grow to right by=0mm,
+%%   grow to left by=-1em,
+%%   sharp corners,
+%%   boxrule=0pt,
+%%   boxsep=0pt,
+%%   opacityback=0.0,
+%%   breakable,
+%%   parbox=false,
+%%   enhanced jigsaw,
+%%   borderline west={4pt}{0pt}{darkgrey},
+%%   title={#2},
+%%   coltitle={black},
+%%   attach title to upper={},
+%%   halign title=right,
+%%   after title={\smallskip\par}#1}
 
-%%% Definition box.
-\newtcolorbox{definition}[3][]{grow to right by=0mm,
-  grow to left by=-1em,
-  boxrule=0pt,
-  boxsep=0pt,
-  opacityback=0.0,
-  breakable,
-  enhanced jigsaw,
-  sharp corners,
-  borderline west={4pt}{0pt}{midgrey},
-  title={#2},coltitle={black},
-  fonttitle={\sffamily\bfseries},
-  sharp corners,
-  fontupper={\normalsize},
-  fontlower={\itshape},
-  lower separated=false,
-  attach title to upper={},
-  after title={\hspace{1em}{\rmfamily\mdseries\itshape #3}\par}#1}
+%% %%% Definition box.
+%% \newtcolorbox{definition}[3][]{grow to right by=0mm,
+%%   grow to left by=-1em,
+%%   boxrule=0pt,
+%%   boxsep=0pt,
+%%   opacityback=0.0,
+%%   breakable,
+%%   enhanced jigsaw,
+%%   sharp corners,
+%%   borderline west={4pt}{0pt}{midgrey},
+%%   title={#2},coltitle={black},
+%%   fonttitle={\sffamily\bfseries},
+%%   sharp corners,
+%%   fontupper={\normalsize},
+%%   fontlower={\itshape},
+%%   lower separated=false,
+%%   attach title to upper={},
+%%   after title={\hspace{1em}{\rmfamily\mdseries\itshape #3}\par}#1}
 
 %% Colors
 %%% Define color for hyperlinks. 
-\definecolor{bibleblue}{HTML}{00339a}
+%% \definecolor{bibleblue}{HTML}{00339a}
+%% \definecolor{bibleblue}{HTML}{5198d1}
+\definecolor{bibleblue}{HTML}{1d4a6d}
 %%% Define color for TODO notes. 
 \definecolor{whitegrey}{HTML}{f7f7f7}
 \definecolor{lightgrey}{HTML}{cccccc}
@@ -194,7 +208,6 @@ threshold=3]{csquotes}
 \definecolor{pastelred}{HTML}{d35d6e}
 \definecolor{brightred}{HTML}{ff4646}
 
-
 %% Itemize
 %%% Use 'adforn' symbols instead of 'itemize' symbols. 
 % \renewcommand*\labelitemi{\adforn{33}}
@@ -202,7 +215,7 @@ threshold=3]{csquotes}
 % \renewcommand*\labelitemiii{\adforn{73}}
 % \renewcommand*\labelitemiv{\adforn{73}}
 %%% Reduce indent of 'itemize' items. 
-\setlist[itemize]{leftmargin=*,label={\adforn{2}}}
+%% \setlist[itemize]{leftmargin=*,label={\adforn{2}}}
 
 %% Mathematics
 \newcommand{\notimplies}{\centernot\implies}
@@ -212,8 +225,8 @@ threshold=3]{csquotes}
 % Needed to path \addchaptertocentry
 \usepackage{xpatch}
 
-\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
-\let\endchangemargin=\endlist 
+%% \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+%% \let\endchangemargin=\endlist 
 
 % Define macro to insert blank pages. 
 \newcommand\blankpage{%

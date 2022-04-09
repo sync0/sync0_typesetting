@@ -1,0 +1,73 @@
+%% \makeatletter
+%% \xpatchcmd{\@maketitle}{\begin{center}}{\begin{flushleft}{}{}}
+%% \xpatchcmd{\@maketitle}{\end{center}}{\end{flushleft}}{}{}
+%% \xpatchcmd{\@maketitle}{\begin{tabular}[t]{c}}{\begin{tabular}[t]{@{}l@{}}}{}{}
+%% \makeatother
+
+%% \renewcommand{\raggedchapter}{\centering}
+%% \RedeclareSectionCommand[afterskip=4\baselineskip]{chapter}
+%% \usepackage{currfile}
+
+\usepackage{typearea}
+\areaset[0mm]{115mm}{95mm}
+%% \areaset{8cm}{12cm}
+
+\setkomafont{sectioning}{\mdseries\sffamily}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\large\itshape}
+\setkomafont{pagehead}{\large\ttfamily\bfseries}
+\setkomafont{pagenumber}{\normalsize\sffamily\bfseries\upshape}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\sffamily\bfseries\scshape}
+\setkomafont{labelinglabel}{\normalsize\itshape}
+\setkomafont{title}{\large\sffamily}
+%% \setkomafont{title}{\vspace{-1cm}\sffamily\vspace{-1cm}}
+\setkomafont{subtitle}{\LARGE\ttfamily}
+\setkomafont{author}{\large\sffamily\itshape}
+\setkomafont{subject}{\Large}
+\setkomafont{titlehead}{\large}
+\setkomafont{publishers}{\large\itshape}
+\setkomafont{date}{\normalsize\sffamily}
+\setkomafont{dedication}{\itshape}
+\setkomafont{minisec}{\usekomafont{subsection}}
+\setkomafont{dictumauthor}{\normalsize\upshape}
+\setkomafont{dictum}{\normalsize\itshape}
+
+%% Redefine the title to be according to that of a Zettel.
+\makeatletter
+\renewcommand*{\@maketitle}{%
+  % taken and shortened from /usr/share/texmf/tex/latex/koma-script/scrartcl.cls
+  \global\@topnum=\z@
+  \setparsizes{\z@}{\z@}{\z@\@plus 1fil}\par@updaterelative
+  \vskip 1em%
+  \begin{flushleft}%
+    {\ifx\@subtitle\@empty\else\usekomafont{subtitle}\@subtitle\par\fi}%
+    \vskip .5em
+    {\usekomafont{title}{\@title \par}}%
+  \end{flushleft}%
+    \vspace{-0.5em}
+}%
+\makeatother
+
+%% \makeatletter
+%% \xpatchcmd{\maketitle}{\titlefont\Large}{\titlefont\small}{}{}
+%% \makeatother
+
+%% Redefine page header and footer styles
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\makeatletter\ihead{\MakeLowercase{\@subtitle}}\makeatother
+\ohead{\pagemark}
+%% \makeatletter\rehead{\MakeLowercase{\@subtitle}}\makeatother
+%% \ohead{\pagemark}
+%% \clearscrheadfoot
+
+%% \makeatletter\rohead{\MakeLowercase{\@subtitle}}\makeatother
+%% \makeatletter\lehead{\MakeLowercase{\@title}}\makeatother
+%% \ofoot{\pagemark}
+
+%% \renewcommand*{\dictumwidth}{.8\textwidth}
+%% \renewcommand*{\dictumauthorformat}[1]{#1}
+%% \renewcommand*{\dictumrule}{\vskip 2ex\par}

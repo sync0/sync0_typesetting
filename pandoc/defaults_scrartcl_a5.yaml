@@ -1,0 +1,26 @@
+from: markdown
+to: pdf
+pdf-engine: lualatex
+include-in-header:
+  - /home/sync0/Gdrive/typography/pandoc/preamble.tex
+  - /home/sync0/Gdrive/typography/pandoc/layout_scrartcl.tex
+  # - /home/sync0/Gdrive/typography/pandoc/language_portuguese.tex
+  # - /home/sync0/Gdrive/typography/pandoc/language_english.tex
+  - /home/sync0/Gdrive/typography/pandoc/language_spanish.tex
+  # - /home/sync0/Gdrive/typography/pandoc/language_french.tex
+metadata-files:
+  - /home/sync0/Gdrive/typography/pandoc/scrartcl_a5.yaml
+resource-path:
+  - /home/sync0/.local/share/pandoc/filters
+  - /home/sync0/Gdrive/typography/csl
+  - /home/sync0/Gdrive/typography/pandoc
+  - /home/sync0/Gdrive/bibliographies
+  - /home/sync0/Gdrive/obsidian/img
+filters:
+  - /home/sync0/.local/share/pandoc/filters/delink.hs
+  - /usr/bin/pandoc-crossref
+  - citeproc
+  # - diagram-generator.lua
+  # - /home/sync0/.local/share/pandoc/filters/delink.hs
+shift-heading-level-by: -1
+table-of-contents: false

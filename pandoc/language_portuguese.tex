@@ -1,0 +1,16 @@
+%% \MakeAutoQuote{``}{''}
+\MakeForeignQuote{french}{«}{»}
+
+% Use italics on block quotations.
+\renewcommand{\mkbegdispquote}[2]{\itshape}
+% \AtBeginEnvironment{quote}{\itshape}
+
+\usepackage[portuguese]{fmtcount} 
+
+% Set fallback font for undefined unicode characters
+\usepackage{newunicodechar}
+\newfontfamily{\fallbackfont}{Symbola}[Scale=MatchLowercase]
+\DeclareTextFontCommand{\textfallback}{\fallbackfont}
+\newunicodechar{‑}{\textfallback{‑}}
+\newunicodechar{ᵒ}{\textfallback{ᵒ}}
+\newunicodechar{ᵉ}{\textfallback{ᵉ}}

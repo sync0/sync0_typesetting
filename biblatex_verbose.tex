@@ -1,34 +1,60 @@
 % Configure bibliography management with biblatex. 
 % Set 'verbose-trad1' cite style.
+%% \usepackage[backend = biber,
+%% bibstyle = authortitle,
+%% abbreviate = true,
+%% citestyle = verbose-trad3,
+%% autocite = plain,
+%% citepages = omit,
+%% hyperref = auto,
+%% doi = false,
+%% isbn = false,
+%% url = false,
+%% sorting = anonymous,
+%% sorting = nyt]{biblatex}
+%% sortcites = true,
+%% sortsets = true,
+
 \usepackage[backend = biber,
-bibstyle = authortitle,
-citestyle=verbose-trad3,
-autocite=plain,
-citepages=omit,
-hyperref=auto,
-doi=false,
-isbn=false,
-url=false,
-sorting=anonymous,
-sorting=nyt]{biblatex}
+bibstyle = verbose,
+%% citestyle = authortitle-comp,
+citestyle = authortitle,
+%% citestyle = verbose-trad3,
+sorting = nyt,
+hyperref = auto,
+dashed = true,
+abbreviate = true,
+%% citepages = omit,
+language = autobib,
+doi = false,
+isbn = false,
+url = false]{biblatex}
 
 % Deal with anonymous works (useful in History and Philology).
 \usepackage{biblatex-anonymous}
 
 % Set bibliography file. 
-\addbibresource{~/Dropbox/bibliographies/bibliography.bib}
-%% \addbibresource{~/Dropbox/bibliographies/doctorat.bib}
-%% \addbibresource{~/Dropbox/bibliographies/memoire.bib}
+\addbibresource{~/Gdrive/bibliographies/bibliography.bib}
+%% \addbibresource{~/Gdrive/bibliographies/doctorat.bib}
+%% \addbibresource{~/Gdrive/bibliographies/memoire.bib}
 % Set url typesetting font. 
 \urlstyle{sf}
 
 % Replace colon for dot as separator between title and subtitle. 
 \renewcommand{\subtitlepunct}{\addcolon\addspace}
 
+% Ugly hack to remove redundant 1st edition info. from bibliographies.
+\DeclareFieldFormat{edition}{%
+  \ifthenelse{\equal{#1}{1}}
+             {}
+             {\ifinteger{#1}
+               {\mkbibordedition{#1}~\bibstring{edition}}
+               {#1\isdot}}}
+
 % Print 'origdate' field for 'verbose' style bibliographies.
-\renewbibmacro*{date}{\printdate\iffieldundef{origyear}{}{\setunit*{\addspace}\printtext[parens]{\printorigdate}}}
+%% \renewbibmacro*{date}{\printdate\iffieldundef{origyear}{}{\setunit*{\addspace}\printtext[parens]{\printorigdate}}}
 
 %  Csquotes
 %% Specify a replacement for \cite to handle citations.
-\SetCiteCommand{\footcite}
-\renewcommand{\mkccitation}[1]{#1}
+%% \SetCiteCommand{\footcite}
+%% \renewcommand{\mkccitation}[1]{#1}

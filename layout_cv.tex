@@ -1,15 +1,15 @@
 \usepackage{setspace}
 \setstretch{1}
 \setkomafont{labelinglabel}{\normalsize\scshape\lowercase}
-\setlist[description]{font=\scshape\mdseries\normalsize\rmfamily}
+\setlist[description]{font=\scshape\mdseries\large\sffamily}
 \setkomafont{pagehead}{\small\mdseries\scshape}
 \setkomafont{pagenumber}{\normalsize\rmfamily\upshape}
 \setkomafont{disposition}{\bfseries}
 \setkomafont{caption}{\small}
 \setkomafont{captionlabel}{\mdseries\scshape\lowercase}
-\setkomafont{section}{\LARGE\bfseries\sffamily}
+\setkomafont{section}{\LARGE\sffamily}
 \RedeclareSectionCommand[beforeskip=0\baselineskip,afterskip=0.5\baselineskip]{section}
-\RedeclareSectionCommand[beforeskip=0\baselineskip,afterskip=0.1\baselineskip]{subsection}
+%% \RedeclareSectionCommand[beforeskip=0\baselineskip,afterskip=0.1\baselineskip]{subsection}
 \setkomafont{pagehead}{\normalsize\mdseries\itshape}
 \setkomafont{pagenumber}{\normalsize\rmfamily\upshape}
 \setkomafont{sectioning}{\rmfamily\mdseries}
@@ -27,3 +27,6 @@
 \setlist[1]{itemsep=\parskip}
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{1}
+% Define the border of the images 
+\setlength{\fboxsep}{0pt}
+\setlength{\fboxrule}{2pt}

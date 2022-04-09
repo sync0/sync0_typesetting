@@ -1,0 +1,13 @@
+from: markdown
+to: pdf
+standalone: true
+self-contained: true
+pdf-engine: lualatex
+include-in-header:
+  -
+resource-path: ["."]  
+citeproc: true
+csl: chicago-fullnote-bibliography.csl
+bibliography:
+  - bibliography.bib
+filters:

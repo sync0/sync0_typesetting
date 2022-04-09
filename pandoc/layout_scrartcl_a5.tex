@@ -1,0 +1,34 @@
+\setkomafont{sectioning}{\mdseries\sffamily}
+\setkomafont{section}{\Large}
+\setkomafont{subsection}{\large}
+\setkomafont{subsubsection}{\large\itshape}
+\setkomafont{pagehead}{\footnotesize\sffamily\bfseries\scshape}
+\setkomafont{pagenumber}{\small\sffamily\bfseries\upshape}
+\setkomafont{caption}{\small}
+\setkomafont{captionlabel}{\sffamily\bfseries\scshape}
+\setkomafont{labelinglabel}{\normalsize\itshape}
+\setkomafont{title}{\Huge\sffamily}
+\setkomafont{subtitle}{\Large\sffamily}
+\setkomafont{author}{\large\sffamily\itshape}
+\setkomafont{subject}{\Large}
+\setkomafont{titlehead}{\large}
+\setkomafont{publishers}{\large\itshape}
+\setkomafont{date}{\normalsize\sffamily}
+\setkomafont{dedication}{\itshape}
+\setkomafont{minisec}{\usekomafont{subsection}}
+\setkomafont{dictumauthor}{\normalsize\upshape}
+\setkomafont{dictum}{\normalsize\itshape}
+
+%% Redefine page header and footer styles
+\usepackage{scrlayer-scrpage}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+%% \makeatletter\lohead{\@author}\makeatother
+%% \makeatletter\rehead{\@title}\makeatother
+\makeatletter\lohead{\MakeLowercase{\@author}}\makeatother
+\makeatletter\rehead{\MakeLowercase{\@title}}\makeatother
+\ohead{\pagemark}
+
+\renewcommand*{\dictumwidth}{.8\textwidth}
+\renewcommand*{\dictumauthorformat}[1]{#1}
+\renewcommand*{\dictumrule}{\vskip 2ex\par}

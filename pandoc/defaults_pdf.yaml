@@ -1,0 +1,18 @@
+from: markdown
+to: pdf
+standalone: true
+self-contained: true
+pdf-engine: lualatex
+include-in-header:
+  - preamble.tex
+resource-path: ["."]  
+cite-method: citeproc
+citeproc: true
+csl: chicago-fullnote-bibliography.csl
+bibliography:
+  - bibliography.bib
+filters:
+  - /home/sync0/.local/share/pandoc/filters/delink.hs
+  - diagram-generator.lua
+  # - /home/sync0/.local/share/pandoc/filters/delink.hs
+shift-heading-level-by: -1
