@@ -1,0 +1,40 @@
+# KOMAScript options
+documentclass: scrlttr2
+classoption:
+ - paper=a4
+ - fontsize=12pt
+ - parskip=full
+# Fonts (fontspec)
+fontspec: true
+mainfont: 'Scala'
+mainfontoptions:
+  - SmallCapsFont = 'ScalaSans Caps'
+sansfont: 'ScalaSansPro'
+sansfontoptions:
+  - Ligatures=TeX
+  - LetterSpace=2
+  - Scale=MatchLowercase
+  - UprightFont = 'ScalaSansPro Regular'
+  - BoldFont = 'ScalaSansPro Bold'
+  - ItalicFont = 'ScalaSansPro Italic'
+  - BoldItalicFont = 'ScalaSansPro BoldItalic'
+  - SmallCapsFont = 'ScalaSans Caps'
+monofont: 'Consolas'
+monofontoptions:
+  - Scale=MatchLowercase
+# Typographic options
+microtypeoptions:
+ - protrusion
+ - expansion
+ - tracking
+nowidow: true
+nowidowoptions:
+  - all
+# Links (hyperref)
+hyperref: true
+hyperrefoptions:
+  - colorlinks
+  - urlcolor=black
+  - linkcolor=black
+  - citecolor=black
+  - filecolor=black

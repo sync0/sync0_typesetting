@@ -1,101 +1,20 @@
-%% \usepackage[singlespacing]{setspace}
-%% \usepackage{scrlayer-scrpage}
-%% \pagestyle{scrheadings}
-%% \clearscrheadfoot
-%% \automark[chapter]{part}
-%% \makeatletter\cehead{\@title}\makeatother
-%% \cohead{\headmark}
-%% \ohead{\pagemark}
-
-%% % Define the '\hugechapter' macro. 
-%% \newcommand\hugechapter{\fontsize{30}{35}\selectfont}
 
 %% \renewcommand{\raggedchapter}{\centering}
-%% \renewcommand*\chapterformat{}
-%% \renewcommand*\chaptermarkformat{}
 %% \RedeclareSectionCommand[afterskip=4\baselineskip]{chapter}
 
-%% \setkomafont{sectioning}{\mdseries}
-%% \setkomafont{chapter}{\hugechapter}
-%% \setkomafont{section}{\LARGE\scshape\lowercase}
-%% \setkomafont{subsection}{\Large}
-%% \setkomafont{subsubsection}{\Large\itshape}
-%% \setkomafont{pagehead}{\large\mdseries\itshape}
-%% \setkomafont{pagenumber}{\Large\upshape}
-%% \setkomafont{caption}{\small}
-%% \setkomafont{captionlabel}{\mdseries\scshape\lowercase}
-%% \setkomafont{labelinglabel}{\normalsize\itshape}
-%% \setkomafont{title}{\Huge}
-%% \setkomafont{subtitle}{\LARGE}
-%% \setkomafont{author}{\LARGE}
-%% \setkomafont{subject}{\Large\scshape}
-%% \setkomafont{titlehead}{\large}
-%% \setkomafont{publishers}{\large\itshape}
-%% \setkomafont{date}{\normalsize}
-%% \setkomafont{dedication}{\itshape}
-%% \addtokomafont{chapterentry}{\large\mdseries}
-%% \setkomafont{chapterentrypagenumber}{\normalsize}
-%% \setkomafont{minisec}{\usekomafont{subsection}}
-%% \setkomafont{dictumauthor}{\normalsize\upshape}
-%% \setkomafont{dictum}{\normalsize\itshape}
+% \renewcommand*{\chapterformat}{}
+% \renewcommand*{\chaptermarkformat}{}
+% \renewcommand*{\partformat}{}
+% \renewcommand*{\partmarkformat}{}
+% \renewcommand*{\sectionmarkformat}{}
 
-%% \renewcommand*{\dictumwidth}{.8\textwidth}
-%% \renewcommand*{\dictumauthorformat}[1]{#1}
-%% \renewcommand*{\dictumrule}{\vskip 2ex\par}
-
-%% \newcommand\tocpageseparator{\hspace{2ex}}
-%% %% Define the mbox used to output the page number.
-%% \newcommand\tocpagenumberbox[1]{\mbox{#1}}% <- added
-
-%% % Using \chapapp instead of \chaptername will use the number only,
-%% % instead of the Chapter word.
-%% % \newcommand\tocchapternumber[1]{\mdseries\scshape\MakeLowercase{\chapapp}~#1\hspace{1ex}}
-%% \newcommand\tocchapternumber[1]{}
-%% % \newcommand*{\tocchapternumber}[1]{\mdseries\scshape\MakeLowercase{\chaptername}~#1\hspace{1ex}}
-
-%% \RedeclareSectionCommands[
-%% % Change the  format of the chapter number.
-%%    tocentrynumberformat=\tocchapternumber, 
-%% % Avoid overfull \hbox message
-%%   tocdynnumwidth,
-%%   tocraggedpagenumber,
-%%   toclinefill=\tocpageseparator,
-%%   tocindent=0em,
-%%   tocpagenumberbox=\tocpagenumberbox
-%% ]{chapter}
-
-%% \RedeclareSectionCommands[
-%%   tocraggedpagenumber,
-%%  tocbeforeskip=0.1em,
-%%   toclinefill=\tocpageseparator,
-%%   tocindent=1em,
-%%   tocpagenumberbox=\tocpagenumberbox% <- added
-%% ]{section}
-
-%% % Remove sectioning numbers for parts, chapters, sections, etc. 
-%% \setcounter{secnumdepth}{0}
-%% % Do not include levels below sections in the table of contents.
-%% \setcounter{tocdepth}{1}
-
-\renewcommand*\chapterformat{}
-\renewcommand*\chaptermarkformat{}
-\renewcommand*\partformat{}
-\renewcommand*\partmarkformat{}
-\renewcommand*\sectionmarkformat{}
-
-\setkomafont{sectioning}{\mdseries\sffamily}
-\setkomafont{part}{\mytitlefont\scshape\lowercase}
-%% \setkomafont{chapter}{\Huge}
-%% \setkomafont{section}{\Large}
-%% \setkomafont{subsection}{\large}
-\setkomafont{subsubsection}{\itshape}
-%% \setkomafont{pagehead}{\small\sffamily\bfseries\scshape}
-%% \setkomafont{pagenumber}{\small\sffamily\bfseries\upshape}
+\addtokomafont{sectioning}{\mdseries\sffamily}
+\addtokomafont{part}{\mytitlefont\scshape\lowercase}
+\addtokomafont{subsubsection}{\itshape}
 \setkomafont{pagehead}{\mytitlefont\scshape}
 \setkomafont{pagenumber}{\sffamily\bfseries\upshape}
 %% \setkomafont{caption}{\small}
 \setkomafont{captionlabel}{\sffamily\bfseries\scshape}
-%% \setkomafont{labelinglabel}{\normalsize\itshape}
 \setkomafont{labelinglabel}{\scshape}
 \setkomafont{title}{\mytitlefont\scshape}
 \setkomafont{subtitle}{\LARGE\sffamily}

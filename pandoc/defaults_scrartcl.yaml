@@ -18,6 +18,7 @@ resource-path:
   - /home/sync0/Gdrive/obsidian/img
 filters:
   - /home/sync0/.local/share/pandoc/filters/delink.hs
+  - /home/sync0/.local/share/pandoc/filters/noexport-subtrees.lua
   - /usr/bin/pandoc-crossref
   - citeproc
   # - diagram-generator.lua

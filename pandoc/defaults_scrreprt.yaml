@@ -26,6 +26,7 @@ bibliography:
   - /home/sync0/Gdrive/bibliographies/bibliography.bib
 filters:
   - /home/sync0/.local/share/pandoc/filters/delink.hs
+  # - /home/sync0/.local/share/pandoc/filters/noexport-subtrees.lua
   - diagram-generator.lua
   - /usr/bin/pandoc-crossref
   # - /home/sync0/.local/share/pandoc/filters/delink.hs

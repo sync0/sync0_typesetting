@@ -36,17 +36,10 @@
     '("sie" 1)
     "notimplies"
     "timebullet"
-    "blankpage"
-    "oldthefigure"
-    "oldtheHfigure"
-    "thefigure"
-    "theHfigure")
+    "blankpage")
    (LaTeX-add-environments
     "changemargin"
-    "summary"
-    "fignos")
-   (LaTeX-add-counters
-    "figno")
+    "summary")
    (LaTeX-add-array-newcolumntypes
     "Y"))
  :latex)

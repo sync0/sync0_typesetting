@@ -16,6 +16,7 @@ classoption:
  - titlepage=false
  - abstract=false
  - mpinclude=false
+ - headings=normal
  - headings=twolinechapter
  - captions=tablesignature
  - captions=figuresignature
@@ -34,15 +35,16 @@ classoption:
 # notecolumnfontsize: '\footnotesize'
 # Fonts (fontspec)
 fontspec: true
-mainfont: 'Palatino LT Std'
+# mainfont: 'Palatino LT Std'
+mainfont: 'Scala'
 # mainfont: 'Garamond Premier Pro'
 mainfontoptions:
   - Numbers=OldStyle
   - Ligatures=TeX
-  - UprightFont = 'Palatino LT Std Roman'
-  - BoldFont = 'Palatino LT Std Bold'
-  - ItalicFont = 'Palatino LT Std Italic'
-  - BoldItalicFont = 'Palatino LT Std Bold Italic'
+  # - UprightFont = 'Palatino LT Std Roman'
+  # - BoldFont = 'Palatino LT Std Bold'
+  # - ItalicFont = 'Palatino LT Std Italic'
+  # - BoldItalicFont = 'Palatino LT Std Bold Italic'
   # - Scale=MatchLowercase
   # - UprightFont = GaramondPremrPro.otf
   # - BoldFont = GaramondPremrPro-Smbd.otf
@@ -92,7 +94,9 @@ hyperrefoptions:
 reference-section-title: Bibliographie
 bibliography:
   - /home/sync0/Gdrive/bibliographies/bibliography.bib
+  - /home/sync0/Gdrive/bibliographies/doctorat.bib
+  - /home/sync0/Gdrive/bibliographies/sync0.bib
 # csl: sync0.csl
-# csl: chicago-fullnote-bibliography.csl
+csl: chicago-fullnote-bibliography.csl
 # csl: studies-in-history-and-philosophy-of-science.csl
-csl: history-of-political-economy.csl
+# csl: history-of-political-economy.csl

@@ -114,23 +114,23 @@ threshold=3]{csquotes}
   \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
 % Nasty hack to get pandoc-xnos to work propery  
- \makeatletter
-    \newcounter{figno}
-    \newenvironment{fignos:no-prefix-figure-caption}{
-      \caption@ifcompatibility{}{
-        \let\oldthefigure\thefigure
-        \let\oldtheHfigure\theHfigure
-        \renewcommand{\thefigure}{figno:\thefigno}
-        \renewcommand{\theHfigure}{figno:\thefigno}
-        \stepcounter{figno}
-        \captionsetup{labelformat=empty}
-      }
-    }{
-      \caption@ifcompatibility{}{
-        \captionsetup{labelformat=default}
-        \let\thefigure\oldthefigure
-        \let\theHfigure\oldtheHfigure
-        \addtocounter{figure}{-1}
-      }
-    }
-    \makeatother
+ % \makeatletter
+ %    \newcounter{figno}
+ %    \newenvironment{fignos:no-prefix-figure-caption}{
+ %      \caption@ifcompatibility{}{
+ %        \let\oldthefigure\thefigure
+ %        \let\oldtheHfigure\theHfigure
+ %        \renewcommand{\thefigure}{figno:\thefigno}
+ %        \renewcommand{\theHfigure}{figno:\thefigno}
+ %        \stepcounter{figno}
+ %        \captionsetup{labelformat=empty}
+ %      }
+ %    }{
+ %      \caption@ifcompatibility{}{
+ %        \captionsetup{labelformat=default}
+ %        \let\thefigure\oldthefigure
+ %        \let\theHfigure\oldtheHfigure
+ %        \addtocounter{figure}{-1}
+ %      }
+ %    }
+ %    \makeatother

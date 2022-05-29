@@ -4,13 +4,17 @@
 \setotherlanguages{english, french} 
 
 \usepackage{fontspec}
-\setmainfont[Renderer=Node, UprightFont={Palatino LT Std Roman}, BoldFont={Palatino LT Std Bold}, ItalicFont={Palatino LT Std Italic}, BoldItalicFont={Palatino LT Std Bold Italic}, Numbers={OldStyle}]{Palatino LT Std}
-\setsansfont[Renderer=Node, Ligatures=TeX, LetterSpace=2, Scale=MatchLowercase, UprightFont = {ScalaSansPro Regular}, BoldFont={ScalaSansPro Bold}, ItalicFont={ScalaSansPro Italic}, BoldItalicFont={ScalaSansPro BoldItalic}, SmallCapsFont={ScalaSans Caps}]{ScalaSansPro}
+\setmainfont[SmallCapsFont={ScalaSans Caps}]{Scala}
+\setsansfont[Ligatures=TeX, Scale=MatchLowercase, UprightFont = {ScalaSansPro Regular}, BoldFont={ScalaSansPro Bold}, ItalicFont={ScalaSansPro Italic}, BoldItalicFont={ScalaSansPro BoldItalic}, SmallCapsFont={ScalaSans Caps}, SmallCapsFeatures={LetterSpace=0.5}]{ScalaSansPro}
+% \setmainfont[Renderer=Node, UprightFont={Palatino LT Std Roman}, BoldFont={Palatino LT Std Bold}, ItalicFont={Palatino LT Std Italic}, BoldItalicFont={Palatino LT Std Bold Italic}, Numbers={OldStyle}]{Palatino LT Std}
+% \setsansfont[Renderer=Node, Ligatures=TeX, LetterSpace=2, Scale=MatchLowercase, UprightFont = {ScalaSansPro Regular}, BoldFont={ScalaSansPro Bold}, ItalicFont={ScalaSansPro Italic}, BoldItalicFont={ScalaSansPro BoldItalic}, SmallCapsFont={ScalaSans Caps}]{ScalaSansPro}
 \setmonofont[Scale=MatchLowercase]{Consolas}
 %% \setmainfont[Renderer=Node]{Minion Pro}
 %% \setsansfont[Renderer=Node, Ligatures=TeX, LetterSpace=2, Scale=MatchLowercase]{Myriad Pro}
 %% %% \setsansfont[LetterSpace=2, Scale=MatchLowercase]{Myriad Pro}
 %% \setmonofont[Scale=MatchLowercase]{Consolas}
+
+\newfontfamily\mytitlefont[Ligatures=TeX, Scale=MatchLowercase, UprightFont = {ScalaSansPro Regular}, BoldFont={ScalaSansPro Bold}, ItalicFont={ScalaSansPro Italic}, BoldItalicFont={ScalaSansPro BoldItalic}, SmallCapsFont={ScalaSans Caps}]{ScalaSansPro}
 
 % Configure microtypographic settings. 
 %% \usepackage[protrusion=true,tracking=true]{microtype}
@@ -26,3 +30,6 @@
 %% \newunicodechar{‑}{\textfallback{‑}}
 %% \newunicodechar{ᵒ}{\textfallback{ᵒ}}
 %% \newunicodechar{ᵉ}{\textfallback{ᵉ}}
+
+\usepackage[spanish]{fmtcount} 
+\usepackage[protrusion=true,expansion,tracking=true]{microtype}
