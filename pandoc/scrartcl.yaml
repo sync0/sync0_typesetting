@@ -33,6 +33,8 @@ classoption:
 ## Marginalia
 # scrlayer-notecolumn: true
 # notecolumnfontsize: '\footnotesize'
+# Do not put parskip
+indent: true
 # Fonts (fontspec)
 fontspec: true
 # mainfont: 'Palatino LT Std'
@@ -86,6 +88,7 @@ nowidowoptions:
 # Links (hyperref)
 hyperref: true
 hyperrefoptions:
+  - linktoc=all 
   - colorlinks
   - urlcolor=black
   - linkcolor=black
@@ -93,10 +96,16 @@ hyperrefoptions:
   - filecolor=black
 reference-section-title: Bibliographie
 bibliography:
-  - /home/sync0/Gdrive/bibliographies/bibliography.bib
-  - /home/sync0/Gdrive/bibliographies/doctorat.bib
-  - /home/sync0/Gdrive/bibliographies/sync0.bib
+  - /home/sync0/Gdrive/bibliographies/master.bib
+  # - /home/sync0/Gdrive/bibliographies/bibliography.bib
+  # - /home/sync0/Gdrive/bibliographies/doctorat.bib
+  # - /home/sync0/Gdrive/bibliographies/sync0.bib
 # csl: sync0.csl
-csl: chicago-fullnote-bibliography.csl
+# csl: chicago-fullnote-bibliography-fr.csl
+# csl: chicago-fullnote-bibliography-16th-edition.csl
+# csl: chicago-author-date-16th-edition.csl
+csl: chicago-author-date-fr.csl
+# csl: chicago-note-bibliography-16th-edition.csl
+# csl: chicago-.csl
 # csl: studies-in-history-and-philosophy-of-science.csl
 # csl: history-of-political-economy.csl
